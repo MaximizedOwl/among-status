@@ -16,6 +16,7 @@
     "clsx": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "latest"
   },
   "browserslist": {
