@@ -21,22 +21,17 @@ import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 
 const categories = [
   {
-    id: 'Develop',
+    id: 'Game',
     children: [
-      { id: 'Authentication', icon: <PeopleIcon />, active: true },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
-      { id: 'ML Kit', icon: <SettingsInputComponentIcon /> },
+      { id: 'Home', icon: <PeopleIcon />, active: true },
+      { id: 'Coming Soon...', icon: <DnsRoundedIcon /> },
     ],
   },
   {
-    id: 'Quality',
+    id: 'Others',
     children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
+      { id: 'Usage', icon: <SettingsIcon /> },
+      { id: 'Contact', icon: <TimerIcon /> },
     ],
   },
 ];
@@ -89,7 +84,7 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          Paperbase
+          Among Us Helper
         </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}>
           <ListItemIcon className={classes.itemIcon}>

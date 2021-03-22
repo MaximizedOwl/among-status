@@ -174,6 +174,11 @@ function Paperbase(props) {
       <div className={classes.root}>
         <CssBaseline />
         <nav className={classes.drawer}>
+
+          {/* 
+            JavaScriptでの制御
+            スマートフォン等のサイズ時に適用されるナビゲーションの開閉はここ
+          */}
           <Hidden smUp implementation="js">
             <Navigator
               PaperProps={{ style: { width: drawerWidth } }}
@@ -182,9 +187,15 @@ function Paperbase(props) {
               onClose={handleDrawerToggle}
             />
           </Hidden>
+
+          {/* 
+            JavaScriptでの制御
+            DesktopPCなどのサイズで表示される、ナビゲーション開閉の存在しない場合の描画はこちらの担当
+          */}
           <Hidden xsDown implementation="css">
             <Navigator PaperProps={{ style: { width: drawerWidth } }} />
           </Hidden>
+          
         </nav>
         <div className={classes.app}>
           <Header onDrawerToggle={handleDrawerToggle} />
