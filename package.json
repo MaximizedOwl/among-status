@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "homepage": "https://MaximizedOwl.github.io/material-ui-paperbase-demo/",
   "dependencies": {
@@ -15,8 +16,7 @@
     "clsx": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-scripts": "latest",
-    "deploy": "npm run build && gh-pages -d build"
+    "react-scripts": "latest"
   },
   "browserslist": {
     "production": [
