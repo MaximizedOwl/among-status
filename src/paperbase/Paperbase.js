@@ -6,8 +6,8 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Navigator from './Navigator';
-import Content from './Content';
-import Header from './Header';
+import Players from './pages/game/home/players/Players';
+import Home from './pages/game/home/Home';
 
 function Copyright() {
   return (
@@ -198,9 +198,9 @@ function Paperbase(props) {
           
         </nav>
         <div className={classes.app}>
-          <Header onDrawerToggle={handleDrawerToggle} />
+          <Home onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            <Content />
+            <Players />
           </main>
           <footer className={classes.footer}>
             <Copyright />

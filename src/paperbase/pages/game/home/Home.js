@@ -41,7 +41,7 @@ const styles = (theme) => ({
   },
 });
 
-function Header(props) {
+function Home(props) {
   const { classes, onDrawerToggle } = props;
 
   return (
@@ -118,20 +118,21 @@ function Header(props) {
         position="static"
         elevation={0}
       >
-        <Tabs value={0} textColor="inherit">
-          <Tab textColor="inherit" label="Users" />
-          <Tab textColor="inherit" label="Sign-in method" />
-          <Tab textColor="inherit" label="Templates" />
-          <Tab textColor="inherit" label="Usage" />
+        <Tabs value={1} textColor="inherit">
+          <Tab textColor="inherit" label="Top" />
+          <Tab textColor="inherit" label="Players" />
+          <Tab textColor="inherit" label="Map" />
+          <Tab textColor="inherit" label="Others" />
         </Tabs>
       </AppBar>
+      
     </React.Fragment>
   );
 }
 
-Header.propTypes = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired,
   onDrawerToggle: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(Home);
