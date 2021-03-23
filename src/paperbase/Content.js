@@ -174,6 +174,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.blue.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -185,6 +186,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.blue.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -205,6 +207,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.brown.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -216,6 +219,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.brown.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -236,6 +240,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.cyan.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -247,6 +252,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.cyan.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -262,7 +268,7 @@ function Content(props) {
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  ForteGreen
+                  F-Green
                 </Typography>
               </Grid>
               <Grid item xs>
@@ -300,6 +306,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.green.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -311,6 +318,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.green.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -331,6 +339,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.lime.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -342,6 +351,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.lime.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -362,6 +372,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.purple.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -373,6 +384,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.purple.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -393,6 +405,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.red.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -404,6 +417,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.red.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -424,6 +438,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.tan.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -435,6 +450,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.tan.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -455,6 +471,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.white.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -466,6 +483,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.white.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -486,6 +504,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.yellow.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -497,6 +516,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.yellow.isExist}
                   onChange={handleChange}
                   color="primary"
