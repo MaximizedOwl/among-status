@@ -118,7 +118,7 @@ function Header(props) {
         position="static"
         elevation={0}
       >
-        <Tabs value={0} textColor="inherit">
+        <Tabs value={1} textColor="inherit">
           <Tab textColor="inherit" label="Top" />
           <Tab textColor="inherit" label="Players" />
           <Tab textColor="inherit" label="Map" />
