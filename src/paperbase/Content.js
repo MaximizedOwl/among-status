@@ -60,6 +60,42 @@ function Content(props) {
     brown: {
       hasEMRight: true,
       isExist: true,
+    },
+    cyan: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    forteGreen: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    green: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    lime: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    purple: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    red: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    tan: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    white: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    yellow: {
+      hasEMRight: true,
+      isExist: true,
     }
   });
 
@@ -105,6 +141,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.black.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
@@ -116,6 +153,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
+                  size="small"
                   checked={state.black.isExist}
                   onChange={handleChange}
                   color="primary"
@@ -136,7 +174,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.blue.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -147,7 +185,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.blue.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -157,17 +195,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Brawn
+              Brown
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Brawn
+                  Brown
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.brown.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -178,7 +216,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.brown.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -188,17 +226,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Cyan
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Cyan
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.cyan.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -209,7 +247,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.cyan.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -219,17 +257,18 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              ForteGreen
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  ForteGreen
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  size="small"
+                  checked={state.forteGreen.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -240,7 +279,8 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  size="small"
+                  checked={state.forteGreen.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -250,17 +290,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Green
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Green
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.green.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -271,7 +311,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.green.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -281,17 +321,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Lime
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Lime
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.lime.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -302,7 +342,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.lime.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -312,17 +352,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Purple
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Purple
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.purple.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -333,7 +373,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.purple.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -343,17 +383,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Red
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Red
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.red.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -364,7 +404,7 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.red.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -374,17 +414,17 @@ function Content(props) {
             </Grid>
 
             {/* 
-              Black
+              Tan
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Black
+                  Tan
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.hasEMRight}
+                  checked={state.tan.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -395,7 +435,69 @@ function Content(props) {
               </Grid>
               <Grid item xs>
                 <Switch
-                  checked={state.black.isExist}
+                  checked={state.tan.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              White
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  White
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  checked={state.white.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  checked={state.white.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              Yellow
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Yellow
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  checked={state.yellow.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  checked={state.yellow.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
