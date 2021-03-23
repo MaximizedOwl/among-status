@@ -8,7 +8,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
 import PeopleIcon from '@material-ui/icons/People';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
 import TimerIcon from '@material-ui/icons/Timer';
@@ -18,15 +17,15 @@ const categories = [
   {
     id: 'Game',
     children: [
-      { id: 'Home', icon: <PeopleIcon />, active: true },
-      { id: 'Coming Soon...', icon: <DnsRoundedIcon /> },
+      { id: 'Home', icon: <PeopleIcon />, index: 0, active: false },
+      { id: 'Coming Soon...', icon: <DnsRoundedIcon /> , index: 1, active: false },
     ],
   },
   {
     id: 'Others',
     children: [
-      { id: 'Usage', icon: <SettingsIcon /> },
-      { id: 'Contact', icon: <TimerIcon /> },
+      { id: 'Usage', icon: <SettingsIcon />,  index: 2, active: false },
+      { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false },
     ],
   },
 ];
@@ -75,24 +74,50 @@ const styles = (theme) => ({
 function Navigator(props) {
   const { classes, ...other } = props;
 
+  /* 
+    ページ選択制御部
+  */
+  
+  /*   
+  const activateSwitch = (oldIndex, newIndex) => {
+    
+    // 元の選択箇所を非activeにする
+    categories.children.active = false;
+    categories.children.index === oldIndex;
+
+    // 新しい選択箇所をactiveにする
+    categories.children.active = true;
+    categories.children.index === oldIndex;
+    
+  };
+  */
+
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const handleListItemClick = (event, index) => {
+    
+    /* activateSwitch(selectedIndex, index); */
+
+    setSelectedIndex(index);
+
+    // activate
+
+  };
+
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
+
+        {/* 
+          タイトル
+         */}
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
           Among Us Helper
         </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)}>
-          <ListItemIcon className={classes.itemIcon}>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText
-            classes={{
-              primary: classes.itemPrimary,
-            }}
-          >
-            Project Overview
-          </ListItemText>
-        </ListItem>
+
+         {/* 
+          実際のNavi
+          Page選択部分
+         */}
         {categories.map(({ id, children }) => (
           <React.Fragment key={id}>
             <ListItem className={classes.categoryHeader}>
@@ -104,11 +129,13 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
+            {children.map(({ id: childId, icon, index, active }) => (
               <ListItem
                 key={childId}
                 button
                 className={clsx(classes.item, active && classes.itemActiveItem)}
+                selected={selectedIndex === index}
+                onClick={(event) => handleListItemClick(event, index)}
               >
                 <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
                 <ListItemText

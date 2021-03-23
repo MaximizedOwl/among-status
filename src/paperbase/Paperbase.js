@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Navigator from './Navigator';
 import Players from './pages/game/home/players/Players';
+import Map from './pages/game/home/map/Map';
 import Home from './pages/game/home/Home';
 
 function Copyright() {
@@ -169,6 +170,11 @@ function Paperbase(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  /* 
+    Homeタブの選択項目
+  */
+  const [selectedPage, setSelectedPage] = React.useState(1);
+
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
@@ -185,6 +191,7 @@ function Paperbase(props) {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              selectedPage
             />
           </Hidden>
 
@@ -200,7 +207,8 @@ function Paperbase(props) {
         <div className={classes.app}>
           <Home onDrawerToggle={handleDrawerToggle} />
           <main className={classes.main}>
-            <Players />
+            {/* <Players /> */}
+            <Map />
           </main>
           <footer className={classes.footer}>
             <Copyright />

@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import RefreshIcon from '@material-ui/icons/Refresh';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import TabPanel from './TabPanel';
+import TheSkeld from '../../../../../img/maps/TheSkeld.png';
+import MiraHQ from '../../../../../img/maps/MiraHQ.png';
+import Polus from '../../../../../img/maps/Polus.png';
+
 
 const styles = (theme) => ({
   paper: {
@@ -34,53 +32,58 @@ const styles = (theme) => ({
   contentWrapper: {
     margin: '40px 16px',
   },
+  mapPanel: {
+    width: '100%',
+    height: '100%',
+  },
+  map:{
+    display: 'inline-block',
+    width: '100%',
+    height: '100%',
+  }
 });
 
-function Content(props) {
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+function Map(props) {
   const { classes } = props;
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <Paper className={classes.paper}>
-      <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
-        <Toolbar>
-          <Grid container spacing={2} alignItems="center">
-            <Grid item>
-              <SearchIcon className={classes.block} color="inherit" />
-            </Grid>
-            <Grid item xs>
-              <TextField
-                fullWidth
-                placeholder="Search by email address, phone number, or user UID"
-                InputProps={{
-                  disableUnderline: true,
-                  className: classes.searchInput,
-                }}
-              />
-            </Grid>
-            <Grid item>
-              <Button variant="contained" color="primary" className={classes.addUser}>
-                Add user
-              </Button>
-              <Tooltip title="Reload">
-                <IconButton>
-                  <RefreshIcon className={classes.block} color="inherit" />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
       <div className={classes.contentWrapper}>
-        <Typography color="textSecondary" align="center">
-          Map
-        </Typography>
-      </div>
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+          <Tab label="The Skeld" {...a11yProps(0)} />
+          <Tab label="MiraHQ" {...a11yProps(1)} />
+          <Tab label="Polus" {...a11yProps(2)} />
+        </Tabs>
+      </AppBar>
+      <TabPanel value={value} index={0} className={classes.mapPanel}>
+        <img src={TheSkeld} art={value} className={classes.map}/>
+      </TabPanel>
+      <TabPanel value={value} index={1} className={classes.mapPanel}>
+        <img src={MiraHQ} art={value} className={classes.map}/>
+      </TabPanel>
+      <TabPanel value={value} index={2} className={classes.mapPanel}>
+        <img src={Polus} art={value} className={classes.map}/>
+      </TabPanel>
+       </div>
     </Paper>
   );
 }
 
-Content.propTypes = {
+Map.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Content);
+export default withStyles(styles)(Map);
