@@ -12,14 +12,24 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import TabPanel from '../../../components/TabPanel';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Top from './top/Top';
+import Players from './players/Players';
+import Map from './map/Map';
+
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = (theme) => ({
+  main: {
+    flex: 1,
+    padding: theme.spacing(6, 4),
+    background: '#eaeff1',
+  },
   secondaryBar: {
     zIndex: 0,
   },
@@ -41,8 +51,26 @@ const styles = (theme) => ({
   },
 });
 
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+
+
 function Home(props) {
+  
   const { classes, onDrawerToggle } = props;
+
+  /* 
+    Tabの制御と状態管理
+  */
+  const [value, setValue] = React.useState(1);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
     <React.Fragment>
@@ -118,14 +146,24 @@ function Home(props) {
         position="static"
         elevation={0}
       >
-        <Tabs value={1} textColor="inherit">
-          <Tab textColor="inherit" label="Top" />
-          <Tab textColor="inherit" label="Players" />
-          <Tab textColor="inherit" label="Map" />
-          <Tab textColor="inherit" label="Others" />
+        <Tabs value={value} onChange={handleChange} textColor="inherit">
+          <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
+          <Tab textColor="inherit" label="Players" {...a11yProps(1)} />
+          <Tab textColor="inherit" label="Map" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      
+      <main className={classes.main}>
+          
+      <TabPanel value={value} index={0} className={classes.mapPanel}>
+        <Top />
+      </TabPanel>
+      <TabPanel value={value} index={1} className={classes.mapPanel}>
+        <Players />
+      </TabPanel>
+      <TabPanel value={value} index={2} className={classes.mapPanel}>
+        <Map />
+      </TabPanel>
+      </main>
     </React.Fragment>
   );
 }

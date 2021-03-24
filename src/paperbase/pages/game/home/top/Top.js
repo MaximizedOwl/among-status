@@ -41,7 +41,7 @@ function Content(props) {
 
   return (
     <Paper className={classes.paper}>
-      <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+      {/* <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
         <Toolbar>
           <Grid container spacing={2} alignItems="center">
             <Grid item>
@@ -69,10 +69,10 @@ function Content(props) {
             </Grid>
           </Grid>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <div className={classes.contentWrapper}>
         <Typography color="textSecondary" align="center">
-          Top
+          Developing! Please wait...
         </Typography>
       </div>
     </Paper>

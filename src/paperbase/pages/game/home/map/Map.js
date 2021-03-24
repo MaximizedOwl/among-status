@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import TabPanel from './TabPanel';
+import TabPanel from '../../../../components/TabPanel';
 import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
 import Polus from '../../../../../img/maps/Polus.png';
