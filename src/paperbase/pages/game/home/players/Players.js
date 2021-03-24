@@ -49,11 +49,39 @@ function Players(props) {
     isExist:ゲームへの参加の有無
   */
   const [state, setState] = React.useState({
-    black: {
+    red: {
       hasEMRight: true,
       isExist: true,
     },
     blue: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    green: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    pink: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    orange: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    yellow: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    black: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    white: {
+      hasEMRight: true,
+      isExist: true,
+    },
+    purple: {
       hasEMRight: true,
       isExist: true,
     },
@@ -63,37 +91,9 @@ function Players(props) {
     },
     cyan: {
       hasEMRight: true,
-      isExist: true,
-    },
-    forteGreen: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    green: {
-      hasEMRight: true,
-      isExist: true,
+      isExst: true,
     },
     lime: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    purple: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    red: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    tan: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    white: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    yellow: {
       hasEMRight: true,
       isExist: true,
     }
@@ -131,6 +131,207 @@ function Players(props) {
           <Grid container alignItems='center'>
 
             {/* 
+              Red
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Red
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.red.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.red.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              Blue
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Blue
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.blue.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.blue.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              Green
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Green
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.green.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.green.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+
+
+            {/* 
+              Pink
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Pink
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.pink.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.pink.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              Orange
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Orange
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.orange.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.orange.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+            {/* 
+              Yellow
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Yellow
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.yellow.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.yellow.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+
+            {/* 
               Black
             */}
             <Grid container>
@@ -164,18 +365,18 @@ function Players(props) {
             </Grid>
 
             {/* 
-              Blue
+              White
             */}
             <Grid container>
               <Grid item xs>
                 <Typography>
-                  Blue
+                  White
                 </Typography>
               </Grid>
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.blue.hasEMRight}
+                  checked={state.white.hasEMRight}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -187,7 +388,42 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.blue.isExist}
+                  checked={state.white.isExist}
+                  onChange={handleChange}
+                  color="primary"
+                  name="checkedB"
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </Grid>
+            </Grid>
+
+
+
+            {/* 
+              Purple
+            */}
+            <Grid container>
+              <Grid item xs>
+                <Typography>
+                  Purple
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.purple.hasEMRight}
+                  onChange={handleChange}
+                  name="hasEMRight"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <PlayerSlider />
+              </Grid>
+              <Grid item xs>
+                <Switch
+                  size="small"
+                  checked={state.purple.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
@@ -262,71 +498,7 @@ function Players(props) {
               </Grid>
             </Grid>
 
-            {/* 
-              ForteGreen
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  F-Green
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.forteGreen.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.forteGreen.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
 
-            {/* 
-              Green
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  Green
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.green.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.green.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
 
             {/* 
               Lime
@@ -362,169 +534,10 @@ function Players(props) {
             </Grid>
 
             {/* 
-              Purple
+              プレイヤーカラー記述部
+              ここまで
             */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  Purple
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.purple.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.purple.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
 
-            {/* 
-              Red
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  Red
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.red.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.red.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Tan
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  Tan
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.tan.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.tan.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              White
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  White
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.white.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.white.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Yellow
-            */}
-            <Grid container>
-              <Grid item xs>
-                <Typography>
-                  Yellow
-                </Typography>
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.yellow.hasEMRight}
-                  onChange={handleChange}
-                  name="hasEMRight"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.yellow.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
-              </Grid>
-            </Grid>
           </Grid>
       </div>
     </Paper>
