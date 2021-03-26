@@ -20,7 +20,7 @@ const styles = (theme) => ({
     overflow: 'hidden',
     textAligh: 'center'
   },
-  searchBar: {
+  titleBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
   },
   // searchInput: {
@@ -106,7 +106,7 @@ function Players(props) {
 
   return (
     <Paper className={classes.paper}>
-      <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
+      <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
             <Grid container>
               <Grid item xs>

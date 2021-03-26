@@ -201,10 +201,6 @@ function Paperbase(props) {
         </nav>
         <div className={classes.app}>
           <Home onDrawerToggle={handleDrawerToggle} />
-          {/* <main className={classes.main}>
-            {/* <Players /> */}
-            {/* <Map />  */}
-          {/* </main> */}
           <footer className={classes.footer}>
             <Copyright />
           </footer>
