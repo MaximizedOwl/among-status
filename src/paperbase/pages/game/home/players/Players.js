@@ -10,6 +10,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import PlayersIcon from '@material-ui/icons/People';
 import PlayerSlider from './PlayerSlider';
 import Switch from '@material-ui/core/Switch';
+import Checkbox from '@material-ui/core/Checkbox';
+
 
 const styles = (theme) => ({
   paper: {
@@ -44,67 +46,69 @@ function Players(props) {
 
 
   /* 
-    スイッチの制御
-    hasEMRight:緊急会議権の有無
-    isExist:ゲームへの参加の有無
+    プレイヤー参加に関する状態
   */
-  const [state, setState] = React.useState({
-    red: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    blue: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    green: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    pink: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    orange: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    yellow: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    black: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    white: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    purple: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    brown: {
-      hasEMRight: true,
-      isExist: true,
-    },
-    cyan: {
-      hasEMRight: true,
-      isExst: true,
-    },
-    lime: {
-      hasEMRight: true,
-      isExist: true,
-    }
+    const [isExistPlayer, setIsExistPlayer] = React.useState({
+      red: true,
+      blue: true,
+      green: true,
+      pink: true,
+      orange: true,
+      yellow: true,
+      black: true,
+      white: true,
+      purple: true,
+      brown: true,
+      cyan: true,
+      lime: true
+    });
+
+  /* 
+    緊急会議権の使用に関する状態
+  */
+  const [isUsedEMRight, setIsUsedEMRight] = React.useState({
+    red: false,
+    blue: false,
+    green: false,
+    pink: false,
+    orange: false,
+    yellow: false,
+    black: false,
+    white: false,
+    purple: false,
+    brown: false,
+    cyan: false,
+    lime: false
   });
 
+  /* 
+    選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
+    会議権使用状態と参加状態のどちらでも利用可能
+  */
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    
+
+    if (event.target.name === 'isUsedEMRight') {
+
+      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
+
+      setIsUsedEMRight({ ...isUsedEMRight, [event.target.value]: event.target.checked });
+
+      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
+
+    } if (event.target.name === 'isExist') {
+      
+
+    } else {
+      
+    }
   };
-
-
   
+  // const targetState = {
+  //   isUsedEMRight: 'isUsedEMRight',
+  //   isExist: 'isExist'
+  // };
+
   return (
     <Paper className={classes.paper}>
       <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
@@ -142,9 +146,9 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.red.hasEMRight}
+                  checked={state.red.isExist}
                   onChange={handleChange}
-                  name="hasEMRight"
+                  name="isExist"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
                 />
               </Grid>
@@ -152,14 +156,22 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
+                  checked={isUsedEMRight.red}
+                  onChange={handleChange}
+                  size="small"
+                  color="primary"
+                  name="isUsedEMRight"
+                  value='red'
+                />
+                {/* <Switch
                   size="small"
                   checked={state.red.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
                   inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
+                /> */}
               </Grid>
             </Grid>
 
@@ -185,14 +197,15 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
+                {/* <Switch
                   size="small"
                   checked={state.blue.isExist}
                   onChange={handleChange}
                   color="primary"
                   name="checkedB"
                   inputProps={{ 'aria-label': 'primary checkbox' }}
-                />
+                /> */}
+                <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
               </Grid>
             </Grid>
 
@@ -396,8 +409,6 @@ function Players(props) {
                 />
               </Grid>
             </Grid>
-
-
 
             {/* 
               Purple
