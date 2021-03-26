@@ -96,18 +96,13 @@ function Players(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-    } if (event.target.name === 'isExist') {
+    } if (event.target.name === 'isExistPlayer') {
       
 
     } else {
       
     }
   };
-  
-  // const targetState = {
-  //   isUsedEMRight: 'isUsedEMRight',
-  //   isExist: 'isExist'
-  // };
 
   return (
     <Paper className={classes.paper}>
@@ -146,10 +141,9 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.red.isExist}
+                  checked={isExistPlayer.red}
                   onChange={handleChange}
-                  name="isExist"
-                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                  name="isExistPlayer"
                 />
               </Grid>
               <Grid item xs={4}>
@@ -164,14 +158,6 @@ function Players(props) {
                   name="isUsedEMRight"
                   value='red'
                 />
-                {/* <Switch
-                  size="small"
-                  checked={state.red.isExist}
-                  onChange={handleChange}
-                  color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                /> */}
               </Grid>
             </Grid>
 
@@ -187,7 +173,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.blue.hasEMRight}
+                  checked={isExistPlayer.blue}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -197,15 +183,14 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                {/* <Switch
-                  size="small"
-                  checked={state.blue.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.blue}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
-                /> */}
-                <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
+                  name="isUsedEMRight"
+                  value='blue'
+                />
               </Grid>
             </Grid>
 
@@ -221,7 +206,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.green.hasEMRight}
+                  checked={isExistPlayer.green}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -231,13 +216,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.green.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.green}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='green'
                 />
               </Grid>
             </Grid>
@@ -256,7 +241,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.pink.hasEMRight}
+                  checked={isExistPlayer.pink}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -266,13 +251,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.pink.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.pink}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='pink'
                 />
               </Grid>
             </Grid>
@@ -289,7 +274,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.orange.hasEMRight}
+                  checked={isExistPlayer.orange}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -299,13 +284,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.orange.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.orange}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='orange'
                 />
               </Grid>
             </Grid>
@@ -322,7 +307,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.yellow.hasEMRight}
+                  checked={isExistPlayer.yellow}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -332,13 +317,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.yellow.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.yellow}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='yellow'
                 />
               </Grid>
             </Grid>
@@ -356,7 +341,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.black.hasEMRight}
+                  checked={isExistPlayer.black}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -366,13 +351,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.black.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.black}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="isExist"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='black'
                 />
               </Grid>
             </Grid>
@@ -389,7 +374,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.white.hasEMRight}
+                  checked={isExistPlayer.white}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -399,13 +384,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.white.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.white}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='white'
                 />
               </Grid>
             </Grid>
@@ -422,7 +407,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.purple.hasEMRight}
+                  checked={isExistPlayer.purple}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -432,13 +417,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.purple.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.purple}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='purple'
                 />
               </Grid>
             </Grid>
@@ -455,7 +440,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.brown.hasEMRight}
+                  checked={isExistPlayer.brown}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -465,13 +450,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.brown.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.brown}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='brown'
                 />
               </Grid>
             </Grid>
@@ -488,7 +473,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.cyan.hasEMRight}
+                  checked={isExistPlayer.cyan}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -498,13 +483,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.cyan.isExist}
+                <Checkbox
+                  checked={isUsedEMRight.cyan}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='cyan'
                 />
               </Grid>
             </Grid>
@@ -523,7 +508,7 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={state.lime.hasEMRight}
+                  checked={isExistPlayer.lime}
                   onChange={handleChange}
                   name="hasEMRight"
                   inputProps={{ 'aria-label': 'secondary checkbox' }}
@@ -533,13 +518,13 @@ function Players(props) {
                 <PlayerSlider />
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
-                  checked={state.lime.isExist}
+              <Checkbox
+                  checked={isUsedEMRight.lime}
                   onChange={handleChange}
+                  size="small"
                   color="primary"
-                  name="checkedB"
-                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                  name="isUsedEMRight"
+                  value='lime'
                 />
               </Grid>
             </Grid>
