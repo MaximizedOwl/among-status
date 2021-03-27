@@ -12,20 +12,21 @@ import PeopleIcon from '@material-ui/icons/People';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
 import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { Link } from 'react-router-dom';
 
 const categories = [
   {
     id: 'Game',
     children: [
-      { id: 'Home', icon: <PeopleIcon />, index: 0, active: false },
-      { id: 'Coming Soon...', icon: <DnsRoundedIcon /> , index: 1, active: false },
+      { id: 'Home', icon: <PeopleIcon />, index: 0, active: false, path: '' },
+      { id: 'Coming Soon', icon: <DnsRoundedIcon /> , index: 1, active: false, path: 'comingSoon' },
     ],
   },
   {
     id: 'Others',
     children: [
-      { id: 'Usage', icon: <SettingsIcon />,  index: 2, active: false },
-      { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false },
+      { id: 'Usage', icon: <SettingsIcon />,  index: 2, active: false, path: 'usage' },
+      { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false, path: 'contact' },
     ],
   },
 ];
@@ -103,6 +104,8 @@ function Navigator(props) {
 
   };
 
+  const basePath = '/material-ui-paperbase-demo/';
+
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
@@ -129,23 +132,27 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, index, active }) => (
-              <ListItem
-                key={childId}
-                button
-                className={clsx(classes.item, active && classes.itemActiveItem)}
-                selected={selectedIndex === index}
-                onClick={(event) => handleListItemClick(event, index)}
-              >
-                <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.itemPrimary,
-                  }}
+            {children.map(({ id: childId, icon, index, active, path }) => (
+
+              <Link to={basePath + path}>
+                <ListItem
+                  key={childId}
+                  button
+                  className={clsx(classes.item, active && classes.itemActiveItem)}
+                  selected={selectedIndex === index}
+                  onClick={(event) => handleListItemClick(event, index)}
                 >
-                  {childId}
-                </ListItemText>
-              </ListItem>
+                  <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
+              </Link>
+
             ))}
 
             <Divider className={classes.divider} />

@@ -6,9 +6,14 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Navigator from './Navigator';
-import Players from './pages/game/home/players/Players';
-import Map from './pages/game/home/map/Map';
 import Home from './pages/game/home/Home';
+import Usage from './pages/others/usage/Usage';
+// import Contact from './pages/game/contact/Contact';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 
 function Copyright() {
   return (
@@ -174,6 +179,9 @@ function Paperbase(props) {
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
+
+        <Router>
+
         <nav className={classes.drawer}>
 
           {/* 
@@ -200,11 +208,33 @@ function Paperbase(props) {
           
         </nav>
         <div className={classes.app}>
-          <Home onDrawerToggle={handleDrawerToggle} />
+          
+          {/* 
+            ページ（ヘッダーとコンテント）のルーティング部分
+          */}
+          <Switch>
+            <Route exact path="/material-ui-paperbase-demo/" >
+              <Home onDrawerToggle={handleDrawerToggle} />
+            </Route>
+            <Route path="/material-ui-paperbase-demo/usage" >
+              <Usage onDrawerToggle={handleDrawerToggle} />
+            </Route>
+            {/* <Route path="/material-ui-paperbase-demo/contact" >
+              <Contact onDrawerToggle={handleDrawerToggle} />
+            </Route> */}
+          </Switch>
+          
+          {/* 
+            フッター
+          */}
+          
           <footer className={classes.footer}>
             <Copyright />
           </footer>
+
         </div>
+        </Router>
+
       </div>
     </ThemeProvider>
   );
