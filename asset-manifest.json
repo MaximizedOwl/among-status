@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/material-ui-paperbase-demo/static/js/main.82deca8c.chunk.js",
-    "main.js.map": "/material-ui-paperbase-demo/static/js/main.82deca8c.chunk.js.map",
+    "main.js": "/material-ui-paperbase-demo/static/js/main.7206efc2.chunk.js",
+    "main.js.map": "/material-ui-paperbase-demo/static/js/main.7206efc2.chunk.js.map",
     "runtime-main.js": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js",
     "runtime-main.js.map": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js.map",
-    "static/js/2.c07c319b.chunk.js": "/material-ui-paperbase-demo/static/js/2.c07c319b.chunk.js",
-    "static/js/2.c07c319b.chunk.js.map": "/material-ui-paperbase-demo/static/js/2.c07c319b.chunk.js.map",
+    "static/js/2.90ae1122.chunk.js": "/material-ui-paperbase-demo/static/js/2.90ae1122.chunk.js",
+    "static/js/2.90ae1122.chunk.js.map": "/material-ui-paperbase-demo/static/js/2.90ae1122.chunk.js.map",
     "index.html": "/material-ui-paperbase-demo/index.html",
-    "static/js/2.c07c319b.chunk.js.LICENSE.txt": "/material-ui-paperbase-demo/static/js/2.c07c319b.chunk.js.LICENSE.txt",
+    "static/js/2.90ae1122.chunk.js.LICENSE.txt": "/material-ui-paperbase-demo/static/js/2.90ae1122.chunk.js.LICENSE.txt",
     "static/media/MiraHQ.061041be.png": "/material-ui-paperbase-demo/static/media/MiraHQ.061041be.png",
     "static/media/Polus.00e35bcb.png": "/material-ui-paperbase-demo/static/media/Polus.00e35bcb.png",
     "static/media/TheSkeld.236dbec6.png": "/material-ui-paperbase-demo/static/media/TheSkeld.236dbec6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.881cbafd.js",
-    "static/js/2.c07c319b.chunk.js",
-    "static/js/main.82deca8c.chunk.js"
+    "static/js/2.90ae1122.chunk.js",
+    "static/js/main.7206efc2.chunk.js"
   ]
 }
