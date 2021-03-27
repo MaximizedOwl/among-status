@@ -18,8 +18,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Top from './top/Top';
-import Players from './players/Players';
-import Map from './map/Map';
+import TabSecond from './tabSecond/TabSecond';
 
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
@@ -60,14 +59,14 @@ function a11yProps(index) {
 
 
 
-function Home(props) {
+function Usage(props) {
   
   const { classes, onDrawerToggle } = props;
 
   /* 
     Tabの制御と状態管理
   */
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -148,8 +147,7 @@ function Home(props) {
       >
         <Tabs value={value} onChange={handleChange} textColor="inherit">
           <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="Players" {...a11yProps(1)} />
-          <Tab textColor="inherit" label="Map" {...a11yProps(2)} />
+          <Tab textColor="inherit" label="Usage" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <main className={classes.main}>
@@ -158,19 +156,16 @@ function Home(props) {
         <Top />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <Players />
-      </TabPanel>
-      <TabPanel value={value} index={2} className={classes.mapPanel}>
-        <Map />
+        <TabSecond />
       </TabPanel>
       </main>
     </React.Fragment>
   );
 }
 
-Home.propTypes = {
+Usage.propTypes = {
   classes: PropTypes.object.isRequired,
   onDrawerToggle: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Usage);
