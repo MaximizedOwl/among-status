@@ -70,6 +70,9 @@ const styles = (theme) => ({
   divider: {
     marginTop: theme.spacing(2),
   },
+  link: {
+    textDecoration: 'none'
+  }
 });
 
 function Navigator(props) {
@@ -134,7 +137,7 @@ function Navigator(props) {
             </ListItem>
             {children.map(({ id: childId, icon, index, active, path }) => (
 
-              <Link to={basePath + path}>
+              <Link to={basePath + path} className={classes.link} >
                 <ListItem
                   key={childId}
                   button
