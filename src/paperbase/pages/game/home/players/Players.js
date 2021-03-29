@@ -9,7 +9,6 @@ import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import PlayersIcon from '@material-ui/icons/People';
 import PlayerSlider from './PlayerSlider';
-import Switch from '@material-ui/core/Switch';
 import Checkbox from '@material-ui/core/Checkbox';
 
 /* 
@@ -161,7 +160,7 @@ function Players(props) {
                 <img src={Red}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.red}
                   onChange={handleChange}
@@ -193,7 +192,7 @@ function Players(props) {
                 <img src={Blue}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.blue}
                   onChange={handleChange}
@@ -225,7 +224,7 @@ function Players(props) {
                 <img src={Green}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.green}
                   onChange={handleChange}
@@ -257,7 +256,7 @@ function Players(props) {
                 <img src={Pink}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.pink}
                   onChange={handleChange}
@@ -289,7 +288,7 @@ function Players(props) {
                 <img src={Orange}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.orange}
                   onChange={handleChange}
@@ -321,7 +320,7 @@ function Players(props) {
                 <img src={Yellow}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.yellow}
                   onChange={handleChange}
@@ -354,7 +353,7 @@ function Players(props) {
                 <img src={Black}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.black}
                   onChange={handleChange}
@@ -386,7 +385,7 @@ function Players(props) {
                 <img src={White}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.white}
                   onChange={handleChange}
@@ -418,7 +417,7 @@ function Players(props) {
                 <img src={Purple}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.purple}
                   onChange={handleChange}
@@ -450,7 +449,7 @@ function Players(props) {
                 <img src={Brown}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.brown}
                   onChange={handleChange}
@@ -482,7 +481,7 @@ function Players(props) {
                 <img src={Cyan}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.cyan}
                   onChange={handleChange}
@@ -514,7 +513,7 @@ function Players(props) {
                 <img src={Lime}/>
               </Grid>
               <Grid item xs>
-                <Switch
+                <Checkbox
                   size="small"
                   checked={isExistPlayer.lime}
                   onChange={handleChange}
