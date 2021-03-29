@@ -127,20 +127,20 @@ function Players(props) {
       */}
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <PlayersIcon className={classes.block} color="inherit" />
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
+                <SearchIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs={2}>
                 <SearchIcon className={classes.block} color="inherit" />
               </Grid>
               <Grid item xs={6}>
                 <Typography>
-                  Detective
+                  Imposter...?
                 </Typography>
-              </Grid>
-              <Grid item xs>
-                <SearchIcon className={classes.block} color="inherit" />
               </Grid>
             </Grid>
         </Toolbar>
@@ -155,24 +155,21 @@ function Players(props) {
             {/* 
               Red
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container xs={12}>
+              <Grid item xs={2}>
                 <img src={Red}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.red}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='red'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.red}
                   onChange={handleChange}
@@ -182,29 +179,29 @@ function Players(props) {
                   value='red'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Blue
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Blue}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.blue}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='blue'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.blue}
                   onChange={handleChange}
@@ -214,29 +211,29 @@ function Players(props) {
                   value='blue'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Green
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Green}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.green}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='green'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.green}
                   onChange={handleChange}
@@ -246,29 +243,29 @@ function Players(props) {
                   value='green'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Pink
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Pink}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.pink}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='pink'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.pink}
                   onChange={handleChange}
@@ -278,29 +275,30 @@ function Players(props) {
                   value='pink'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Orange
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Orange}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.orange}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='orange'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.orange}
                   onChange={handleChange}
@@ -310,29 +308,29 @@ function Players(props) {
                   value='orange'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Yellow
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Yellow}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.yellow}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='yellow'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.yellow}
                   onChange={handleChange}
@@ -342,30 +340,30 @@ function Players(props) {
                   value='yellow'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
 
             {/* 
               Black
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Black}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.black}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='black'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.black}
                   onChange={handleChange}
@@ -375,29 +373,29 @@ function Players(props) {
                   value='black'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               White
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={White}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.white}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='white'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.white}
                   onChange={handleChange}
@@ -407,29 +405,29 @@ function Players(props) {
                   value='white'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Purple
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Purple}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.purple}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='purple'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.purple}
                   onChange={handleChange}
@@ -439,29 +437,29 @@ function Players(props) {
                   value='purple'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Brown
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Brown}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.brown}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='brown'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.brown}
                   onChange={handleChange}
@@ -471,29 +469,29 @@ function Players(props) {
                   value='brown'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Cyan
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Cyan}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.cyan}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='cyan'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.cyan}
                   onChange={handleChange}
@@ -503,29 +501,29 @@ function Players(props) {
                   value='cyan'
                 />
               </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
+              </Grid>
             </Grid>
 
             {/* 
               Lime
             */}
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <img src={Lime}/>
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
                 <Checkbox
                   size="small"
                   checked={isExistPlayer.lime}
                   onChange={handleChange}
-                  color="primary"
+                  color="secondary"
                   name="isExistPlayer"
                   value='lime'
                 />
               </Grid>
-              <Grid item xs={4}>
-                <PlayerSlider />
-              </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
               <Checkbox
                   checked={isUsedEMRight.lime}
                   onChange={handleChange}
@@ -534,6 +532,9 @@ function Players(props) {
                   name="isUsedEMRight"
                   value='lime'
                 />
+              </Grid>
+              <Grid item xs={6}>
+                <PlayerSlider />
               </Grid>
             </Grid>
 
@@ -550,20 +551,20 @@ function Players(props) {
       */}
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
-            <Grid container>
-              <Grid item xs>
+            <Grid container={12}>
+              <Grid item xs={2}>
                 <PlayersIcon className={classes.block} color="inherit" />
               </Grid>
-              <Grid item xs>
+              <Grid item xs={2}>
+                <SearchIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs={2}>
                 <SearchIcon className={classes.block} color="inherit" />
               </Grid>
               <Grid item xs={6}>
                 <Typography>
-                  Detective
+                  Imposter...?
                 </Typography>
-              </Grid>
-              <Grid item xs>
-                <SearchIcon className={classes.block} color="inherit" />
               </Grid>
             </Grid>
         </Toolbar>
