@@ -19,14 +19,14 @@ const categories = [
     id: 'Game',
     children: [
       { id: 'Home', icon: <PeopleIcon />, index: 0, active: false, path: '' },
-      { id: 'Coming Soon', icon: <DnsRoundedIcon /> , index: 1, active: false, path: 'comingSoon' },
+      // { id: 'Coming Soon', icon: <DnsRoundedIcon /> , index: 1, active: false, path: 'comingSoon' },
     ],
   },
   {
     id: 'Others',
     children: [
       { id: 'Usage', icon: <SettingsIcon />,  index: 2, active: false, path: 'usage' },
-      { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false, path: 'contact' },
+      // { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false, path: 'contact' },
     ],
   },
 ];
