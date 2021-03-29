@@ -190,9 +190,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Blue
-                </Typography>
+                <img src={Blue}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -224,9 +222,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Green
-                </Typography>
+                <img src={Green}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -258,9 +254,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Pink
-                </Typography>
+                <img src={Pink}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -292,9 +286,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Orange
-                </Typography>
+                <img src={Orange}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -326,9 +318,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Yellow
-                </Typography>
+                <img src={Yellow}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -361,9 +351,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Black
-                </Typography>
+                <img src={Black}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -395,9 +383,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  White
-                </Typography>
+                <img src={White}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -429,9 +415,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Purple
-                </Typography>
+                <img src={Purple}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -463,9 +447,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Brown
-                </Typography>
+                <img src={Brown}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -497,9 +479,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Cyan
-                </Typography>
+                <img src={Cyan}/>
               </Grid>
               <Grid item xs>
                 <Switch
@@ -531,9 +511,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Lime
-                </Typography>
+                <img src={Lime}/>
               </Grid>
               <Grid item xs>
                 <Switch
