@@ -8,24 +8,24 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import PeopleIcon from '@material-ui/icons/People';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
 import TimerIcon from '@material-ui/icons/Timer';
-import SettingsIcon from '@material-ui/icons/Settings';
+import DescriptionIcon from '@material-ui/icons/Description';
 import { Link } from 'react-router-dom';
 
 const categories = [
   {
     id: 'Game',
     children: [
-      { id: 'Home', icon: <PeopleIcon />, index: 0, active: false, path: '' },
+      { id: 'Home', icon: <DashboardIcon />, index: 0, active: false, path: '' },
       // { id: 'Coming Soon', icon: <DnsRoundedIcon /> , index: 1, active: false, path: 'comingSoon' },
     ],
   },
   {
     id: 'Others',
     children: [
-      { id: 'Usage', icon: <SettingsIcon />,  index: 2, active: false, path: 'usage' },
+      { id: 'Usage', icon: <DescriptionIcon />,  index: 2, active: false, path: 'usage' },
       // { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false, path: 'contact' },
     ],
   },
