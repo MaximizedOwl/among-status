@@ -12,6 +12,22 @@ import PlayerSlider from './PlayerSlider';
 import Switch from '@material-ui/core/Switch';
 import Checkbox from '@material-ui/core/Checkbox';
 
+/* 
+  画像
+*/
+import Red from '../../../../../img/players/red.png';
+import Blue from '../../../../../img/players/blue.png';
+import Green from '../../../../../img/players/green.png';
+import Pink from '../../../../../img/players/pink.png';
+import Orange from '../../../../../img/players/orange.png';
+import Yellow from '../../../../../img/players/yellow.png';
+import Black from '../../../../../img/players/black.png';
+import White from '../../../../../img/players/white.png';
+import Purple from '../../../../../img/players/purple.png';
+import Brown from '../../../../../img/players/brown.png';
+import Cyan from '../../../../../img/players/cyan.png';
+import Lime from '../../../../../img/players/lime.png';
+
 
 const styles = (theme) => ({
   paper: {
@@ -140,9 +156,7 @@ function Players(props) {
             */}
             <Grid container>
               <Grid item xs>
-                <Typography>
-                  Red
-                </Typography>
+                <img src={Red}/>
               </Grid>
               <Grid item xs>
                 <Switch
