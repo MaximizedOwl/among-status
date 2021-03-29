@@ -55,25 +55,27 @@ function Players(props) {
 
 
   /* 
-    プレイヤー参加に関する状態
+    生死に関する状態
+    キル、追放に関わらず、死亡していたらtrue
   */
-    const [isExistPlayer, setIsExistPlayer] = React.useState({
-      red: true,
-      blue: true,
-      green: true,
-      pink: true,
-      orange: true,
-      yellow: true,
-      black: true,
-      white: true,
-      purple: true,
-      brown: true,
-      cyan: true,
-      lime: true
+    const [isDead, setIsDead] = React.useState({
+      red: false,
+      blue: false,
+      green: false,
+      pink: false,
+      orange: false,
+      yellow: false,
+      black: false,
+      white: false,
+      purple: false,
+      brown: false,
+      cyan: false,
+      lime: false
     });
 
   /* 
     緊急会議権の使用に関する状態
+    使用したらtrue
   */
   const [isUsedEMRight, setIsUsedEMRight] = React.useState({
     red: false,
@@ -92,7 +94,7 @@ function Players(props) {
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
-    会議権使用状態と参加状態のどちらでも利用可能
+    会議権使用状態と生死状態のどちらでも利用可能
   */
   const handleChange = (event) => {
     
@@ -105,11 +107,11 @@ function Players(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-    } if (event.target.name === 'isExistPlayer') {
+    } if (event.target.name === 'isDead') {
 
       console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
 
-      setIsExistPlayer({ ...isExistPlayer, [event.target.value]: event.target.checked });
+      setIsDead({ ...isDead, [event.target.value]: event.target.checked });
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
@@ -162,10 +164,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.red}
+                  checked={isDead.red}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='red'
                 />
               </Grid>
@@ -194,10 +196,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.blue}
+                  checked={isDead.blue}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='blue'
                 />
               </Grid>
@@ -226,10 +228,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.green}
+                  checked={isDead.green}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='green'
                 />
               </Grid>
@@ -258,10 +260,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.pink}
+                  checked={isDead.pink}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='pink'
                 />
               </Grid>
@@ -290,10 +292,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.orange}
+                  checked={isDead.orange}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='orange'
                 />
               </Grid>
@@ -323,10 +325,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.yellow}
+                  checked={isDead.yellow}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='yellow'
                 />
               </Grid>
@@ -356,10 +358,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.black}
+                  checked={isDead.black}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='black'
                 />
               </Grid>
@@ -388,10 +390,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.white}
+                  checked={isDead.white}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='white'
                 />
               </Grid>
@@ -420,10 +422,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.purple}
+                  checked={isDead.purple}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='purple'
                 />
               </Grid>
@@ -452,10 +454,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.brown}
+                  checked={isDead.brown}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='brown'
                 />
               </Grid>
@@ -484,10 +486,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.cyan}
+                  checked={isDead.cyan}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='cyan'
                 />
               </Grid>
@@ -516,10 +518,10 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   size="small"
-                  checked={isExistPlayer.lime}
+                  checked={isDead.lime}
                   onChange={handleChange}
                   color="secondary"
-                  name="isExistPlayer"
+                  name="isDead"
                   value='lime'
                 />
               </Grid>
