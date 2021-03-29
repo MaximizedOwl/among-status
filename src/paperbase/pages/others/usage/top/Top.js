@@ -76,13 +76,13 @@ function Top(props) {
       </AppBar>
       <div className={classes.contentWrapper}>
       <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Typography art={value} className={classes.map}>基本的な使い方</Typography>
+        <Typography art={value} className={classes.map}>作成中...</Typography>
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <Typography art={value} className={classes.map}>「Game」の見方</Typography>
+        <Typography art={value} className={classes.map}>作成中...</Typography>
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
-        <Typography art={value} className={classes.map}>その他</Typography>
+        <Typography art={value} className={classes.map}>作成中...</Typography>
       </TabPanel>
        </div>
     </Paper>
