@@ -122,6 +122,10 @@ function Players(props) {
 
   return (
     <Paper className={classes.paper}>
+
+      {/* 
+        上側AppBar
+      */}
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
             <Grid container>
@@ -142,6 +146,10 @@ function Players(props) {
             </Grid>
         </Toolbar>
       </AppBar>
+
+      {/* 
+        メイン情報表示部
+      */}
       <div className={classes.contentWrapper}>
           <Grid container alignItems='center'>
 
@@ -559,6 +567,30 @@ function Players(props) {
 
           </Grid>
       </div>
+
+      {/* 
+        下側AppBar
+      */}
+      <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
+        <Toolbar>
+            <Grid container>
+              <Grid item xs>
+                <PlayersIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs>
+                <SearchIcon className={classes.block} color="inherit" />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography>
+                  Detective
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <SearchIcon className={classes.block} color="inherit" />
+              </Grid>
+            </Grid>
+        </Toolbar>
+      </AppBar>
     </Paper>
   );
 }
