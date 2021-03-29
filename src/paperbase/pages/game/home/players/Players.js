@@ -434,11 +434,11 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={isExistPlayer.white}
+                  checked={isExistPlayer.purple}
                   onChange={handleChange}
                   color="primary"
                   name="isExistPlayer"
-                  value='white'
+                  value='purple'
                 />
               </Grid>
               <Grid item xs={4}>
@@ -502,11 +502,11 @@ function Players(props) {
               <Grid item xs>
                 <Switch
                   size="small"
-                  checked={isExistPlayer.pink}
+                  checked={isExistPlayer.cyan}
                   onChange={handleChange}
                   color="primary"
                   name="isExistPlayer"
-                  value='pink'
+                  value='cyan'
                 />
               </Grid>
               <Grid item xs={4}>
