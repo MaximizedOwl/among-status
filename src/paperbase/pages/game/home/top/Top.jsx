@@ -166,8 +166,7 @@ function Top(props) {
                 <img src={Red}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.red}
                   onChange={handleChange}
                   color="primary"
@@ -179,8 +178,7 @@ function Top(props) {
                 <img src={Blue}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.blue}
                   onChange={handleChange}
                   color="primary"
@@ -190,9 +188,6 @@ function Top(props) {
               </Grid>
             </Grid>
 
-
-            
-
             {/* 
               Green, Pink
             */}
@@ -201,8 +196,7 @@ function Top(props) {
               <img src={Green}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.green}
                   onChange={handleChange}
                   color="primary"
@@ -215,8 +209,7 @@ function Top(props) {
               <img src={Pink}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.pink}
                   onChange={handleChange}
                   color="primary"
@@ -234,8 +227,7 @@ function Top(props) {
               <img src={Orange}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.orange}
                   onChange={handleChange}
                   color="primary"
@@ -248,8 +240,7 @@ function Top(props) {
                 <img src={Yellow}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.yellow}
                   onChange={handleChange}
                   color="primary"
@@ -267,8 +258,7 @@ function Top(props) {
                 <img src={Black}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.black}
                   onChange={handleChange}
                   color="primary"
@@ -281,8 +271,7 @@ function Top(props) {
                 <img src={White}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.white}
                   onChange={handleChange}
                   color="primary"
@@ -301,8 +290,7 @@ function Top(props) {
                 <img src={Purple}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.purple}
                   onChange={handleChange}
                   color="primary"
@@ -315,8 +303,7 @@ function Top(props) {
                 <img src={Brown}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.brown}
                   onChange={handleChange}
                   color="primary"
@@ -334,8 +321,7 @@ function Top(props) {
                 <img src={Cyan}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.cyan}
                   onChange={handleChange}
                   color="primary"
@@ -348,8 +334,7 @@ function Top(props) {
                 <img src={Lime}/>
               </Grid>
               <Grid item xs>
-                <Switch
-                  size="small"
+                <Switch                  
                   checked={isExistPlayer.lime}
                   onChange={handleChange}
                   color="primary"
