@@ -1,20 +1,36 @@
 {
   "files": {
-    "main.js": "/material-ui-paperbase-demo/static/js/main.87b516ee.chunk.js",
-    "main.js.map": "/material-ui-paperbase-demo/static/js/main.87b516ee.chunk.js.map",
+    "main.js": "/material-ui-paperbase-demo/static/js/main.a0e7cf4f.chunk.js",
+    "main.js.map": "/material-ui-paperbase-demo/static/js/main.a0e7cf4f.chunk.js.map",
     "runtime-main.js": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js",
     "runtime-main.js.map": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js.map",
-    "static/js/2.67433986.chunk.js": "/material-ui-paperbase-demo/static/js/2.67433986.chunk.js",
-    "static/js/2.67433986.chunk.js.map": "/material-ui-paperbase-demo/static/js/2.67433986.chunk.js.map",
+    "static/js/2.ef5f59ae.chunk.js": "/material-ui-paperbase-demo/static/js/2.ef5f59ae.chunk.js",
+    "static/js/2.ef5f59ae.chunk.js.map": "/material-ui-paperbase-demo/static/js/2.ef5f59ae.chunk.js.map",
     "index.html": "/material-ui-paperbase-demo/index.html",
-    "static/js/2.67433986.chunk.js.LICENSE.txt": "/material-ui-paperbase-demo/static/js/2.67433986.chunk.js.LICENSE.txt",
+    "static/js/2.ef5f59ae.chunk.js.LICENSE.txt": "/material-ui-paperbase-demo/static/js/2.ef5f59ae.chunk.js.LICENSE.txt",
     "static/media/MiraHQ.061041be.png": "/material-ui-paperbase-demo/static/media/MiraHQ.061041be.png",
     "static/media/Polus.00e35bcb.png": "/material-ui-paperbase-demo/static/media/Polus.00e35bcb.png",
-    "static/media/TheSkeld.236dbec6.png": "/material-ui-paperbase-demo/static/media/TheSkeld.236dbec6.png"
+    "static/media/TheSkeld.236dbec6.png": "/material-ui-paperbase-demo/static/media/TheSkeld.236dbec6.png",
+    "static/media/black.ac14f1c3.svg": "/material-ui-paperbase-demo/static/media/black.ac14f1c3.svg",
+    "static/media/blue.c6e37049.svg": "/material-ui-paperbase-demo/static/media/blue.c6e37049.svg",
+    "static/media/brown.7eb35877.svg": "/material-ui-paperbase-demo/static/media/brown.7eb35877.svg",
+    "static/media/cyan.3ca0414b.svg": "/material-ui-paperbase-demo/static/media/cyan.3ca0414b.svg",
+    "static/media/green.1d71f3f1.svg": "/material-ui-paperbase-demo/static/media/green.1d71f3f1.svg",
+    "static/media/iconfinder_Among_Us_crewmate-01_7127755.e9acabd1.svg": "/material-ui-paperbase-demo/static/media/iconfinder_Among_Us_crewmate-01_7127755.e9acabd1.svg",
+    "static/media/iconfinder_Among_Us_emergency_meeting_7142960.2f011c68.svg": "/material-ui-paperbase-demo/static/media/iconfinder_Among_Us_emergency_meeting_7142960.2f011c68.svg",
+    "static/media/iconfinder_Among_Us_ghost_7142959.df77bdff.svg": "/material-ui-paperbase-demo/static/media/iconfinder_Among_Us_ghost_7142959.df77bdff.svg",
+    "static/media/iconfinder_Among_Us_impostor_7127758.f79c80ba.svg": "/material-ui-paperbase-demo/static/media/iconfinder_Among_Us_impostor_7127758.f79c80ba.svg",
+    "static/media/lime.74a213f7.svg": "/material-ui-paperbase-demo/static/media/lime.74a213f7.svg",
+    "static/media/orange.d3dd325d.svg": "/material-ui-paperbase-demo/static/media/orange.d3dd325d.svg",
+    "static/media/pink.43bc50fe.svg": "/material-ui-paperbase-demo/static/media/pink.43bc50fe.svg",
+    "static/media/purple.90569680.svg": "/material-ui-paperbase-demo/static/media/purple.90569680.svg",
+    "static/media/red.1a06d861.svg": "/material-ui-paperbase-demo/static/media/red.1a06d861.svg",
+    "static/media/white.957aeb2b.svg": "/material-ui-paperbase-demo/static/media/white.957aeb2b.svg",
+    "static/media/yellow.601ea23b.svg": "/material-ui-paperbase-demo/static/media/yellow.601ea23b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.881cbafd.js",
-    "static/js/2.67433986.chunk.js",
-    "static/js/main.87b516ee.chunk.js"
+    "static/js/2.ef5f59ae.chunk.js",
+    "static/js/main.a0e7cf4f.chunk.js"
   ]
 }
