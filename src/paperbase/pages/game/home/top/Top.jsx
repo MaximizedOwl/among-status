@@ -13,18 +13,18 @@ import { withStyles } from '@material-ui/core/styles';
 /* 
   画像
 */
-import Red from '../../../../../img/players/red.png';
-import Blue from '../../../../../img/players/blue.png';
-import Green from '../../../../../img/players/green.png';
-import Pink from '../../../../../img/players/pink.png';
-import Orange from '../../../../../img/players/orange.png';
-import Yellow from '../../../../../img/players/yellow.png';
-import Black from '../../../../../img/players/black.png';
-import White from '../../../../../img/players/white.png';
-import Purple from '../../../../../img/players/purple.png';
-import Brown from '../../../../../img/players/brown.png';
-import Cyan from '../../../../../img/players/cyan.png';
-import Lime from '../../../../../img/players/lime.png';
+import Red from '../../../../../img/players/red.svg';
+import Blue from '../../../../../img/players/blue.svg';
+import Green from '../../../../../img/players/green.svg';
+import Pink from '../../../../../img/players/pink.svg';
+import Orange from '../../../../../img/players/orange.svg';
+import Yellow from '../../../../../img/players/yellow.svg';
+import Black from '../../../../../img/players/black.svg';
+import White from '../../../../../img/players/white.svg';
+import Purple from '../../../../../img/players/purple.svg';
+import Brown from '../../../../../img/players/brown.svg';
+import Cyan from '../../../../../img/players/cyan.svg';
+import Lime from '../../../../../img/players/lime.svg';
 
 
 
