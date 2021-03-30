@@ -33,14 +33,14 @@ function Top(props) {
       <div className={classes.contentWrapper}>
       <h2>当サイトについて</h2>
         <Typography variant="body1" color="textSecondary" align="left">
-          {'「Amoong Us」は、'}
+          {'「Among Us」は、'}
           <Link color='textSecondary' href='https://www.innersloth.com/index.php'>
           InnerSloth
           </Link>
           {'社様の登録商標です。当サイトは個人が運営する非公式のWebサービスです。InnerSloth社様、他関連企業様とは一切関係ありません。サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
         </Typography>
 
-      <h2>オープンソース等の権利表記</h2>
+      <h2>権利等の表記</h2>
 
         <h4>Paperbase</h4>
         <Typography color="textSecondary" align="left">{'Created by Material-UI OSS'}</Typography>
@@ -58,6 +58,8 @@ function Top(props) {
         <h4>Among Us Icon</h4>
         <a href="https://iconscout.com/icons/among-us" target="_blank">Among Us Icon</a> by <a href="https://iconscout.com/contributors/sonisokell">Soni Sokell</a> on <a href="https://iconscout.com">Iconscout</a>
 
+        <h4>Map画像</h4>
+        <Typography color="textSecondary" align="left">{'URL: https://baskmedia.jp/amongus-japanese-map/'}</Typography>
 
       </div>
 
