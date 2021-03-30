@@ -14,18 +14,24 @@ import Checkbox from '@material-ui/core/Checkbox';
 /* 
   画像
 */
-import Red from '../../../../../img/players/red.png';
-import Blue from '../../../../../img/players/blue.png';
-import Green from '../../../../../img/players/green.png';
-import Pink from '../../../../../img/players/pink.png';
-import Orange from '../../../../../img/players/orange.png';
-import Yellow from '../../../../../img/players/yellow.png';
-import Black from '../../../../../img/players/black.png';
-import White from '../../../../../img/players/white.png';
-import Purple from '../../../../../img/players/purple.png';
-import Brown from '../../../../../img/players/brown.png';
-import Cyan from '../../../../../img/players/cyan.png';
-import Lime from '../../../../../img/players/lime.png';
+// import Red from '../../../../../img/players/red.svg';
+import Red from '../../../../../img/players/red.svg';
+// import Blue from '../../../../../img/players/blue.svg';
+import Blue from '../../../../../img/players/blue.svg';
+import Green from '../../../../../img/players/green.svg';
+import Pink from '../../../../../img/players/pink.svg';
+import Orange from '../../../../../img/players/orange.svg';
+import Yellow from '../../../../../img/players/yellow.svg';
+import Black from '../../../../../img/players/black.svg';
+import White from '../../../../../img/players/white.svg';
+import Purple from '../../../../../img/players/purple.svg';
+import Brown from '../../../../../img/players/brown.svg';
+import Cyan from '../../../../../img/players/cyan.svg';
+import Lime from '../../../../../img/players/lime.svg';
+import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_emergency_meeting_7142960.svg';
+import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
+import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
+import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
 
 
 const styles = (theme) => ({
@@ -37,6 +43,7 @@ const styles = (theme) => ({
   },
   titleBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    // maxHeight: 40,
   },
   block: {
     display: 'block',
@@ -131,18 +138,20 @@ function Players(props) {
         <Toolbar>
             <Grid container={12}>
               <Grid item xs={2}>
-                <PlayersIcon className={classes.block} color="inherit" />
               </Grid>
               <Grid item xs={2}>
-                <SearchIcon className={classes.block} color="inherit" />
+                <img src={GhostIcon} alt="Ghost"/>
               </Grid>
               <Grid item xs={2}>
-                <SearchIcon className={classes.block} color="inherit" />
+                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting"/>
               </Grid>
-              <Grid item xs={6}>
-                <Typography>
-                  Imposter...?
-                </Typography>
+              <Grid item xs={2}>
+                <img src={CrewmateIcon} alt="Crewmate"/>
+              </Grid>
+              <Grid item xs={2}>
+              </Grid>
+              <Grid item xs={2}>
+                <img src={ImposterIcon} alt="Imposter"/>
               </Grid>
             </Grid>
         </Toolbar>
@@ -163,7 +172,6 @@ function Players(props) {
               </Grid>
               <Grid item xs={2}>
                 <Checkbox
-                  size="small"
                   checked={isDead.red}
                   onChange={handleChange}
                   color="secondary"
@@ -175,7 +183,6 @@ function Players(props) {
                 <Checkbox
                   checked={isUsedEMRight.red}
                   onChange={handleChange}
-                  size="small"
                   color="primary"
                   name="isUsedEMRight"
                   value='red'
@@ -195,7 +202,7 @@ function Players(props) {
               </Grid>
               <Grid item xs={2}>
                 <Checkbox
-                  size="small"
+                  
                   checked={isDead.blue}
                   onChange={handleChange}
                   color="secondary"
@@ -207,7 +214,7 @@ function Players(props) {
                 <Checkbox
                   checked={isUsedEMRight.blue}
                   onChange={handleChange}
-                  size="small"
+                  
                   color="primary"
                   name="isUsedEMRight"
                   value='blue'
@@ -226,8 +233,7 @@ function Players(props) {
                 <img src={Green}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.green}
                   onChange={handleChange}
                   color="secondary"
@@ -238,8 +244,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.green}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='green'
@@ -258,8 +263,7 @@ function Players(props) {
                 <img src={Pink}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.pink}
                   onChange={handleChange}
                   color="secondary"
@@ -270,8 +274,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.pink}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='pink'
@@ -290,8 +293,7 @@ function Players(props) {
                 <img src={Orange}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.orange}
                   onChange={handleChange}
                   color="secondary"
@@ -303,8 +305,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.orange}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='orange'
@@ -323,8 +324,7 @@ function Players(props) {
                 <img src={Yellow}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.yellow}
                   onChange={handleChange}
                   color="secondary"
@@ -335,8 +335,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.yellow}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='yellow'
@@ -356,8 +355,7 @@ function Players(props) {
                 <img src={Black}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.black}
                   onChange={handleChange}
                   color="secondary"
@@ -368,8 +366,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.black}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='black'
@@ -388,8 +385,7 @@ function Players(props) {
                 <img src={White}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.white}
                   onChange={handleChange}
                   color="secondary"
@@ -400,8 +396,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.white}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='white'
@@ -420,8 +415,7 @@ function Players(props) {
                 <img src={Purple}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.purple}
                   onChange={handleChange}
                   color="secondary"
@@ -432,8 +426,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.purple}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='purple'
@@ -452,8 +445,7 @@ function Players(props) {
                 <img src={Brown}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.brown}
                   onChange={handleChange}
                   color="secondary"
@@ -464,8 +456,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.brown}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='brown'
@@ -484,8 +475,7 @@ function Players(props) {
                 <img src={Cyan}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.cyan}
                   onChange={handleChange}
                   color="secondary"
@@ -496,8 +486,7 @@ function Players(props) {
               <Grid item xs={2}>
                 <Checkbox
                   checked={isUsedEMRight.cyan}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='cyan'
@@ -516,8 +505,7 @@ function Players(props) {
                 <img src={Lime}/>
               </Grid>
               <Grid item xs={2}>
-                <Checkbox
-                  size="small"
+                <Checkbox                  
                   checked={isDead.lime}
                   onChange={handleChange}
                   color="secondary"
@@ -528,8 +516,7 @@ function Players(props) {
               <Grid item xs={2}>
               <Checkbox
                   checked={isUsedEMRight.lime}
-                  onChange={handleChange}
-                  size="small"
+                  onChange={handleChange}                  
                   color="primary"
                   name="isUsedEMRight"
                   value='lime'
@@ -555,22 +542,25 @@ function Players(props) {
         <Toolbar>
             <Grid container={12}>
               <Grid item xs={2}>
-                <PlayersIcon className={classes.block} color="inherit" />
               </Grid>
               <Grid item xs={2}>
-                <SearchIcon className={classes.block} color="inherit" />
+                <img src={GhostIcon} alt="Ghost"/>
               </Grid>
               <Grid item xs={2}>
-                <SearchIcon className={classes.block} color="inherit" />
+                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting"/>
               </Grid>
-              <Grid item xs={6}>
-                <Typography>
-                  Imposter...?
-                </Typography>
+              <Grid item xs={2}>
+                <img src={CrewmateIcon} alt="Crewmate"/>
+              </Grid>
+              <Grid item xs={2}>
+              </Grid>
+              <Grid item xs={2}>
+                <img src={ImposterIcon} alt="Imposter"/>
               </Grid>
             </Grid>
         </Toolbar>
       </AppBar>
+
     </Paper>
   );
 }
