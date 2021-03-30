@@ -4,7 +4,8 @@ import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/sty
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 import Navigator from './Navigator';
 import Home from './pages/game/home/Home';
 import Usage from './pages/others/usage/Usage';
@@ -21,9 +22,9 @@ function Copyright() {
     <div>
       <Typography variant="body2" color="textSecondary" align="center">
         {'当サイトは個人が運営するAmong Us非公式のファンサイト'}
-        <Link color="inherit" href="/material-ui-paperbase-demo/about">
+        <RouterLink to={'/material-ui-paperbase-demo/about'} >
           {'（詳細）'}
-        </Link>  
+        </RouterLink>  
         {'です。'}
       </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
@@ -171,6 +172,9 @@ const styles = {
     padding: theme.spacing(2),
     background: '#eaeff1',
   },
+  link: {
+    textDecoration: 'none'
+  }
 };
 
 function Paperbase(props) {
