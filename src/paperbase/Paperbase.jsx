@@ -8,7 +8,8 @@ import Link from '@material-ui/core/Link';
 import Navigator from './Navigator';
 import Home from './pages/game/home/Home';
 import Usage from './pages/others/usage/Usage';
-// import Contact from './pages/game/contact/Contact';
+import About from './pages/others/about/About';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -17,14 +18,24 @@ import {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <div>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'当サイトは個人が運営するAmong Us非公式のファンサイト'}
+        <Link color="inherit" href="/material-ui-paperbase-demo/about">
+          {'（詳細）'}
+        </Link>  
+        {'です。'}
+      </Typography>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {' © '}
+        {/* <Link color="inherit" href=""> */}
+        {'Among Us Helper'}
+        {/* </Link> */}
+        {' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    </div>
   );
 }
 
@@ -219,9 +230,9 @@ function Paperbase(props) {
             <Route path="/material-ui-paperbase-demo/usage" >
               <Usage onDrawerToggle={handleDrawerToggle} />
             </Route>
-            {/* <Route path="/material-ui-paperbase-demo/contact" >
-              <Contact onDrawerToggle={handleDrawerToggle} />
-            </Route> */}
+            <Route path="/material-ui-paperbase-demo/about" >
+              <About onDrawerToggle={handleDrawerToggle} />
+            </Route>
           </Switch>
           
           {/* 
