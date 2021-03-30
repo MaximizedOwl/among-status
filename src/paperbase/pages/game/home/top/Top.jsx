@@ -108,9 +108,12 @@ function Top(props) {
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
-      <Typography>
-          Kill Cooldown Time
-      </Typography>
+
+
+      {/* 
+        キルクールダウンの状態
+      */}
+      <h3>Kill Cooldown Time</h3>
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
           value={killCooldown}
@@ -146,19 +149,19 @@ function Top(props) {
         </Select>
       </FormControl>
 
-        {/* <hr> */}
-        <Typography>
-          Player On/Off
-        </Typography>
 
-        <Grid container alignItems='center'>
+      {/* 
+        プレイヤーの参加状態
+      */}
 
-
+      <h3>Player On/Off</h3>
+          
+        <Grid container alignItems="center" justify="center">
 
             {/* 
               Red, Blue
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
                 <img src={Red}/>
               </Grid>
@@ -193,7 +196,7 @@ function Top(props) {
             {/* 
               Green, Pink
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
               <img src={Green}/>
               </Grid>
@@ -226,7 +229,7 @@ function Top(props) {
             {/* 
               Orange, Yellow
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
               <img src={Orange}/>
               </Grid>
@@ -259,7 +262,7 @@ function Top(props) {
             {/* 
               Black, White
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
                 <img src={Black}/>
               </Grid>
@@ -293,7 +296,7 @@ function Top(props) {
             {/* 
               Purple, Brown
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
                 <img src={Purple}/>
               </Grid>
@@ -326,7 +329,7 @@ function Top(props) {
             {/* 
               Cyan, Lime
             */}
-            <Grid container>
+            <Grid container alignItems="center" justify="center">
               <Grid item xs>
                 <img src={Cyan}/>
               </Grid>
