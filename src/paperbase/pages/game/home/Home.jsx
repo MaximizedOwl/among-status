@@ -67,7 +67,7 @@ function Home(props) {
   /* 
     Tabの制御と状態管理
   */
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
