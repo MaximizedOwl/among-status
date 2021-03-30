@@ -9,9 +9,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import TimerIcon from '@material-ui/icons/Timer';
 import DescriptionIcon from '@material-ui/icons/Description';
+import WebIcon from '@material-ui/icons/Web';
 import { Link } from 'react-router-dom';
 
 const categories = [
@@ -26,7 +25,7 @@ const categories = [
     id: 'Others',
     children: [
       { id: 'Usage', icon: <DescriptionIcon />,  index: 2, active: false, path: 'usage' },
-      // { id: 'Contact', icon: <TimerIcon />,  index: 3, active: false, path: 'contact' },
+      { id: 'About', icon: <WebIcon />,  index: 3, active: false, path: 'about' },
     ],
   },
 ];
