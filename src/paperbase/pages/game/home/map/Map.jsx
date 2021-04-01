@@ -9,7 +9,8 @@ import TabPanel from '../../../../components/TabPanel';
 import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
 import Polus from '../../../../../img/maps/Polus.png';
-import { Toolbar, Typography } from '@material-ui/core';
+import TheAirship from '../../../../../img/maps/TheAirship.png';
+import { Toolbar} from '@material-ui/core';
 
 
 const styles = (theme) => ({
@@ -64,12 +65,12 @@ function Map(props) {
           indicatorColor="green"
           textColor="primary"
           variant="scrollable"
-          scrollButtons="auto"
+          scrollButtons="on"
         >
           <Tab label="The Skeld" {...a11yProps(0)} />
           <Tab label="MiraHQ" {...a11yProps(1)} />
           <Tab label="Polus" {...a11yProps(2)} />
-          {/* <Tab label="The Airship" {...a11yProps(3)} /> */}
+          <Tab label="The Airship" {...a11yProps(3)} />
         </Tabs>
         </Toolbar>
       </AppBar>
@@ -83,9 +84,9 @@ function Map(props) {
       <TabPanel value={value} index={2} className={classes.mapPanel}>
         <img src={Polus} art={value} className={classes.map}/>
       </TabPanel>
-      {/* <TabPanel value={value} index={3} className={classes.mapPanel}>
-        <Typography>Coming soon...</Typography>
-      </TabPanel> */}
+      <TabPanel value={value} index={3} className={classes.mapPanel}>
+        <img src={TheAirship} art={value} className={classes.map}/>
+      </TabPanel>
        </div>
     </Paper>
   );

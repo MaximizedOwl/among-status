@@ -24,8 +24,7 @@ or:
 
 This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
 
-# Credit and Lisence
-
+# 権利等の表記（敬称略）
 ## Paperbase
 - Created by Material-UI OSS
 - [MIT Lisence](https://opensource.org/licenses/MIT)
@@ -37,5 +36,8 @@ This example demonstrates how you can use [Create React App](https://github.com/
 - Created by [Soni Sokell](https://iconscout.com/contributors/sonisokell) on [Iconscout](https://iconscout.com/)
             
 
-## Map画像
+## マップ画像（The Skeld、MiraHQ、Polus）
 - 引用元：[【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】](https://baskmedia.jp/amongus-japanese-map/)
+
+## マップ画像（The Airship）
+- 引用元：[アモアス部](https://twitter.com/jinguji777ch/status/1377395749567139845?s=20)
