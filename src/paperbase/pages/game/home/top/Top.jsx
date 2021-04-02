@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
+import MenuItemList from '../../../../components/MenuItemList';
 
 /* 
   画像
@@ -25,6 +26,7 @@ import Purple from '../../../../../img/players/purple.svg';
 import Brown from '../../../../../img/players/brown.svg';
 import Cyan from '../../../../../img/players/cyan.svg';
 import Lime from '../../../../../img/players/lime.svg';
+
 
 
 
@@ -46,17 +48,34 @@ const styles = (theme) => ({
   },
 });
 
-
-
 function Top(props) {
 
   const { classes } = props;
 
 
-  /* 
-    キルクールダウンタイムの時間に関する状態
-  */
+  /*  キルクールダウンタイムの時間に関する状態 */
   const [killCooldown, setKillCooldown] = React.useState('');
+
+  /* キルクールタイムの時間の配列を作成 */
+  const createKillCooldownTimeList = () => {
+  
+    const minKillCooldownTime = 10;
+  
+    let killCooldownTimeList = [];
+    let currentNum = minKillCooldownTime; 
+    /* 
+      2.5ずつ増えながら10から60を配列に入れる
+    */
+    for (let index = 0; index < 21; index++) {
+  
+      killCooldownTimeList.push(currentNum);
+  
+      currentNum = currentNum + 2.5;
+    }
+  
+    return killCooldownTimeList;
+  
+  };
 
   /* 
     プレイヤー参加に関する状態
@@ -98,54 +117,45 @@ function Top(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-
+      // console.log(createKillCooldownTimeList);
+      // console.log(createKillCooldownTimeList());
     } else {
       
     }
   };
+
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
 
 
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
 
-
       {/* 
         キルクールダウンの状態
       */}
-      <h3>Kill Cooldown Time</h3>
+      <h3>Kill Cooldown Time(s)</h3>
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
           value={killCooldown}
           onChange={handleChange}
           label="KillCooldown"
-          displayEmpty
           name='killCooldown'
+          MenuProps={MenuProps}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>10s</MenuItem>
-          <MenuItem value={12.5}>12.5s</MenuItem>
-          <MenuItem value={15}>15s</MenuItem>
-          <MenuItem value={17.5}>17.5s</MenuItem>
-          <MenuItem value={20}>10s</MenuItem>
-          <MenuItem value={12.5}>12.5s</MenuItem>
-          <MenuItem value={15}>15s</MenuItem>
-          <MenuItem value={17.5}>17.5s</MenuItem>
-          <MenuItem value={30}>10s</MenuItem>
-          <MenuItem value={12.5}>12.5s</MenuItem>
-          <MenuItem value={15}>15s</MenuItem>
-          <MenuItem value={17.5}>17.5s</MenuItem>
-          <MenuItem value={40}>10s</MenuItem>
-          <MenuItem value={12.5}>12.5s</MenuItem>
-          <MenuItem value={15}>15s</MenuItem>
-          <MenuItem value={17.5}>17.5s</MenuItem>
-          <MenuItem value={50}>10s</MenuItem>
-          <MenuItem value={12.5}>12.5s</MenuItem>
-          <MenuItem value={15}>15s</MenuItem>
-          <MenuItem value={17.5}>17.5s</MenuItem>
-          <MenuItem value={60}>60s</MenuItem>
+          <MenuItemList
+            numbers={createKillCooldownTimeList()} 
+          />
         </Select>
       </FormControl>
 
