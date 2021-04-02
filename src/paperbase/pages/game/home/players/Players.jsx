@@ -99,6 +99,23 @@ function Players(props) {
     lime: false
   });
 
+  // プレイヤーColorの配列
+  const playerColorImageList = {
+    red: Red,
+    blue: Blue,
+    green: Green,
+    pink: Pink,
+    orange: Orange,
+    yellow: Yellow,
+    black: Black,
+    white: White,
+    purple: Purple,
+    brown: Brown,
+    cyan: Cyan,
+    lime: Lime
+  };
+  const playerColorList = Object.keys(playerColorImageList);
+
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     会議権使用状態と生死状態のどちらでも利用可能
@@ -128,6 +145,41 @@ function Players(props) {
     }
   };
 
+  /* 
+    プレイヤー12色のブロック
+  */
+  const playerBlock = playerColorList.map((color, index) => 
+    
+    <Grid container xs={12} alignItems="center" justify="center">
+      <Grid item xs={2}>
+        <img src={Object.values(playerColorImageList)[index]}/>
+      </Grid>
+      <Grid item xs={2}>
+        <Checkbox
+          checked={Object.values(isDead)[index]}
+          onChange={handleChange}
+          color="secondary"
+          name="isDead"
+          value={playerColorList[index]}
+        />
+      </Grid>
+      <Grid item xs={2}>
+        <Checkbox
+          checked={Object.values(isUsedEMRight)[index]}
+          onChange={handleChange}
+          color="primary"
+          name="isUsedEMRight"
+          value={playerColorList[index]}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <PlayerSlider />
+      </Grid>
+    </Grid>
+
+  );
+
+
   return (
     <Paper className={classes.paper}>
 
@@ -136,7 +188,7 @@ function Players(props) {
       */}
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
-            <Grid container={12}>
+            <Grid container={12} alignItems="center" justify="center">
               <Grid item xs={2}>
               </Grid>
               <Grid item xs={2}>
@@ -161,405 +213,13 @@ function Players(props) {
         メイン情報表示部
       */}
       <div className={classes.contentWrapper}>
-          <Grid container alignItems='center'>
+          <Grid container alignItems="center" justify="center">
 
-            {/* 
-              Red
-            */}
-            <Grid container xs={12}>
-              <Grid item xs={2}>
-                <img src={Red}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isDead.red}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='red'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.red}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='red'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Blue
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Blue}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  
-                  checked={isDead.blue}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='blue'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.blue}
-                  onChange={handleChange}
-                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='blue'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Green
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Green}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.green}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='green'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.green}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='green'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Pink
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Pink}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.pink}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='pink'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.pink}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='pink'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Orange
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Orange}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.orange}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='orange'
-                />
-              </Grid>
-
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.orange}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='orange'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Yellow
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Yellow}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.yellow}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='yellow'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.yellow}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='yellow'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-
-            {/* 
-              Black
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Black}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.black}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='black'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.black}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='black'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              White
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={White}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.white}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='white'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.white}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='white'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Purple
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Purple}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.purple}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='purple'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.purple}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='purple'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Brown
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Brown}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.brown}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='brown'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.brown}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='brown'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Cyan
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Cyan}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.cyan}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='cyan'
-                />
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox
-                  checked={isUsedEMRight.cyan}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='cyan'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Lime
-            */}
-            <Grid container={12}>
-              <Grid item xs={2}>
-                <img src={Lime}/>
-              </Grid>
-              <Grid item xs={2}>
-                <Checkbox                  
-                  checked={isDead.lime}
-                  onChange={handleChange}
-                  color="secondary"
-                  name="isDead"
-                  value='lime'
-                />
-              </Grid>
-              <Grid item xs={2}>
-              <Checkbox
-                  checked={isUsedEMRight.lime}
-                  onChange={handleChange}                  
-                  color="primary"
-                  name="isUsedEMRight"
-                  value='lime'
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <PlayerSlider />
-              </Grid>
-            </Grid>
-
-            {/* 
-              プレイヤーカラー記述部
-              ここまで
-            */}
+            {playerBlock}
+            {console.log(playerBlock)}
 
           </Grid>
       </div>
-
-      {/* 
-        下側AppBar
-      */}
-      <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
-        <Toolbar>
-            <Grid container={12}>
-              <Grid item xs={2}>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={GhostIcon} alt="Ghost"/>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting"/>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={CrewmateIcon} alt="Crewmate"/>
-              </Grid>
-              <Grid item xs={2}>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={ImposterIcon} alt="Imposter"/>
-              </Grid>
-            </Grid>
-        </Toolbar>
-      </AppBar>
 
     </Paper>
   );
