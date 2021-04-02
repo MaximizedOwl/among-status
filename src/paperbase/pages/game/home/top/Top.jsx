@@ -14,6 +14,7 @@ import { withStyles } from '@material-ui/core/styles';
   画像
 */
 import Red from '../../../../../img/players/red.svg';
+import red from '../../../../../img/players/red.svg';
 import Blue from '../../../../../img/players/blue.svg';
 import Green from '../../../../../img/players/green.svg';
 import Pink from '../../../../../img/players/pink.svg';
@@ -25,6 +26,8 @@ import Purple from '../../../../../img/players/purple.svg';
 import Brown from '../../../../../img/players/brown.svg';
 import Cyan from '../../../../../img/players/cyan.svg';
 import Lime from '../../../../../img/players/lime.svg';
+import { colors } from '@material-ui/core';
+import { render } from 'react-dom';
 
 
 
@@ -102,6 +105,22 @@ function Top(props) {
       lime: true
     });
 
+  // プレイヤーColorの配列
+  const playerColorList = Object.keys(isExistPlayer);
+  const playerColorImageList = {
+    red: Red,
+    blue: Blue,
+    green: Green,
+    pink: Pink,
+    orange: Orange,
+    yellow: Yellow,
+    black: Black,
+    white: White,
+    purple: Purple,
+    brown: Brown,
+    cyan: Cyan,
+    lime: Lime
+  };
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     参加状態とキルクールタイムのどちらでも利用可能
@@ -141,6 +160,29 @@ function Top(props) {
   };
 
 
+  /* 
+    プレイヤー12色のブロック
+  */
+    const playerBlock = playerColorList.map((color, index) => 
+
+      // <React.Fragment>
+      <Grid container alignItems="center" justify="center">
+        <Grid item xs>
+          <img src={Object.values(playerColorImageList)[index]}/>
+        </Grid>
+        <Grid item xs>
+          <Switch                  
+            checked={Object.values(isExistPlayer)[index]}
+            onChange={handleChange}
+            color="primary"
+            name="isExistPlayer"
+            value={playerColorList[index]}
+          />
+        </Grid>
+      </Grid>
+      //  </React.Fragment>; 
+    );
+
 
   return (
     <Paper className={classes.paper}>
@@ -168,208 +210,20 @@ function Top(props) {
         )};
         </Select>
       </FormControl>
-
+      
+      {/* デバッグ用 */}
+      <Typography>{killCooldown.toString()}</Typography>
 
       {/* 
         プレイヤーの参加状態
       */}
 
-      <h3>Player On/Off</h3>
-          
+      <h3>Player On/Off</h3> 
         <Grid container alignItems="center" justify="center">
-
-            {/* 
-              Red, Blue
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-                <img src={Red}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.red}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='red'
-                />
-              </Grid>
-              <Grid item xs>
-                <img src={Blue}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.blue}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='blue'
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Green, Pink
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-              <img src={Green}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.green}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='green'
-                />
-              </Grid>
-
-              <Grid item xs>
-              <img src={Pink}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.pink}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='pink'
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Orange, Yellow
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-              <img src={Orange}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.orange}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='orange'
-                />
-              </Grid>
-
-              <Grid item xs>
-                <img src={Yellow}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.yellow}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='yellow'
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Black, White
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-                <img src={Black}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.black}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='black'
-                />
-              </Grid>
-
-              <Grid item xs>
-                <img src={White}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.white}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='white'
-                />
-              </Grid>
-            </Grid>
-
-
-            {/* 
-              Purple, Brown
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-                <img src={Purple}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.purple}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='purple'
-                />
-              </Grid>
-
-              <Grid item xs>
-                <img src={Brown}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.brown}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='brown'
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              Cyan, Lime
-            */}
-            <Grid container alignItems="center" justify="center">
-              <Grid item xs>
-                <img src={Cyan}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.cyan}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='cyan'
-                />
-              </Grid>
-
-              <Grid item xs>
-                <img src={Lime}/>
-              </Grid>
-              <Grid item xs>
-                <Switch                  
-                  checked={isExistPlayer.lime}
-                  onChange={handleChange}
-                  color="primary"
-                  name="isExistPlayer"
-                  value='lime'
-                />
-              </Grid>
-            </Grid>
-
-            {/* 
-              プレイヤーカラー記述部
-              ここまで
-            */}
-
-          </Grid>
+          
+          {/* プレイヤー12色のブロック */}
+          {playerBlock}
+        </Grid>
       </div>
     </Paper>
   );
