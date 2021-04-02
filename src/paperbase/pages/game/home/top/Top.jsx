@@ -9,7 +9,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItemList from '../../../../components/MenuItemList';
 
 /* 
   画像
@@ -52,34 +51,42 @@ function Top(props) {
 
   const { classes } = props;
 
+  /* 
+    キルクールダウンタイムの時間に関する記述
+  */
 
-  /*  キルクールダウンタイムの時間に関する状態 */
+  // 状態生成
   const [killCooldown, setKillCooldown] = React.useState('');
 
-  /* キルクールタイムの時間の配列を作成 */
+  // キルクールタイム時間の配列を作成
   const createKillCooldownTimeList = () => {
   
     const minKillCooldownTime = 10;
   
-    let killCooldownTimeList = [];
+    let TimeList = [];
     let currentNum = minKillCooldownTime; 
-    /* 
-      2.5ずつ増えながら10から60を配列に入れる
-    */
+    
+    // 2.5ずつ増えながら10から60を配列に入れる
     for (let index = 0; index < 21; index++) {
   
-      killCooldownTimeList.push(currentNum);
+      TimeList.push(currentNum);
   
       currentNum = currentNum + 2.5;
     }
-  
-    return killCooldownTimeList;
-  
+    
+    // 最低値10、最高値60の2.5刻みで増加している配列を返す
+    return TimeList;
   };
 
+  // わかりやすいように一度定数に入れる
+  const killCooldownTimeList = createKillCooldownTimeList();
+
+
   /* 
-    プレイヤー参加に関する状態
+    プレイヤー参加に関する記述
   */
+
+  /* 状態生成 */
     const [isExistPlayer, setIsExistPlayer] = React.useState({
       red: true,
       blue: true,
@@ -117,8 +124,6 @@ function Top(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-      // console.log(createKillCooldownTimeList);
-      // console.log(createKillCooldownTimeList());
     } else {
       
     }
@@ -153,9 +158,14 @@ function Top(props) {
           name='killCooldown'
           MenuProps={MenuProps}
         >
-          <MenuItemList
-            numbers={createKillCooldownTimeList()} 
-          />
+        {killCooldownTimeList.map((time) =>
+          <MenuItem
+            key={time.toString()}
+            value={time}
+          >
+            {time.toString()}
+          </MenuItem>
+        )};
         </Select>
       </FormControl>
 
