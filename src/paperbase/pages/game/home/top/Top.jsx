@@ -106,7 +106,6 @@ function Top(props) {
     });
 
   // プレイヤーColorの配列
-  const playerColorList = Object.keys(isExistPlayer);
   const playerColorImageList = {
     red: Red,
     blue: Blue,
@@ -121,6 +120,8 @@ function Top(props) {
     cyan: Cyan,
     lime: Lime
   };
+  const playerColorList = Object.keys(playerColorImageList);
+
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     参加状態とキルクールタイムのどちらでも利用可能
@@ -158,7 +159,6 @@ function Top(props) {
       },
     },
   };
-
 
   /* 
     プレイヤー12色のブロック
