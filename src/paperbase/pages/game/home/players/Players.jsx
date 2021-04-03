@@ -114,7 +114,7 @@ function Players(props) {
 
   // 参加有無に関する記述
   // 現参加者リスト
-  let currentExistPlayerList = ['red','blue','green','cyan'];
+  let currentExistPlayerList = ['red','blue','green','pink','cyan'];
 
   /* 状態生成 */
   const [isExistPlayer, setIsExistPlayer] = React.useState({
@@ -181,7 +181,7 @@ const updateCurrentExistPlayer = () => {
   /* 
     プレイヤー12色のブロック
   */
-  const playerBlock = currentExistPlayerList.map((color, index) => 
+  const playerBlock = currentExistPlayerList.map((color) => 
 
 
     <Grid container xs={12} alignItems="center" justify="center">
