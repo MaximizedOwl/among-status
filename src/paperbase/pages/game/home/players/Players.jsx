@@ -28,10 +28,6 @@ import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
 
-/* その他 */
-import capitalize from '../../../../Util/capitalize';
-
-
 
 const styles = (theme) => ({
   paper: {
