@@ -2,21 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import PlayersIcon from '@material-ui/icons/People';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
 
 /* 
   画像
 */
-// import Red from '../../../../../img/players/red.svg';
 import Red from '../../../../../img/players/red.svg';
-// import Blue from '../../../../../img/players/blue.svg';
 import Blue from '../../../../../img/players/blue.svg';
 import Green from '../../../../../img/players/green.svg';
 import Pink from '../../../../../img/players/pink.svg';
@@ -32,6 +27,10 @@ import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_
 import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
+
+/* その他 */
+import capitalize from '../../../../Util/capitalize';
+
 
 
 const styles = (theme) => ({
@@ -114,7 +113,45 @@ function Players(props) {
     cyan: Cyan,
     lime: Lime
   };
-  const playerColorList = Object.keys(playerColorImageList);
+  // const playerColorList = Object.keys(playerColorImageList);
+
+
+  // 参加有無に関する記述
+  // 現参加者リスト
+  let currentExistPlayerList = ['red','blue','green','cyan'];
+
+  /* 状態生成 */
+  const [isExistPlayer, setIsExistPlayer] = React.useState({
+    red: true,
+    blue: true,
+    green: true,
+    pink: true,
+    orange: true,
+    yellow: true,
+    black: true,
+    white: true,
+    purple: true,
+    brown: true,
+    cyan: true,
+    lime: true
+  });
+
+ 
+// isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
+const updateCurrentExistPlayer = () => {
+  
+  // プレイヤー人数の取得
+  const objectLength = Object.keys(isExistPlayer).length;
+
+  for (let index = 0; index < objectLength; index++) {
+    
+    if (condition) {
+      currentExistPlayerList = ['red','blue','green','cyan'];
+    }
+    
+  }
+
+};
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
@@ -148,28 +185,29 @@ function Players(props) {
   /* 
     プレイヤー12色のブロック
   */
-  const playerBlock = playerColorList.map((color, index) => 
-    
+  const playerBlock = currentExistPlayerList.map((color, index) => 
+
+
     <Grid container xs={12} alignItems="center" justify="center">
       <Grid item xs={2}>
-        <img src={Object.values(playerColorImageList)[index]}/>
+        <img src={playerColorImageList[color]}/>
       </Grid>
       <Grid item xs={2}>
         <Checkbox
-          checked={Object.values(isDead)[index]}
+          checked={isDead[color]}
           onChange={handleChange}
           color="secondary"
           name="isDead"
-          value={playerColorList[index]}
+          value={color}
         />
       </Grid>
       <Grid item xs={2}>
         <Checkbox
-          checked={Object.values(isUsedEMRight)[index]}
+          checked={isUsedEMRight[color]}
           onChange={handleChange}
           color="primary"
           name="isUsedEMRight"
-          value={playerColorList[index]}
+          value={color}
         />
       </Grid>
       <Grid item xs={6}>
