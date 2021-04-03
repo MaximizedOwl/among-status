@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
+import Switch from '@material-ui/core/Switch';
 
 /* 
   画像
@@ -109,12 +110,9 @@ function Players(props) {
     cyan: Cyan,
     lime: Lime
   };
-  // const playerColorList = Object.keys(playerColorImageList);
-
+  let playerColorList = Object.keys(playerColorImageList);
 
   // 参加有無に関する記述
-  // 現参加者リスト
-  let currentExistPlayerList = ['red','blue','green','pink','cyan'];
 
   /* 状態生成 */
   const [isExistPlayer, setIsExistPlayer] = React.useState({
@@ -132,29 +130,43 @@ function Players(props) {
     lime: true
   });
 
- 
-// isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
-const updateCurrentExistPlayer = () => {
-  
-  // プレイヤー人数の取得
-  const objectLength = Object.keys(isExistPlayer).length;
 
-  for (let index = 0; index < objectLength; index++) {
+  // isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
+  const generateCurrentExistPlayer = () => {
     
-    if (condition) {
-      currentExistPlayerList = ['red','blue','green','cyan'];
+    // プレイヤー人数の取得
+    const objectLength = Object.keys(isExistPlayer).length;
+
+    console.log(objectLength);
+
+    let newExistPlayerList = [];
+
+    for (let index = 0; index < objectLength; index++) {
+      
+
+      console.log([Object.values(isExistPlayer)[index]]);
+      // isExistPlayerがtrueなら配列にキーを追加
+      if (Object.values(isExistPlayer)[index] === true) {
+
+        newExistPlayerList.push(Object.keys(isExistPlayer)[index]);
+      }
     }
-    
-  }
+    console.log(newExistPlayerList);
 
-};
+    return newExistPlayerList;
+  };
+
+  const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
+  console.log(currentExistPlayerList);
+  // 現参加者リスト
+  // 参加者の状態の元は状態で管理しており、この配列は処理をしやすくするために作成しただけなのでこれは状態として扱わなくて良い。
+  // SetPlayerColorList(generateCurrentExistPlayer());
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     会議権使用状態と生死状態のどちらでも利用可能
   */
   const handleChange = (event) => {
-    
 
     if (event.target.name === 'isUsedEMRight') {
 
@@ -173,6 +185,17 @@ const updateCurrentExistPlayer = () => {
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
 
+    } if (event.target.name === 'isExistPlayer') {
+
+      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
+
+      setIsExistPlayer({ ...isExistPlayer, [event.target.value]: event.target.checked });
+
+      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
+
+      setCurrentExistPlayerList(currentExistPlayerList, generateCurrentExistPlayer());
+
+      console.log('CurrentExistPlayer is ... ' + currentExistPlayerList +' .');
     } else {
       
     }
@@ -182,7 +205,6 @@ const updateCurrentExistPlayer = () => {
     プレイヤー12色のブロック
   */
   const playerBlock = currentExistPlayerList.map((color) => 
-
 
     <Grid container xs={12} alignItems="center" justify="center">
       <Grid item xs={2}>
@@ -210,11 +232,30 @@ const updateCurrentExistPlayer = () => {
         <PlayerSlider />
       </Grid>
     </Grid>
-
   );
 
+  const isExistPlayerBlock = playerColorList.map((color) => 
+
+      // <React.Fragment>
+      <Grid container alignItems="center" justify="center">
+        <Grid item xs>
+          <img src={playerColorImageList[color]}/>
+        </Grid>
+        <Grid item xs>
+          <Switch                  
+            checked={isExistPlayer[color]}
+            onChange={handleChange}
+            color="primary"
+            name="isExistPlayer"
+            value={color}
+          />
+        </Grid>
+      </Grid>
+      //  </React.Fragment>; 
+  );
 
   return (
+
     <Paper className={classes.paper}>
 
       {/* 
@@ -250,9 +291,17 @@ const updateCurrentExistPlayer = () => {
           <Grid container alignItems="center" justify="center">
 
             {playerBlock}
-            {console.log(playerBlock)}
 
           </Grid>
+
+          {/* 
+            仮の参加者変更ボタンゾーン
+          */}
+
+          <Grid container alignItems="center" justify="center">
+            {/* プレイヤー12色のブロック */}
+          {isExistPlayerBlock}
+        </Grid>
       </div>
 
     </Paper>
