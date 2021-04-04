@@ -208,7 +208,7 @@ function Players(props) {
 
     <Grid container xs={12} alignItems="center" justify="center">
       <Grid item xs={2}>
-        <img src={playerColorImageList[color]}/>
+        <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
       <Grid item xs={2}>
         <Checkbox
@@ -267,18 +267,18 @@ function Players(props) {
               <Grid item xs={2}>
               </Grid>
               <Grid item xs={2}>
-                <img src={GhostIcon} alt="Ghost"/>
+                <img src={GhostIcon} alt="Ghost" className={classes.img}/>
               </Grid>
               <Grid item xs={2}>
-                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting"/>
+                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
               </Grid>
               <Grid item xs={2}>
-                <img src={CrewmateIcon} alt="Crewmate"/>
+                <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
               </Grid>
               <Grid item xs={2}>
               </Grid>
               <Grid item xs={2}>
-                <img src={ImposterIcon} alt="Imposter"/>
+                <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
               </Grid>
             </Grid>
         </Toolbar>

@@ -45,6 +45,10 @@ const styles = (theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  img :{
+    maxWidth: 50,
+    height: 'auto'
+  }
 });
 
 function Top(props) {
@@ -170,7 +174,7 @@ function Top(props) {
 
       <Grid container alignItems="center" justify="center">
         <Grid item xs>
-          <img src={playerColorImageList[color]}/>
+          <img src={playerColorImageList[color]} className={classes.img}/>
         </Grid>
         <Grid item xs>
           <Switch                  
@@ -189,7 +193,7 @@ function Top(props) {
     
     <Grid container alignItems="center" justify="center">
       <Grid item xs>
-        <img src={playerColorImageList[color]}/>
+        <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
       <Grid item xs>
         <Switch                  
