@@ -14,7 +14,6 @@ import { withStyles } from '@material-ui/core/styles';
   画像
 */
 import Red from '../../../../../img/players/red.svg';
-import red from '../../../../../img/players/red.svg';
 import Blue from '../../../../../img/players/blue.svg';
 import Green from '../../../../../img/players/green.svg';
 import Pink from '../../../../../img/players/pink.svg';
@@ -26,8 +25,6 @@ import Purple from '../../../../../img/players/purple.svg';
 import Brown from '../../../../../img/players/brown.svg';
 import Cyan from '../../../../../img/players/cyan.svg';
 import Lime from '../../../../../img/players/lime.svg';
-import { colors } from '@material-ui/core';
-import { render } from 'react-dom';
 
 
 
@@ -163,25 +160,48 @@ function Top(props) {
   /* 
     プレイヤー12色のブロック
   */
-    const playerBlock = playerColorList.map((color, index) => 
 
-      // <React.Fragment>
+
+    const oddPlayerList = playerColorList.filter((e, i) => i % 2 === 0);
+    const evenPlayerList = playerColorList.filter((e, i) => i % 2 === 1);
+
+    // 左側のプレイヤーの配列
+    const oddPlayerBlock = oddPlayerList.map((color) => 
+
       <Grid container alignItems="center" justify="center">
         <Grid item xs>
-          <img src={Object.values(playerColorImageList)[index]}/>
+          <img src={playerColorImageList[color]}/>
         </Grid>
         <Grid item xs>
           <Switch                  
-            checked={Object.values(isExistPlayer)[index]}
+            checked={isExistPlayer[color]}
             onChange={handleChange}
             color="primary"
             name="isExistPlayer"
-            value={playerColorList[index]}
+            value={color}
           />
         </Grid>
       </Grid>
-      //  </React.Fragment>; 
     );
+
+    // 右側のプレイヤーの配列
+    const evenPlayerBlock = evenPlayerList.map((color) => 
+    
+    <Grid container alignItems="center" justify="center">
+      <Grid item xs>
+        <img src={playerColorImageList[color]}/>
+      </Grid>
+      <Grid item xs>
+        <Switch                  
+          checked={isExistPlayer[color]}
+          onChange={handleChange}
+          color="primary"
+          name="isExistPlayer"
+          value={color}
+        />
+      </Grid>
+    </Grid>
+  );
 
 
   return (
@@ -219,10 +239,14 @@ function Top(props) {
       */}
 
       <h3>Player On/Off</h3> 
-        <Grid container alignItems="center" justify="center">
-          
-          {/* プレイヤー12色のブロック */}
-          {playerBlock}
+        {/* プレイヤー12色のブロック */}
+        <Grid container alignItems="center" justify="center" xs={12}>
+          <Grid container alignItems="center" justify="center" xs={6}>
+            {oddPlayerBlock}
+          </Grid>
+          <Grid container alignItems="center" justify="center" xs={6}>
+            {evenPlayerBlock}
+          </Grid>
         </Grid>
       </div>
     </Paper>
