@@ -47,6 +47,7 @@ const styles = (theme) => ({
   },
   img :{
     maxWidth: 50,
+    minWidth: 50,
     height: 'auto'
   }
 });
@@ -172,11 +173,11 @@ function Top(props) {
     // 左側のプレイヤーの配列
     const oddPlayerBlock = oddPlayerList.map((color) => 
 
-      <Grid container alignItems="center" justify="center">
-        <Grid item xs>
+      <Grid container alignItems="center" justify="flex-start">
+        <Grid item xs={4}>
           <img src={playerColorImageList[color]} className={classes.img}/>
         </Grid>
-        <Grid item xs>
+        <Grid item xs={2}>
           <Switch                  
             checked={isExistPlayer[color]}
             onChange={handleChange}
@@ -191,11 +192,11 @@ function Top(props) {
     // 右側のプレイヤーの配列
     const evenPlayerBlock = evenPlayerList.map((color) => 
     
-    <Grid container alignItems="center" justify="center">
-      <Grid item xs>
+    <Grid container alignItems="center" justify="flex-start">
+      <Grid item xs={4}>
         <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
-      <Grid item xs>
+      <Grid item xs={2}>
         <Switch                  
           checked={isExistPlayer[color]}
           onChange={handleChange}
@@ -244,7 +245,7 @@ function Top(props) {
 
       <h3>Player On/Off</h3> 
         {/* プレイヤー12色のブロック */}
-        <Grid container alignItems="center" justify="center" xs={12}>
+        <Grid container alignItems="center" justify="flex-start" xs={12}>
           <Grid container alignItems="center" justify="center" xs={6}>
             {oddPlayerBlock}
           </Grid>
