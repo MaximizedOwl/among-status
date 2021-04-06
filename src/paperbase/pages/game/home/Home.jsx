@@ -72,6 +72,26 @@ function Home(props) {
     setValue(newValue);
   };
 
+    // 参加有無に関する記述
+
+  /* 状態生成 */
+  const [isExistPlayer, setIsExistPlayer] = React.useState({
+    red: true,
+    blue: true,
+    green: true,
+    pink: true,
+    orange: true,
+    yellow: true,
+    black: true,
+    white: true,
+    purple: true,
+    brown: true,
+    cyan: true,
+    lime: true
+  });
+
+
+
   return (
     <React.Fragment>
       <AppBar color="primary" position="sticky" elevation={0}>
@@ -155,10 +175,10 @@ function Home(props) {
       <main className={classes.main}>
           
       <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Top />
+        <Top isExistPlayer={isExistPlayer} setIsExistPlayer={setIsExistPlayer}/>
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <Players />
+        <Players isExistPlayer={isExistPlayer} setIsExistPlayer={setIsExistPlayer}/>
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
         <Map />

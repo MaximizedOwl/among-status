@@ -47,6 +47,10 @@ const styles = (theme) => ({
   contentWrapper: {
     margin: '40px 16px',
   },
+  img :{
+    maxWidth: 50,
+    height: 'auto',
+  }
 });
 
 function Players(props) {
@@ -54,7 +58,83 @@ function Players(props) {
   /* 
     全体のprops
   */
-  const { classes } = props;
+  const { classes, isExistPlayer, setIsExistPlayer } = props;
+
+  // ユーザー総合状態（）
+  const [playerState, setPlayertState] = React.useState({
+    red: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Red,
+    },
+    blue: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Blue,
+    },
+    green: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Green,
+    },
+    pink: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Pink,
+    },
+    orange: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Orange,
+    },
+    yellow: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Yellow,
+    },
+    black: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Black,
+    },
+    white: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: White,
+    },
+    purple: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Purple,
+    },
+    brown: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Brown,
+    },
+    cyan: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Cyan,
+    },
+    lime: {
+      isExist: true,
+      isDead: false,
+      isUsedEMRight: false,
+      img: Lime,
+    }
+  });
 
 
   /* 
@@ -110,25 +190,25 @@ function Players(props) {
     cyan: Cyan,
     lime: Lime
   };
-  let playerColorList = Object.keys(playerColorImageList);
+  const playerColorList = Object.keys(playerColorImageList);
 
   // 参加有無に関する記述
 
-  /* 状態生成 */
-  const [isExistPlayer, setIsExistPlayer] = React.useState({
-    red: true,
-    blue: true,
-    green: true,
-    pink: true,
-    orange: true,
-    yellow: true,
-    black: true,
-    white: true,
-    purple: true,
-    brown: true,
-    cyan: true,
-    lime: true
-  });
+  // /* 状態生成 */
+  // const [isExistPlayer, setIsExistPlayer] = React.useState({
+  //   red: true,
+  //   blue: true,
+  //   green: true,
+  //   pink: true,
+  //   orange: true,
+  //   yellow: true,
+  //   black: true,
+  //   white: true,
+  //   purple: true,
+  //   brown: true,
+  //   cyan: true,
+  //   lime: true
+  // });
 
 
   // isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
@@ -193,7 +273,8 @@ function Players(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-      setCurrentExistPlayerList(currentExistPlayerList, generateCurrentExistPlayer());
+      // 現在の参加プレイヤーを更新
+      setCurrentExistPlayerList(generateCurrentExistPlayer);
 
       console.log('CurrentExistPlayer is ... ' + currentExistPlayerList +' .');
     } else {
@@ -288,22 +369,19 @@ function Players(props) {
         メイン情報表示部
       */}
       <div className={classes.contentWrapper}>
-          <Grid container alignItems="center" justify="center">
-
-            {playerBlock}
-
-          </Grid>
-
           {/* 
             仮の参加者変更ボタンゾーン
           */}
 
-          <Grid container alignItems="center" justify="center">
+          {/* <Grid container alignItems="center" justify="center"> */}
             {/* プレイヤー12色のブロック */}
-          {isExistPlayerBlock}
-        </Grid>
-      </div>
+          {/* {isExistPlayerBlock} */}
+          {/* </Grid> */}
+          <Grid container alignItems="center" justify="center">
+            {playerBlock}
+          </Grid>
 
+      </div>
     </Paper>
   );
 }
