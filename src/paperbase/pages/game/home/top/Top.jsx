@@ -88,26 +88,8 @@ function Top(props) {
 
 
   /* 
-    プレイヤー参加に関する記述
+    プレイヤーColorの配列
   */
-
-  // /* 状態生成 */
-  //   const [isExistPlayer, setIsExistPlayer] = React.useState({
-  //     red: true,
-  //     blue: true,
-  //     green: true,
-  //     pink: true,
-  //     orange: true,
-  //     yellow: true,
-  //     black: true,
-  //     white: true,
-  //     purple: true,
-  //     brown: true,
-  //     cyan: true,
-  //     lime: true
-  //   });
-
-  // プレイヤーColorの配列
   const playerColorImageList = {
     red: Red,
     blue: Blue,
@@ -151,6 +133,7 @@ function Top(props) {
     }
   };
 
+  // キルクールダウンのドロップダウンリストのサイズ調整
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -165,8 +148,6 @@ function Top(props) {
   /* 
     プレイヤー12色のブロック
   */
-
-
     const oddPlayerList = playerColorList.filter((e, i) => i % 2 === 0);
     const evenPlayerList = playerColorList.filter((e, i) => i % 2 === 1);
 

@@ -61,80 +61,80 @@ function Players(props) {
   const { classes, isExistPlayer, setIsExistPlayer } = props;
 
   // ユーザー総合状態（）
-  const [playerState, setPlayertState] = React.useState({
-    red: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Red,
-    },
-    blue: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Blue,
-    },
-    green: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Green,
-    },
-    pink: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Pink,
-    },
-    orange: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Orange,
-    },
-    yellow: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Yellow,
-    },
-    black: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Black,
-    },
-    white: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: White,
-    },
-    purple: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Purple,
-    },
-    brown: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Brown,
-    },
-    cyan: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Cyan,
-    },
-    lime: {
-      isExist: true,
-      isDead: false,
-      isUsedEMRight: false,
-      img: Lime,
-    }
-  });
+  // const [playerState, setPlayertState] = React.useState({
+  //   red: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Red,
+  //   },
+  //   blue: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Blue,
+  //   },
+  //   green: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Green,
+  //   },
+  //   pink: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Pink,
+  //   },
+  //   orange: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Orange,
+  //   },
+  //   yellow: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Yellow,
+  //   },
+  //   black: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Black,
+  //   },
+  //   white: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: White,
+  //   },
+  //   purple: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Purple,
+  //   },
+  //   brown: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Brown,
+  //   },
+  //   cyan: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Cyan,
+  //   },
+  //   lime: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Lime,
+  //   }
+  // });
 
 
   /* 
@@ -192,25 +192,9 @@ function Players(props) {
   };
   const playerColorList = Object.keys(playerColorImageList);
 
-  // 参加有無に関する記述
-
-  // /* 状態生成 */
-  // const [isExistPlayer, setIsExistPlayer] = React.useState({
-  //   red: true,
-  //   blue: true,
-  //   green: true,
-  //   pink: true,
-  //   orange: true,
-  //   yellow: true,
-  //   black: true,
-  //   white: true,
-  //   purple: true,
-  //   brown: true,
-  //   cyan: true,
-  //   lime: true
-  // });
-
-
+  /* 
+  参加有無に関する記述
+  */
   // isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
   const generateCurrentExistPlayer = () => {
     
@@ -238,9 +222,8 @@ function Players(props) {
 
   const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
   console.log(currentExistPlayerList);
+
   // 現参加者リスト
-  // 参加者の状態の元は状態で管理しており、この配列は処理をしやすくするために作成しただけなのでこれは状態として扱わなくて良い。
-  // SetPlayerColorList(generateCurrentExistPlayer());
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
