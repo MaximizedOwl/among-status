@@ -11,9 +11,9 @@ const Basic = () => {
                 現在記録・利用できる情報は下記のとおりです。
             </Typography>
             <Typography variant="body1" color="textSecondary" align="left">- どのプレイヤーが参加しているのかの設定</Typography>
-            <Typography variant="body1" color="textSecondary" align="left">- キルクールダウンタイム経過の設定と通知（開発中）</Typography>
+            <Typography variant="body1" color="textSecondary" align="left">- キルクールダウンタイムの設定と経過通知（開発中）</Typography>
             <Typography variant="body1" color="textSecondary" align="left">- プレイヤーの生死の記録</Typography>
-            <Typography variant="body1" color="textSecondary" align="left">- 緊急会議権の利用の記録</Typography>
+            <Typography variant="body1" color="textSecondary" align="left">- 緊急会議権の利用有無の記録</Typography>
             <Typography variant="body1" color="textSecondary" align="left">- インポスター疑惑の度合いの記録</Typography>
             <Typography variant="body1" color="textSecondary" align="left">- マップの閲覧</Typography>
 
