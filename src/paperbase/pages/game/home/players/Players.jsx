@@ -141,19 +141,6 @@ function Players(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-
-    } if (event.target.name === 'isExistPlayer') {
-
-      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
-
-      setIsExistPlayer({ ...isExistPlayer, [event.target.value]: event.target.checked });
-
-      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
-
-      // 現在の参加プレイヤーを更新
-      setCurrentExistPlayerList(generateCurrentExistPlayer);
-
-      console.log('CurrentExistPlayer is ... ' + currentExistPlayerList +' .');
     } else {
       
     }
@@ -190,24 +177,6 @@ function Players(props) {
         <PlayerSlider />
       </Grid>
     </Grid>
-  );
-
-  const isExistPlayerBlock = playerColorList.map((color) => 
-
-      <Grid container alignItems="center" justify="center">
-        <Grid item xs>
-          <img src={playerColorImageList[color]}/>
-        </Grid>
-        <Grid item xs>
-          <Switch                  
-            checked={isExistPlayer[color]}
-            onChange={handleChange}
-            color="primary"
-            name="isExistPlayer"
-            value={color}
-          />
-        </Grid>
-      </Grid>
   );
 
   return (
