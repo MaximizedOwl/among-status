@@ -46,12 +46,14 @@ function a11yProps(index) {
   };
 }
 function Map(props) {
-  const { classes } = props;
+  const {
+    classes,
+    map,
+    setMap
+  } = props;
 
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event, newMap) => {
+    setMap(newMap);
   };
 
   return (
@@ -59,7 +61,7 @@ function Map(props) {
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
         <Tabs
-          value={value}
+          value={map}
           onChange={handleChange}
           aria-label="simple tabs example"
           indicatorColor="green"
@@ -75,17 +77,17 @@ function Map(props) {
         </Toolbar>
       </AppBar>
       <div className={classes.contentWrapper}>
-      <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <img src={TheSkeld} art={value} className={classes.map}/>
+      <TabPanel value={map} index={0} className={classes.mapPanel}>
+        <img src={TheSkeld} art={map} className={classes.map}/>
       </TabPanel>
-      <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <img src={MiraHQ} art={value} className={classes.map}/>
+      <TabPanel value={map} index={1} className={classes.mapPanel}>
+        <img src={MiraHQ} art={map} className={classes.map}/>
       </TabPanel>
-      <TabPanel value={value} index={2} className={classes.mapPanel}>
-        <img src={Polus} art={value} className={classes.map}/>
+      <TabPanel value={map} index={2} className={classes.mapPanel}>
+        <img src={Polus} art={map} className={classes.map}/>
       </TabPanel>
-      <TabPanel value={value} index={3} className={classes.mapPanel}>
-        <img src={TheAirship} art={value} className={classes.map}/>
+      <TabPanel value={map} index={3} className={classes.mapPanel}>
+        <img src={TheAirship} art={map} className={classes.map}/>
       </TabPanel>
        </div>
     </Paper>

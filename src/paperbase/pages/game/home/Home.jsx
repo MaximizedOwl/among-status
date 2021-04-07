@@ -204,6 +204,9 @@ function Home(props) {
     lime: false
   });
 
+  /* Mapタブで選択しているマップの状態 */
+  const [map, setMap] = React.useState(0);
+
   return (
     <React.Fragment>
       <AppBar color="primary" position="sticky" elevation={0}>
@@ -300,11 +303,13 @@ function Home(props) {
           setIsDead={setIsDead}
           isUsedEMRight={isUsedEMRight}
           setIsUsedEMRight={setIsUsedEMRight}
-
         />
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
-        <Map />
+        <Map
+          map={map}
+          setMap={setMap}
+        />
       </TabPanel>
       </main>
     </React.Fragment>
