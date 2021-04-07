@@ -147,7 +147,7 @@ function Usage(props) {
       >
         <Tabs value={value} onChange={handleChange} textColor="inherit">
           <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="Usage" {...a11yProps(1)} />
+          <Tab textColor="inherit" label="Others" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <main className={classes.main}>
