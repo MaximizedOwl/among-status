@@ -17,7 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Top from './top/Top';
+import Site from './site/Site';
 import TabSecond from './tabSecond/TabSecond';
 
 
@@ -146,14 +146,14 @@ function About(props) {
         elevation={0}
       >
         <Tabs value={value} onChange={handleChange} textColor="inherit">
-          <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="About" {...a11yProps(1)} />
+          <Tab textColor="inherit" label="Site" {...a11yProps(0)} />
+          <Tab textColor="inherit" label="Others" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <main className={classes.main}>
           
       <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Top />
+        <Site />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
         <TabSecond />
