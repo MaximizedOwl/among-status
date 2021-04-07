@@ -65,14 +65,90 @@ function Home(props) {
   const { classes, onDrawerToggle } = props;
 
   /* 
-    Tabの制御と状態管理
+    タブの制御と状態管理
   */
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-    // 参加有無に関する記述
+  // ユーザー総合状態
+  // const [playerState, setPlayertState] = React.useState({
+  //   red: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Red,
+  //   },
+  //   blue: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Blue,
+  //   },
+  //   green: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Green,
+  //   },
+  //   pink: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Pink,
+  //   },
+  //   orange: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Orange,
+  //   },
+  //   yellow: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Yellow,
+  //   },
+  //   black: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Black,
+  //   },
+  //   white: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: White,
+  //   },
+  //   purple: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Purple,
+  //   },
+  //   brown: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Brown,
+  //   },
+  //   cyan: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Cyan,
+  //   },
+  //   lime: {
+  //     isExist: true,
+  //     isDead: false,
+  //     isUsedEMRight: false,
+  //     img: Lime,
+  //   }
+  // });
+
+  // 参加有無に関する記述
 
   /* 状態生成 */
   const [isExistPlayer, setIsExistPlayer] = React.useState({
@@ -90,7 +166,43 @@ function Home(props) {
     lime: true
   });
 
+    /* 
+    生死に関する状態
+    キル、追放に関わらず、死亡していたらtrue
+  */
+    const [isDead, setIsDead] = React.useState({
+      red: false,
+      blue: false,
+      green: false,
+      pink: false,
+      orange: false,
+      yellow: false,
+      black: false,
+      white: false,
+      purple: false,
+      brown: false,
+      cyan: false,
+      lime: false
+    });
 
+  /* 
+    緊急会議権の使用に関する状態
+    使用したらtrue
+  */
+  const [isUsedEMRight, setIsUsedEMRight] = React.useState({
+    red: false,
+    blue: false,
+    green: false,
+    pink: false,
+    orange: false,
+    yellow: false,
+    black: false,
+    white: false,
+    purple: false,
+    brown: false,
+    cyan: false,
+    lime: false
+  });
 
   return (
     <React.Fragment>
@@ -175,10 +287,21 @@ function Home(props) {
       <main className={classes.main}>
           
       <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Top isExistPlayer={isExistPlayer} setIsExistPlayer={setIsExistPlayer}/>
+        <Top
+          isExistPlayer={isExistPlayer}
+          setIsExistPlayer={setIsExistPlayer}
+        />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <Players isExistPlayer={isExistPlayer} setIsExistPlayer={setIsExistPlayer}/>
+        <Players
+          isExistPlayer={isExistPlayer}
+          setIsExistPlayer={setIsExistPlayer}
+          isDead={isDead}
+          setIsDead={setIsDead}
+          isUsedEMRight={isUsedEMRight}
+          setIsUsedEMRight={setIsUsedEMRight}
+
+        />
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
         <Map />

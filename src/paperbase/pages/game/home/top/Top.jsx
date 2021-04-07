@@ -27,8 +27,6 @@ import Cyan from '../../../../../img/players/cyan.svg';
 import Lime from '../../../../../img/players/lime.svg';
 
 
-
-
 const styles = (theme) => ({
   paper: {
     maxWidth: 936,

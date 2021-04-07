@@ -58,122 +58,16 @@ function Players(props) {
   /* 
     全体のprops
   */
-  const { classes, isExistPlayer, setIsExistPlayer } = props;
+  const {
+    classes,
+    isExistPlayer,
+    setIsExistPlayer,
+    isDead,
+    setIsDead,
+    isUsedEMRight,
+    setIsUsedEMRight
+  } = props;
 
-  // ユーザー総合状態（）
-  // const [playerState, setPlayertState] = React.useState({
-  //   red: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Red,
-  //   },
-  //   blue: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Blue,
-  //   },
-  //   green: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Green,
-  //   },
-  //   pink: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Pink,
-  //   },
-  //   orange: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Orange,
-  //   },
-  //   yellow: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Yellow,
-  //   },
-  //   black: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Black,
-  //   },
-  //   white: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: White,
-  //   },
-  //   purple: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Purple,
-  //   },
-  //   brown: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Brown,
-  //   },
-  //   cyan: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Cyan,
-  //   },
-  //   lime: {
-  //     isExist: true,
-  //     isDead: false,
-  //     isUsedEMRight: false,
-  //     img: Lime,
-  //   }
-  // });
-
-
-  /* 
-    生死に関する状態
-    キル、追放に関わらず、死亡していたらtrue
-  */
-    const [isDead, setIsDead] = React.useState({
-      red: false,
-      blue: false,
-      green: false,
-      pink: false,
-      orange: false,
-      yellow: false,
-      black: false,
-      white: false,
-      purple: false,
-      brown: false,
-      cyan: false,
-      lime: false
-    });
-
-  /* 
-    緊急会議権の使用に関する状態
-    使用したらtrue
-  */
-  const [isUsedEMRight, setIsUsedEMRight] = React.useState({
-    red: false,
-    blue: false,
-    green: false,
-    pink: false,
-    orange: false,
-    yellow: false,
-    black: false,
-    white: false,
-    purple: false,
-    brown: false,
-    cyan: false,
-    lime: false
-  });
 
   // プレイヤーColorの配列
   const playerColorImageList = {
@@ -300,7 +194,6 @@ function Players(props) {
 
   const isExistPlayerBlock = playerColorList.map((color) => 
 
-      // <React.Fragment>
       <Grid container alignItems="center" justify="center">
         <Grid item xs>
           <img src={playerColorImageList[color]}/>
@@ -315,7 +208,6 @@ function Players(props) {
           />
         </Grid>
       </Grid>
-      //  </React.Fragment>; 
   );
 
   return (
@@ -350,20 +242,12 @@ function Players(props) {
 
       {/* 
         メイン情報表示部
+        プレイヤー12色のブロック
       */}
       <div className={classes.contentWrapper}>
-          {/* 
-            仮の参加者変更ボタンゾーン
-          */}
-
-          {/* <Grid container alignItems="center" justify="center"> */}
-            {/* プレイヤー12色のブロック */}
-          {/* {isExistPlayerBlock} */}
-          {/* </Grid> */}
-          <Grid container alignItems="center" justify="center">
-            {playerBlock}
-          </Grid>
-
+        <Grid container alignItems="center" justify="center">
+          {playerBlock}
+        </Grid>
       </div>
     </Paper>
   );
