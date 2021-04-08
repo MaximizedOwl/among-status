@@ -61,11 +61,13 @@ function Players(props) {
   const {
     classes,
     isExistPlayer,
-    setIsExistPlayer,
+    // setIsExistPlayer,
     isDead,
     setIsDead,
     isUsedEMRight,
-    setIsUsedEMRight
+    setIsUsedEMRight,
+    suspiciousness,
+    setSuspiciousness
   } = props;
 
 
@@ -174,7 +176,11 @@ function Players(props) {
         />
       </Grid>
       <Grid item xs={6}>
-        <PlayerSlider />
+        <PlayerSlider
+          color={color}
+          suspiciousness={suspiciousness}
+          setSuspiciousness={setSuspiciousness}
+        />
       </Grid>
     </Grid>
   );

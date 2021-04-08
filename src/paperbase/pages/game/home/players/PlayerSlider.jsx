@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles({
@@ -9,54 +8,69 @@ const useStyles = makeStyles({
     },
   });
   
-  function valuetext(value) {
-    return `${value}°C`;
-  }
-  
 
-const PlayerSlider = () => {
+const PlayerSlider = (props) => {
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    const marks = [
-        {
-          value: 0,
-          label: 'Clue',
-        },
-        {
-          value: 25,
-          label: 'Clue...?',
-        },
-        {
-          value: 50,
-          label: '?????',
-        },
-        {
-          value: 75,
-          label: 'Imposter...?',
-        },
-        {
-            value: 100,
-            label: 'Imposter',
-        },
-      ];
+  const {
+    color,
+    suspiciousness,
+    setSuspiciousness,
+  } = props;
 
-    return (
-        <div className={classes.root}>
-            <Slider
-                defaultValue={50}
-                getAriaValueText={valuetext}
-                aria-labelledby="discrete-slider"
-                valueLabelDisplay="auto"
-                step={25}
-                // marks={marks}
-                min={0}
-                max={100}
-                // disabled
-                // color="black"
-            />
-        </div>
-    );
+  const handleChange = (event, newValue) => {
+
+    console.log([event.target]);
+    setSuspiciousness({...suspiciousness, [color]: newValue});
+
+    /* 
+      これなら動く
+      setSuspiciousness({...suspiciousness, red: newValue});
+    */
+    
+  };
+
+
+  /* 目盛り */
+  // const marks = [
+  //     {
+  //       value: 0,
+  //       label: 'Clue',
+  //     },
+  //     {
+  //       value: 25,
+  //       label: 'Clue...?',
+  //     },
+  //     {
+  //       value: 50,
+  //       label: '?????',
+  //     },
+  //     {
+  //       value: 75,
+  //       label: 'Imposter...?',
+  //     },
+  //     {
+  //         value: 100,
+  //         label: 'Imposter',
+  //     },
+  //   ];
+
+  return (
+      <div className={classes.root}>
+          <Slider
+              onChange={handleChange}
+              value={suspiciousness[color]}
+              // value={50}
+              aria-labelledby="discrete-slider"
+              valueLabelDisplay="auto"
+              step={25}
+              min={0}
+              max={100}
+              name={color}
+          />
+      </div>
+  );
 };
 
 export default PlayerSlider;

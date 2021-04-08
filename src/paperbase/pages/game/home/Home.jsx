@@ -204,6 +204,24 @@ function Home(props) {
     lime: false
   });
 
+  /* 
+  スライダーの値
+*/
+const [suspiciousness, setSuspiciousness] = React.useState({
+  red: 50,
+  blue: 50,
+  green: 50,
+  pink: 50,
+  orange: 50,
+  yellow: 50,
+  black: 50,
+  white: 50,
+  purple: 50,
+  brown: 50,
+  cyan: 50,
+  lime: 50
+});
+
   /* Mapタブで選択しているマップの状態 */
   const [map, setMap] = React.useState(0);
 
@@ -298,11 +316,13 @@ function Home(props) {
       <TabPanel value={value} index={1} className={classes.mapPanel}>
         <Players
           isExistPlayer={isExistPlayer}
-          setIsExistPlayer={setIsExistPlayer}
+          // setIsExistPlayer={setIsExistPlayer}
           isDead={isDead}
           setIsDead={setIsDead}
           isUsedEMRight={isUsedEMRight}
           setIsUsedEMRight={setIsUsedEMRight}
+          suspiciousness={suspiciousness}
+          setSuspiciousness={setSuspiciousness}
         />
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
