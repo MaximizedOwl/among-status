@@ -21,11 +21,9 @@ const PlayerSlider = (props) => {
 
   const handleChange = (event, newValue) => {
 
-    console.log([event.target]);
     setSuspiciousness({...suspiciousness, [color]: newValue});
     
   };
-
 
   /* 目盛り */
   // const marks = [
