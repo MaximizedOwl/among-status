@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/material-ui-paperbase-demo/static/js/main.aaeec9d0.chunk.js",
-    "main.js.map": "/material-ui-paperbase-demo/static/js/main.aaeec9d0.chunk.js.map",
+    "main.js": "/material-ui-paperbase-demo/static/js/main.d5e856e2.chunk.js",
+    "main.js.map": "/material-ui-paperbase-demo/static/js/main.d5e856e2.chunk.js.map",
     "runtime-main.js": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js",
     "runtime-main.js.map": "/material-ui-paperbase-demo/static/js/runtime-main.881cbafd.js.map",
     "static/js/2.d9cb5f6f.chunk.js": "/material-ui-paperbase-demo/static/js/2.d9cb5f6f.chunk.js",
@@ -32,6 +32,6 @@
   "entrypoints": [
     "static/js/runtime-main.881cbafd.js",
     "static/js/2.d9cb5f6f.chunk.js",
-    "static/js/main.aaeec9d0.chunk.js"
+    "static/js/main.d5e856e2.chunk.js"
   ]
 }
