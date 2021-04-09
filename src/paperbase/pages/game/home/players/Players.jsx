@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
-import Switch from '@material-ui/core/Switch';
 
 /* 
   画像
@@ -28,6 +27,7 @@ import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_
 import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
+import { Button, Typography } from '@material-ui/core';
 
 
 const styles = (theme) => ({
@@ -67,11 +67,14 @@ function Players(props) {
     isUsedEMRight,
     setIsUsedEMRight,
     suspiciousness,
-    setSuspiciousness
+    setSuspiciousness,
+    killCooldownTime
   } = props;
 
 
-  // プレイヤーColorの配列
+  /* 
+    プレイヤーColorの配列
+  */
   const playerColorImageList = {
     red: Red,
     blue: Blue,
@@ -86,7 +89,7 @@ function Players(props) {
     cyan: Cyan,
     lime: Lime
   };
-  const playerColorList = Object.keys(playerColorImageList);
+  // const playerColorList = Object.keys(playerColorImageList);
 
   /* 
   参加有無に関する記述
@@ -116,11 +119,11 @@ function Players(props) {
     return newExistPlayerList;
   };
 
+  // 現参加者リスト
   const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
   console.log(currentExistPlayerList);
 
-  // 現参加者リスト
-
+  
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     会議権使用状態と生死状態のどちらでも利用可能
@@ -146,6 +149,34 @@ function Players(props) {
     } else {
       
     }
+  };
+
+  /* 
+    キルクールダウンタイム関連
+  */
+ // 状態の初期化 
+  const [currentKillCooldwonTime, setCurrentLillCooldwonTime] = React.useState(killCooldownTime);
+
+  // カウントダウン処理
+  const killCooldwonTimeCountDown = () => {
+
+    console.log(currentKillCooldwonTime);
+
+    if (currentKillCooldwonTime != null) {
+      setInterval(() => {
+        setCurrentLillCooldwonTime(currentKillCooldwonTime - 1);
+
+        if (currentKillCooldwonTime < 0) {
+          clearInterval(killCooldwonTimeCountDown);
+        }
+
+      }, 1000);
+    }
+  };
+
+  // カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理
+  const resetKillCooldwonTime = () => {
+    setCurrentLillCooldwonTime(killCooldownTime);
   };
 
   /* 
@@ -186,45 +217,120 @@ function Players(props) {
   );
 
   return (
-
-    <Paper className={classes.paper}>
-
+    <React.Fragment>
+      
       {/* 
-        上側AppBar
+        時間経過・通知関連
       */}
-      <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
-        <Toolbar>
-            <Grid container={12} alignItems="center" justify="center">
-              <Grid item xs={2}>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={GhostIcon} alt="Ghost" className={classes.img}/>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
-              </Grid>
-              <Grid item xs={2}>
-              </Grid>
-              <Grid item xs={2}>
-                <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
-              </Grid>
+      <Paper className={classes.paper}>
+        <div className={classes.contentWrapper}>
+          
+          <h3>Kill Cooldown Time Countdown</h3>
+          
+          <Grid container spacing={3} alignItems="center" justify="flex-start">
+            
+            <Grid item>
+              <Typography>{currentKillCooldwonTime}</Typography>
             </Grid>
-        </Toolbar>
-      </AppBar>
+            {/* <Grid container xs={4} spacing={2}  alignItems="flex-start" justify="center"> */}
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size='small'
+                  onClick={killCooldwonTimeCountDown}
+                >
+                Start
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size='small'
+                  onClick={resetKillCooldwonTime}
+                >
+                Reset
+                </Button>
+              </Grid>
+            {/* </Grid> */}
+          </Grid>
+        </div>
+      </Paper>
+
+      <br />
 
       {/* 
-        メイン情報表示部
-        プレイヤー12色のブロック
+        プレイヤー関連
       */}
-      <div className={classes.contentWrapper}>
-        <Grid container alignItems="center" justify="center">
-          {playerBlock}
-        </Grid>
-      </div>
-    </Paper>
+      <Paper className={classes.paper}>
+        {/* 
+          上側AppBar
+        */}
+        <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
+          <Toolbar>
+              <Grid container={12} alignItems="center" justify="center">
+                <Grid item xs={2}>
+                </Grid>
+                <Grid item xs={2}>
+                  <img src={GhostIcon} alt="Ghost" className={classes.img}/>
+                </Grid>
+                <Grid item xs={2}>
+                  <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
+                </Grid>
+                <Grid item xs={2}>
+                  <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
+                </Grid>
+                <Grid item xs={2}>
+                </Grid>
+                <Grid item xs={2}>
+                  <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
+                </Grid>
+              </Grid>
+          </Toolbar>
+        </AppBar>
+
+        {/* 
+          メイン情報表示部
+          プレイヤー12色のブロック
+        */}
+        <div className={classes.contentWrapper}>
+          <Grid container alignItems="center" justify="center">
+            {playerBlock}
+          </Grid>
+        </div>
+      </Paper>
+      
+      <br />
+
+      {/* 
+        NewGameボタン
+      */}
+      <Paper className={classes.paper}>
+        <div className={classes.contentWrapper}>
+          <Grid container={12} alignItems="center" justify="center">
+            <Grid item xs={2}>
+            <Typography>a</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>i</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>u</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>e</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>o</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography>ka</Typography>
+            </Grid>
+          </Grid>
+        </div>
+      </Paper>
+    </React.Fragment>
   );
 }
 

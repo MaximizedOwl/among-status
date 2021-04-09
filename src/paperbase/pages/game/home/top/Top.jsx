@@ -52,38 +52,14 @@ const styles = (theme) => ({
 
 function Top(props) {
 
-  const { classes, isExistPlayer, setIsExistPlayer } = props;
-
-  /* 
-    キルクールダウンタイムの時間に関する記述
-  */
-
-  // 状態生成
-  const [killCooldown, setKillCooldown] = React.useState('');
-
-  // キルクールタイム時間の配列を作成
-  const createKillCooldownTimeList = () => {
-  
-    const minKillCooldownTime = 10;
-  
-    let TimeList = [];
-    let currentNum = minKillCooldownTime; 
-    
-    // 2.5ずつ増えながら10から60を配列に入れる
-    for (let index = 0; index < 21; index++) {
-  
-      TimeList.push(currentNum);
-  
-      currentNum = currentNum + 2.5;
-    }
-    
-    // 最低値10、最高値60の2.5刻みで増加している配列を返す
-    return TimeList;
-  };
-
-  // わかりやすいように一度定数に入れる
-  const killCooldownTimeList = createKillCooldownTimeList();
-
+  const { 
+    classes,
+    isExistPlayer,
+    setIsExistPlayer,
+    killCooldownTime,
+    setKillCooldownTime,
+    killCooldownTimeList
+  } = props;
 
   /* 
     プレイヤーColorの配列
@@ -110,11 +86,11 @@ function Top(props) {
   */
   const handleChange = (event) => {
     
-    if (event.target.name === 'killCooldown') {
+    if (event.target.name === 'killCooldownTime') {
 
       // console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
 
-      setKillCooldown(event.target.value);
+      setKillCooldownTime(event.target.value);
 
       // console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
@@ -189,19 +165,21 @@ function Top(props) {
 
 
   return (
+    <React.Fragment>
+
+    {/* 
+        キルクールダウンの状態
+    */}
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
 
-      {/* 
-        キルクールダウンの状態
-      */}
       <h3>Kill Cooldown Time(s)</h3>
       <FormControl variant="outlined" className={classes.formControl}>
         <Select
-          value={killCooldown}
+          value={killCooldownTime}
           onChange={handleChange}
-          label="KillCooldown"
-          name='killCooldown'
+          label="KillCooldownTime"
+          name='killCooldownTime'
           MenuProps={MenuProps}
         >
         {killCooldownTimeList.map((time) =>
@@ -216,11 +194,18 @@ function Top(props) {
       </FormControl>
       
       {/* デバッグ用 */}
-      <Typography>{killCooldown.toString()}</Typography>
+      <Typography>{killCooldownTime.toString()}</Typography>
+      
+      </div>
+    </Paper>
 
-      {/* 
+    <br />
+
+    {/* 
         プレイヤーの参加状態
-      */}
+    */}
+    <Paper className={classes.paper}>
+      <div className={classes.contentWrapper}>
 
       <h3>Player On/Off</h3> 
         {/* プレイヤー12色のブロック */}
@@ -234,6 +219,7 @@ function Top(props) {
         </Grid>
       </div>
     </Paper>
+    </React.Fragment>
   );
 }
 

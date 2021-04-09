@@ -148,8 +148,36 @@ function Home(props) {
   //   }
   // });
 
-  // 参加有無に関する記述
+  /* 
+    キルクールダウンタイムの時間に関する記述
+  */
+  // 状態生成
+  const [killCooldownTime, setKillCooldownTime] = React.useState('');
 
+  // キルクールタイム時間の配列を作成
+  const createKillCooldownTimeList = () => {
+  
+    const minKillCooldownTime = 10;
+  
+    let TimeList = [];
+    let currentNum = minKillCooldownTime; 
+    
+    // 2.5ずつ増えながら10から60を配列に入れる
+    for (let index = 0; index < 21; index++) {
+  
+      TimeList.push(currentNum);
+  
+      currentNum = currentNum + 2.5;
+    }
+    
+    // 最低値10、最高値60の2.5刻みで増加している配列を返す
+    return TimeList;
+  };
+
+  // わかりやすいように一度定数に入れる
+  const killCooldownTimeList = createKillCooldownTimeList();
+
+  // 参加有無に関する記述
   /* 状態生成 */
   const [isExistPlayer, setIsExistPlayer] = React.useState({
     red: true,
@@ -311,6 +339,9 @@ const [suspiciousness, setSuspiciousness] = React.useState({
         <Top
           isExistPlayer={isExistPlayer}
           setIsExistPlayer={setIsExistPlayer}
+          killCooldownTime={killCooldownTime}
+          setKillCooldownTime={setKillCooldownTime}
+          killCooldownTimeList={killCooldownTimeList}
         />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
@@ -323,6 +354,7 @@ const [suspiciousness, setSuspiciousness] = React.useState({
           setIsUsedEMRight={setIsUsedEMRight}
           suspiciousness={suspiciousness}
           setSuspiciousness={setSuspiciousness}
+          killCooldownTime={killCooldownTime}
         />
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.mapPanel}>
