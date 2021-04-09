@@ -204,7 +204,7 @@ function Home(props) {
     lime: false
   });
 
-  /* 
+/* 
   スライダーの値
 */
 const [suspiciousness, setSuspiciousness] = React.useState({

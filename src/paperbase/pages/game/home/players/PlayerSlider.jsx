@@ -23,11 +23,6 @@ const PlayerSlider = (props) => {
 
     console.log([event.target]);
     setSuspiciousness({...suspiciousness, [color]: newValue});
-
-    /* 
-      これなら動く
-      setSuspiciousness({...suspiciousness, red: newValue});
-    */
     
   };
 
@@ -61,7 +56,6 @@ const PlayerSlider = (props) => {
           <Slider
               onChange={handleChange}
               value={suspiciousness[color]}
-              // value={50}
               aria-labelledby="discrete-slider"
               valueLabelDisplay="auto"
               step={25}
