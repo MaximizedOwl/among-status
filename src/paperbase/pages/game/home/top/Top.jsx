@@ -193,9 +193,6 @@ function Top(props) {
         </Select>
       </FormControl>
       
-      {/* デバッグ用 */}
-      <Typography>{killCooldownTime.toString()}</Typography>
-      
       </div>
     </Paper>
 
