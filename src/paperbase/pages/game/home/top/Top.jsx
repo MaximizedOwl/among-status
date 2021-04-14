@@ -1,31 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
 import Paper from '@material-ui/core/Paper';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
-
-/* 
-  画像
-*/
-import Red from '../../../../../img/players/red.svg';
-import Blue from '../../../../../img/players/blue.svg';
-import Green from '../../../../../img/players/green.svg';
-import Pink from '../../../../../img/players/pink.svg';
-import Orange from '../../../../../img/players/orange.svg';
-import Yellow from '../../../../../img/players/yellow.svg';
-import Black from '../../../../../img/players/black.svg';
-import White from '../../../../../img/players/white.svg';
-import Purple from '../../../../../img/players/purple.svg';
-import Brown from '../../../../../img/players/brown.svg';
-import Cyan from '../../../../../img/players/cyan.svg';
-import Lime from '../../../../../img/players/lime.svg';
-
 
 const styles = (theme) => ({
   paper: {
@@ -54,31 +35,14 @@ function Top(props) {
 
   const { 
     classes,
+    playerColorImageList,
+    playerColorList,
     isExistPlayer,
     setIsExistPlayer,
     killCooldownTime,
     setKillCooldownTime,
     killCooldownTimeList
   } = props;
-
-  /* 
-    プレイヤーColorの配列
-  */
-  const playerColorImageList = {
-    red: Red,
-    blue: Blue,
-    green: Green,
-    pink: Pink,
-    orange: Orange,
-    yellow: Yellow,
-    black: Black,
-    white: White,
-    purple: Purple,
-    brown: Brown,
-    cyan: Cyan,
-    lime: Lime
-  };
-  const playerColorList = Object.keys(playerColorImageList);
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える

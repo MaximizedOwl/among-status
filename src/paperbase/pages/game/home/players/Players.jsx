@@ -7,27 +7,16 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
+import { Button, Typography, TextField } from '@material-ui/core';
 
 /* 
   画像
 */
-import Red from '../../../../../img/players/red.svg';
-import Blue from '../../../../../img/players/blue.svg';
-import Green from '../../../../../img/players/green.svg';
-import Pink from '../../../../../img/players/pink.svg';
-import Orange from '../../../../../img/players/orange.svg';
-import Yellow from '../../../../../img/players/yellow.svg';
-import Black from '../../../../../img/players/black.svg';
-import White from '../../../../../img/players/white.svg';
-import Purple from '../../../../../img/players/purple.svg';
-import Brown from '../../../../../img/players/brown.svg';
-import Cyan from '../../../../../img/players/cyan.svg';
-import Lime from '../../../../../img/players/lime.svg';
 import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_emergency_meeting_7142960.svg';
 import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
-import { Button, Typography } from '@material-ui/core';
+
 
 
 const styles = (theme) => ({
@@ -50,6 +39,9 @@ const styles = (theme) => ({
   img :{
     maxWidth: 50,
     height: 'auto',
+  },
+  killCooldownTimeTextfield :{
+    maxWidth: 70,
   }
 });
 
@@ -60,6 +52,9 @@ function Players(props) {
   */
   const {
     classes,
+    playerInitState,
+    playerColorImageList,
+    playerColorList,
     isExistPlayer,
     // setIsExistPlayer,
     isDead,
@@ -70,26 +65,6 @@ function Players(props) {
     setSuspiciousness,
     killCooldownTime
   } = props;
-
-
-  /* 
-    プレイヤーColorの配列
-  */
-  const playerColorImageList = {
-    red: Red,
-    blue: Blue,
-    green: Green,
-    pink: Pink,
-    orange: Orange,
-    yellow: Yellow,
-    black: Black,
-    white: White,
-    purple: Purple,
-    brown: Brown,
-    cyan: Cyan,
-    lime: Lime
-  };
-  // const playerColorList = Object.keys(playerColorImageList);
 
   /* 
   参加有無に関する記述
@@ -158,25 +133,47 @@ function Players(props) {
   const [currentKillCooldwonTime, setCurrentLillCooldwonTime] = React.useState(killCooldownTime);
 
   // カウントダウン処理
-  const killCooldwonTimeCountDown = () => {
+  // const killCooldwonTimeCountDown = () => {
 
-    console.log(currentKillCooldwonTime);
+  //   console.log(currentKillCooldwonTime);
 
-    if (currentKillCooldwonTime != null) {
-      setInterval(() => {
-        setCurrentLillCooldwonTime(currentKillCooldwonTime - 1);
+  //   React.useEffect(() => {
+  //     if (currentKillCooldwonTime != null) {
+  //       setInterval(() => {
+  //         setCurrentLillCooldwonTime(currentKillCooldwonTime => currentKillCooldwonTime - 0.5); 
+  //       }, 500);
+  //     }
 
-        if (currentKillCooldwonTime < 0) {
-          clearInterval(killCooldwonTimeCountDown);
-        }
+  //     return () => {
+  //       if (currentKillCooldwonTime = 0) {
+  //         clearInterval(killCooldwonTimeCountDown);
+  //       }
+  //     };
 
-      }, 1000);
-    }
-  };
+  //   }, []);
+  // };
+  
 
   // カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理
-  const resetKillCooldwonTime = () => {
-    setCurrentLillCooldwonTime(killCooldownTime);
+  // const resetKillCooldwonTime = () => {
+  //   setCurrentLillCooldwonTime(killCooldownTime);
+  // };
+
+  /* 
+    新規ゲームを始める際のステータスリセットボタン
+    全ての状態に初期値を設定する。
+  */
+
+  const playersStatusReset = () => {
+
+    console.log(playerInitState);
+    console.log(playerInitState.isDead);
+
+    // 初期値設定
+    setIsDead({...isDead, ...playerInitState.isDead});
+    setIsUsedEMRight({...isUsedEMRight, ...playerInitState.isUsedEMRight});
+    setSuspiciousness({...suspiciousness, ...playerInitState.suspiciousness});
+
   };
 
   /* 
@@ -222,21 +219,28 @@ function Players(props) {
       {/* 
         時間経過・通知関連
       */}
-      <Paper className={classes.paper}>
+      {/* <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
           
           <h3>Kill Cooldown Time Countdown</h3>
           
-          <Grid container spacing={3} alignItems="center" justify="flex-start">
+          <Grid container spacing={2} alignItems="center" justify="flex-start">
             
             <Grid item>
-              <Typography>{currentKillCooldwonTime}</Typography>
+              <TextField
+                disabled
+                id="outlined-disabled"
+                value={currentKillCooldwonTime}
+                variant="outlined"
+                size="small"
+                margin="dense"
+                className={classes.killCooldownTimeTextfield}
+              />
             </Grid>
-            {/* <Grid container xs={4} spacing={2}  alignItems="flex-start" justify="center"> */}
               <Grid item>
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   size='small'
                   onClick={killCooldwonTimeCountDown}
                 >
@@ -246,19 +250,18 @@ function Players(props) {
               <Grid item>
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="default"
                   size='small'
                   onClick={resetKillCooldwonTime}
                 >
                 Reset
                 </Button>
               </Grid>
-            {/* </Grid> */}
           </Grid>
         </div>
       </Paper>
 
-      <br />
+      <br /> */}
 
       {/* 
         プレイヤー関連
@@ -292,44 +295,57 @@ function Players(props) {
 
         {/* 
           メイン情報表示部
-          プレイヤー12色のブロック
         */}
         <div className={classes.contentWrapper}>
+          
+          {/* 
+            プレイヤー12色のブロック
+          */}
           <Grid container alignItems="center" justify="center">
             {playerBlock}
+          </Grid>
+          
+          <br />
+          
+          {/* 
+            リセットボタン
+          */}
+          <Grid container xs alignItems="center" justify="center">
+            <Grid item xs>
+            <Button
+                  variant="contained"
+                  color="secondary"
+                  // size='small'
+                  onClick={playersStatusReset}
+                >
+                Status Reset
+                </Button>
+            </Grid>
           </Grid>
         </div>
       </Paper>
       
-      <br />
+      {/* <br /> */}
 
       {/* 
         NewGameボタン
       */}
-      <Paper className={classes.paper}>
+      {/* <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
-          <Grid container={12} alignItems="center" justify="center">
-            <Grid item xs={2}>
-            <Typography>a</Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>i</Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>u</Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>e</Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>o</Typography>
-            </Grid>
-            <Grid item xs={2}>
-              <Typography>ka</Typography>
+          <Grid container xs alignItems="center" justify="center">
+            <Grid item xs>
+            <Button
+                  variant="contained"
+                  color="secondary"
+                  // size='small'
+                  // onClick={killCooldwonTimeCountDown}
+                >
+                Status Reset
+                </Button>
             </Grid>
           </Grid>
         </div>
-      </Paper>
+      </Paper> */}
     </React.Fragment>
   );
 }

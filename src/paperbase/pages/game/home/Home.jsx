@@ -21,6 +21,22 @@ import Top from './top/Top';
 import Players from './players/Players';
 import Map from './map/Map';
 
+/* 
+  画像
+*/
+import Red from '../../../../img/players/red.svg';
+import Blue from '../../../../img/players/blue.svg';
+import Green from '../../../../img/players/green.svg';
+import Pink from '../../../../img/players/pink.svg';
+import Orange from '../../../../img/players/orange.svg';
+import Yellow from '../../../../img/players/yellow.svg';
+import Black from '../../../../img/players/black.svg';
+import White from '../../../../img/players/white.svg';
+import Purple from '../../../../img/players/purple.svg';
+import Brown from '../../../../img/players/brown.svg';
+import Cyan from '../../../../img/players/cyan.svg';
+import Lime from '../../../../img/players/lime.svg';
+
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -72,78 +88,90 @@ function Home(props) {
     setValue(newValue);
   };
 
-  // ユーザー総合状態
-  // const [playerState, setPlayertState] = React.useState({
+  // ユーザー状態　初期値
+  // const [playerState, setPlayerState] = React.useState({
   //   red: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Red,
   //   },
   //   blue: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Blue,
   //   },
   //   green: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Green,
   //   },
   //   pink: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Pink,
   //   },
   //   orange: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Orange,
   //   },
   //   yellow: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Yellow,
   //   },
   //   black: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Black,
   //   },
   //   white: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: White,
   //   },
   //   purple: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Purple,
   //   },
   //   brown: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Brown,
   //   },
   //   cyan: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Cyan,
   //   },
   //   lime: {
   //     isExist: true,
   //     isDead: false,
   //     isUsedEMRight: false,
+  //     suspiciousness: 50,
   //     img: Lime,
   //   }
   // });
@@ -177,6 +205,25 @@ function Home(props) {
   // わかりやすいように一度定数に入れる
   const killCooldownTimeList = createKillCooldownTimeList();
 
+  /* 
+    プレイヤーColorの配列
+  */
+    const playerColorImageList = {
+      red: Red,
+      blue: Blue,
+      green: Green,
+      pink: Pink,
+      orange: Orange,
+      yellow: Yellow,
+      black: Black,
+      white: White,
+      purple: Purple,
+      brown: Brown,
+      cyan: Cyan,
+      lime: Lime
+    };
+  const playerColorList = Object.keys(playerColorImageList);
+
   // 参加有無に関する記述
   /* 状態生成 */
   const [isExistPlayer, setIsExistPlayer] = React.useState({
@@ -194,7 +241,7 @@ function Home(props) {
     lime: true
   });
 
-    /* 
+  /* 
     生死に関する状態
     キル、追放に関わらず、死亡していたらtrue
   */
@@ -248,7 +295,18 @@ const [suspiciousness, setSuspiciousness] = React.useState({
   brown: 50,
   cyan: 50,
   lime: 50
+}); 
+
+/* 
+  初期値の格納
+  主にステータスリセットボタンで利用
+*/
+const [playerInitState, setPlayerInitState] = React.useState({
+  isDead: isDead,
+  isUsedEMRight: isUsedEMRight,
+  suspiciousness: suspiciousness,
 });
+
 
   /* Mapタブで選択しているマップの状態 */
   const [map, setMap] = React.useState(0);
@@ -337,6 +395,8 @@ const [suspiciousness, setSuspiciousness] = React.useState({
           
       <TabPanel value={value} index={0} className={classes.mapPanel}>
         <Top
+          playerColorImageList={playerColorImageList}
+          playerColorList={playerColorList}
           isExistPlayer={isExistPlayer}
           setIsExistPlayer={setIsExistPlayer}
           killCooldownTime={killCooldownTime}
@@ -346,6 +406,9 @@ const [suspiciousness, setSuspiciousness] = React.useState({
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
         <Players
+          playerInitState={playerInitState}
+          playerColorImageList={playerColorImageList}
+          playerColorList={playerColorList}
           isExistPlayer={isExistPlayer}
           // setIsExistPlayer={setIsExistPlayer}
           isDead={isDead}
