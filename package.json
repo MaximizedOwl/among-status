@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build && gh-pages -d build"
   },
-  "homepage": "https://MaximizedOwl.github.io/material-ui-paperbase-demo/",
+  "homepage": "https://material-ui-paperbase-demo.web.app",
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
