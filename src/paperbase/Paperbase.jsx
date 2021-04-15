@@ -22,7 +22,7 @@ function Copyright() {
     <div>
       <Typography variant="body2" color="textSecondary" align="center">
         {'当サイトは個人が運営するAmong Us非公式のファンサイト'}
-        <RouterLink to={'/material-ui-paperbase-demo/about'} >
+        <RouterLink to={'/about'} >
           {'（詳細）'}
         </RouterLink>  
         {'です。'}
