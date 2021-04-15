@@ -106,7 +106,8 @@ function Navigator(props) {
 
   };
 
-  const basePath = '/material-ui-paperbase-demo/';
+  // const basePath = '/material-ui-paperbase-demo/';
+  const basePath = '/';
 
   return (
     <Drawer variant="permanent" {...other}>

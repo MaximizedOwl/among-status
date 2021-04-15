@@ -228,13 +228,16 @@ function Paperbase(props) {
             ページ（ヘッダーとコンテント）のルーティング部分
           */}
           <Switch>
-            <Route exact path="/material-ui-paperbase-demo/" >
+            {/* <Route exact path="/material-ui-paperbase-demo/" > */}
+            <Route exact path="/" >
               <Home onDrawerToggle={handleDrawerToggle} />
             </Route>
-            <Route path="/material-ui-paperbase-demo/usage" >
+            {/* <Route path="/material-ui-paperbase-demo/usage" > */}
+            <Route path="/usage" >
               <Usage onDrawerToggle={handleDrawerToggle} />
             </Route>
-            <Route path="/material-ui-paperbase-demo/about" >
+            {/* <Route path="/material-ui-paperbase-demo/about" > */}
+            <Route path="/about" >
               <About onDrawerToggle={handleDrawerToggle} />
             </Route>
           </Switch>
