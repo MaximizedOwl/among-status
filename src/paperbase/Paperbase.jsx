@@ -10,12 +10,14 @@ import Navigator from './Navigator';
 import Home from './pages/game/home/Home';
 import Usage from './pages/others/usage/Usage';
 import About from './pages/others/about/About';
+import NoMatch from './pages/NoMatch';
 
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
+
 
 function Copyright() {
   return (
@@ -239,6 +241,9 @@ function Paperbase(props) {
             {/* <Route path="/material-ui-paperbase-demo/about" > */}
             <Route path="/about" >
               <About onDrawerToggle={handleDrawerToggle} />
+            </Route>
+            <Route path="*">
+              <NoMatch onDrawerToggle={handleDrawerToggle} />
             </Route>
           </Switch>
           
