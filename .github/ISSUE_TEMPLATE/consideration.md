@@ -1,8 +1,8 @@
 ---
-name: Research
-about: 技術調査を行うためのテンプレート
+name: Consideration
+about: 考察や検討行うためのテンプレート
 title: ''
-labels: research
+labels: consideration
 assignees: MaximizedOwl
 
 ---
