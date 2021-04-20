@@ -32,7 +32,7 @@ function Copyright() {
       <Typography variant="body2" color="textSecondary" align="center">
         {' © '}
         {/* <Link color="inherit" href=""> */}
-        {'Among Us Helper'}
+        {'AU Helper'}
         {/* </Link> */}
         {' '}
         {new Date().getFullYear()}
