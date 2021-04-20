@@ -13,6 +13,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -53,54 +54,57 @@ const NoMatch = (props) => {
     const { classes, onDrawerToggle } = props;
 
     return (
-        <div>
+      <div>
         <AppBar color="primary" position="sticky" elevation={0}>
-        <Toolbar>
-          <Grid container spacing={1} alignItems="center">
-            <Hidden smUp>
+          <Toolbar>
+            <Grid container spacing={1} alignItems="center">
+              <Hidden smUp>
+                <Grid item>
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={onDrawerToggle}
+                    className={classes.menuButton}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Grid>
+              </Hidden>
+              <Grid item xs />
               <Grid item>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={onDrawerToggle}
-                  className={classes.menuButton}
-                >
-                  <MenuIcon />
+                <Link className={classes.link} href="#" variant="body2">
+                  Go to docs
+                </Link>
+              </Grid>
+              <Grid item>
+                <Tooltip title="Alerts • No alerts">
+                  <IconButton color="inherit">
+                    <NotificationsIcon />
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+              <Grid item>
+                <IconButton color="inherit" className={classes.iconButtonAvatar}>
+                  <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
                 </IconButton>
               </Grid>
-            </Hidden>
-            <Grid item xs />
-            <Grid item>
-              <Link className={classes.link} href="#" variant="body2">
-                Go to docs
-              </Link>
             </Grid>
-            <Grid item>
-              <Tooltip title="Alerts • No alerts">
-                <IconButton color="inherit">
-                  <NotificationsIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-            <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-              </IconButton>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-            <main className={classes.main}>
-                <Paper className={classes.paper}>
-                    <div className={classes.contentWrapper}>
-                        <h2>404 Not Found</h2>
-                        <Typography paragraph={true} variant="body1" color="textSecondary" align="center">
-                            お探しのページは見つかりませんでした。
-                        </Typography>
-                    </div>
-                </Paper>
-            </main>
-        </div>
+          </Toolbar>
+        </AppBar>
+        <main className={classes.main}>
+            <Paper className={classes.paper}>
+                <div className={classes.contentWrapper}>
+                    <h2>Not Found</h2>
+                    <Typography paragraph={true} variant="body1" color="textSecondary" align="center">
+                        お探しのページは見つかりませんでした。
+                        <RouterLink to={'/'} >
+                            {'（クリックしてホーム画面へアクセス）'}
+                        </RouterLink>
+                    </Typography>
+                </div>
+            </Paper>
+        </main>
+      </div>
     );
 };
 

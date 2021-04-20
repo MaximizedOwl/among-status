@@ -242,8 +242,8 @@ function Paperbase(props) {
             <Route path="/about" >
               <About onDrawerToggle={handleDrawerToggle} />
             </Route>
-            <Route path="*">
-              <NoMatch onDrawerToggle={handleDrawerToggle} />
+            <Route path="/*">
+              <NoMatch onDrawerToggle={handleDrawerToggle}/>
             </Route>
           </Switch>
           
