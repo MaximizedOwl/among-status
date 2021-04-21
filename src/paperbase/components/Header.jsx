@@ -9,11 +9,12 @@ import ShareIcon from '@material-ui/icons/Share';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from './Alert';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CloseIcon from '@material-ui/icons/Close';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -82,8 +83,6 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-
-
 function Header(props) {
   const { classes, onDrawerToggle, pageName } = props;
 
@@ -95,7 +94,22 @@ function Header(props) {
   };
   const handleClose = () => {
     setOpen(false);
-  };  
+  };
+
+  /* URLコピー完了のスナックバー関連 */
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
+
+  const handleClickSnackbar = () => {
+    setOpenSnackbar(true);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnackbar(false);
+  };
 
   //URLコピー
   const copyUrl = () => {
@@ -105,6 +119,10 @@ function Header(props) {
     navigator.clipboard.writeText(siteURL).then(function() {
       /* clipboard successfully set */
       console.log('success');
+
+      // 成功時の通知スナックバー
+      handleClickSnackbar();
+
     }, function() {
       /* clipboard write failed */
       console.log('failure');
@@ -152,6 +170,12 @@ function Header(props) {
                     <IconButton color="inherit" onClick={copyUrl}> 
                       <LinkIcon />
                     </IconButton>
+                    {/* コピー完了時の表示 */}
+                    <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                      <Alert onClose={handleCloseSnackbar} severity="success">
+                        copy successed!
+                      </Alert>
+                  </Snackbar>
                   </DialogContent>
                 </Dialog>
             </Grid>
