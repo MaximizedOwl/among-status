@@ -97,6 +97,21 @@ function Header(props) {
     setOpen(false);
   };  
 
+  //URLコピー
+  const copyUrl = () => {
+
+    const siteURL = 'https://material-ui-paperbase-demo.web.app/';
+    
+    navigator.clipboard.writeText(siteURL).then(function() {
+      /* clipboard successfully set */
+      console.log('success');
+    }, function() {
+      /* clipboard write failed */
+      console.log('failure');
+    });
+  };
+
+  // シェアのダイアログの領域の調整に関して
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -119,7 +134,7 @@ function Header(props) {
             </Hidden>
             <Grid item xs />
             <Grid item>
-              <Tooltip title="Alerts • No alerts">
+              <Tooltip title="Share">
                 <IconButton color="inherit" onClick={handleClickOpen}>
                   <ShareIcon />
                 </IconButton>
@@ -129,30 +144,17 @@ function Header(props) {
                     Share
                   </DialogTitle>
                   <DialogContent dividers>
-                    {/* 
-                      ToDo: Twitter share
-                    */}
-                    <IconButton color="inherit">
+                    {/* Twitter */}
+                    <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongUsHelper&via=AmongUsHelper&hashtags=AUHelper&text=AU Helper Helping tool your playing for Among Us" target="_blank" rel="nofollow">
                       <TwitterIcon />
                     </IconButton>
-                    {/* 
-                      ToDo: URL copy, and copy success display
-                    */}
-                    <IconButton color="inherit"> 
+                    {/* ToDo: URL copy */}
+                    <IconButton color="inherit" onClick={copyUrl}> 
                       <LinkIcon />
                     </IconButton>
-                    {/* <Typography gutterBottom>
-                      Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                      in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    </Typography> */}
                   </DialogContent>
                 </Dialog>
             </Grid>
-            {/* <Grid item>
-              <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-              </IconButton>
-            </Grid> */}
           </Grid>
         </Toolbar>
       </AppBar>
@@ -170,18 +172,6 @@ function Header(props) {
                 {pageName}
               </Typography>
             </Grid>
-            {/* <Grid item>
-              <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                Web setup
-              </Button>
-            </Grid>
-            <Grid item>
-              <Tooltip title="Help">
-                <IconButton color="inherit">
-                  <HelpIcon />
-                </IconButton>
-              </Tooltip>
-            </Grid> */}
           </Grid>
         </Toolbar>
       </AppBar>
