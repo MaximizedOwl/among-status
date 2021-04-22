@@ -111,7 +111,7 @@ function Header(props) {
     setOpenSnackbar(false);
   };
 
-  //URLコピー
+  /* URLをクリップボードへ貼り付ける処理 */
   const copyUrl = () => {
 
     const siteURL = 'https://material-ui-paperbase-demo.web.app/';
