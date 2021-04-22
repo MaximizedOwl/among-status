@@ -86,16 +86,6 @@ const DialogActions = withStyles((theme) => ({
 function Header(props) {
   const { classes, onDrawerToggle, pageName } = props;
 
-  /* シェアアイコンのダイアログ関連 */
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   /* URLコピー完了のスナックバー関連 */
   const [openSnackbar, setOpenSnackbar] = React.useState(false);
 
@@ -110,6 +100,21 @@ function Header(props) {
 
     setOpenSnackbar(false);
   };
+
+    /* シェアアイコンのダイアログ関連 */
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      // スナックバーが表示されていたら、それも合わせて閉じる
+      if (openSnackbar === true) {
+        setOpenSnackbar(false);
+      }      
+      
+      setOpen(false);
+    };
 
   /* URLをクリップボードへ貼り付ける処理 */
   const copyUrl = () => {
@@ -158,26 +163,26 @@ function Header(props) {
                 </IconButton>
               </Tooltip>
               <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} fullwidth >
-                  <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Share
-                  </DialogTitle>
-                  <DialogContent dividers>
-                    {/* Twitter */}
-                    <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongUsHelper&via=AmongUsHelper&hashtags=AUHelper&text=AU Helper Helping tool your playing for Among Us" target="_blank" rel="nofollow">
-                      <TwitterIcon />
-                    </IconButton>
-                    {/* ToDo: URL copy */}
-                    <IconButton color="inherit" onClick={copyUrl}> 
-                      <LinkIcon />
-                    </IconButton>
-                    {/* コピー完了時の表示 */}
-                    <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-                      <Alert onClose={handleCloseSnackbar} severity="success">
-                        copy successed!
-                      </Alert>
-                  </Snackbar>
-                  </DialogContent>
-                </Dialog>
+                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+                  Share
+                </DialogTitle>
+                <DialogContent dividers>
+                  {/* Twitter */}
+                  <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongUsHelper&via=AmongUsHelper&hashtags=AUHelper&text=AU Helper Helping tool your playing for Among Us" target="_blank" rel="nofollow">
+                    <TwitterIcon />
+                  </IconButton>
+                  {/* ToDo: URL copy */}
+                  <IconButton color="inherit" onClick={copyUrl}> 
+                    <LinkIcon />
+                  </IconButton>
+                </DialogContent>
+                              {/* コピー完了時の表示 */}
+              <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={handleCloseSnackbar}>
+                <Alert onClose={handleCloseSnackbar} severity="success">
+                  copy successed!
+                </Alert>
+              </Snackbar>
+              </Dialog>
             </Grid>
           </Grid>
         </Toolbar>
