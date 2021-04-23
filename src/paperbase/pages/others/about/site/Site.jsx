@@ -39,7 +39,7 @@ function Site(props) {
       <h2>免責事項</h2>
         <Typography variant="body1" color="textSecondary" align="left">
           {'当サイトは個人が運営する非公式のファンサイトです。「Among Us」は、'}
-          <Link color='textSecondary' href='https://www.innersloth.com/index.php'>
+          <Link color='textSecondary' href='https://www.innersloth.com/index.php' target="_blank">
           Innersloth
           </Link>
           {'社様の登録商標です。当サイトは、Innersloth社様、他関連企業様とは一切関係ありません。サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
@@ -50,29 +50,53 @@ function Site(props) {
         <h4>Paperbase</h4>
         <Typography color="textSecondary" align="left">{'Created by Material-UI OSS'}</Typography>
         <Typography color="textSecondary" align="left">
-          <Link color="inherit" href="https://opensource.org/licenses/MIT">
+          <Link color="inherit" href="https://opensource.org/licenses/MIT" target="_blank">
             {'MIT Lisence'}
           </Link>
         </Typography>
 
         <h4>Among Us Game - Line Icon Set</h4>
-        <Typography color="textSecondary" align="left">{'Author: Aireen Ch'}</Typography>
-        <Typography color="textSecondary" align="left">{'Date: 2021/3/24'}</Typography>
-        <Typography color="textSecondary" align="left">{'URL: https://www.behance.net/gallery/116070117/Among-Us-Game-Line-Icon-Set'}</Typography>
+        <Typography color="textSecondary" align="left">
+          {'Author: '}
+          <Link color='textSecondary' href="https://www.behance.net/aireench" target="_blank">
+            {'Aireen Ch'}
+          </Link>
+        </Typography>
+        <Typography color="textSecondary" align="left">
+          {'Date: 2021/3/24'}
+        </Typography>
+        <Typography color="textSecondary" align="left">
+          {'WebSite: '}
+          <Link color='textSecondary' href="https://www.behance.net/gallery/116070117/Among-Us-Game-Line-Icon-Set" target="_blank">
+            {'Among-Us-Game-Line-Icon-Set'}
+          </Link>  
+        </Typography>
 
         <h4>Among Us Icon</h4>
-        <a href="https://iconscout.com/icons/among-us" target="_blank">Among Us Icon</a> by <a href="https://iconscout.com/contributors/sonisokell">Soni Sokell</a> on <a href="https://iconscout.com">Iconscout</a>
+        <Typography color="textSecondary" align="left">
+          {'Author: '}
+          <Link color='textSecondary' href="https://iconscout.com/contributors/sonisokell" target="_blank">
+            {'Soni Sokell'}
+          </Link>  
+        </Typography>
+        <Typography color="textSecondary" align="left">
+          {'Date: Unknown'}
+        </Typography>
+        <Typography color="textSecondary" align="left">
+          {'WebSite: '}
+          <Link color='textSecondary' href="https://iconscout.com/icons/among-us" target="_blank">
+            {'Among Us icons'}
+          </Link>  
+        </Typography>
 
         <h4>マップ画像4種</h4>
         <Typography color="textSecondary" align="left">
-          <Link color='textSecondary' href='https://baskmedia.jp/amongus-japanese-map/'>
+          <Link color='textSecondary' href='https://baskmedia.jp/amongus-japanese-map/' target="_blank">
             {'【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】'}
           </Link>
         </Typography>
-      </div>
+      </div>      
 
-
-      
    </Paper>
   );
 }
