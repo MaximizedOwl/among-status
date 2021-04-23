@@ -173,7 +173,7 @@ const killCooldwonTimeCountDown = () => {
 
 
   /* カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理 */
-  const resetKillCooldwonTime = () => {
+  const resetKillCooldownTime = () => {
     
     if (true) {
       window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
@@ -277,7 +277,7 @@ const killCooldwonTimeCountDown = () => {
                   variant="contained"
                   color="default"
                   size='small'
-                  onClick={resetKillCooldwonTime}
+                  onClick={resetKillCooldownTime}
                 >
                 Reset
                 </Button>
