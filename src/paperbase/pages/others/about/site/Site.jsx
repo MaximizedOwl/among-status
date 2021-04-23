@@ -33,11 +33,16 @@ function Site(props) {
       <div className={classes.contentWrapper}>
       <h2>当サイトについて</h2>
         <Typography variant="body1" color="textSecondary" align="left">
-          {'「Among Us」は、'}
+          {'Among Usをプレイする際の補助となるよう、一個人により制作された非公式のファンサイトです。'}
+        </Typography>
+
+      <h2>免責事項</h2>
+        <Typography variant="body1" color="textSecondary" align="left">
+          {'当サイトは個人が運営する非公式のファンサイトです。「Among Us」は、'}
           <Link color='textSecondary' href='https://www.innersloth.com/index.php'>
           Innersloth
           </Link>
-          {'社様の登録商標です。当サイトは個人が運営する非公式のWebサービスです。Innersloth社様、他関連企業様とは一切関係ありません。サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
+          {'社様の登録商標です。当サイトは、Innersloth社様、他関連企業様とは一切関係ありません。サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
         </Typography>
 
       <h2>権利等の表記（敬称略）</h2>
