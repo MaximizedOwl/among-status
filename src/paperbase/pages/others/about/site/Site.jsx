@@ -63,20 +63,12 @@ function Site(props) {
         <h4>Among Us Icon</h4>
         <a href="https://iconscout.com/icons/among-us" target="_blank">Among Us Icon</a> by <a href="https://iconscout.com/contributors/sonisokell">Soni Sokell</a> on <a href="https://iconscout.com">Iconscout</a>
 
-        <h4>マップ画像（The Skeld、MiraHQ、Polus）</h4>
+        <h4>マップ画像4種</h4>
         <Typography color="textSecondary" align="left">
           <Link color='textSecondary' href='https://baskmedia.jp/amongus-japanese-map/'>
             {'【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】'}
           </Link>
         </Typography>
-
-        <h4>マップ画像（The Airship）</h4>
-        <Typography color="textSecondary" align="left">
-          <Link color='textSecondary' href='https://twitter.com/jinguji777ch/status/1377395749567139845?s=20'>
-            {'アモアス部'}
-          </Link>
-        </Typography>
-
       </div>
 
 

@@ -10,8 +10,5 @@
 - Created by [Soni Sokell](https://iconscout.com/contributors/sonisokell) on [Iconscout](https://iconscout.com/)
             
 
-## マップ画像（The Skeld、MiraHQ、Polus）
+## マップ画像4種
 - 引用元：[【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】](https://baskmedia.jp/amongus-japanese-map/)
-
-## マップ画像（The Airship）
-- 引用元：[アモアス部](https://twitter.com/jinguji777ch/status/1377395749567139845?s=20)
