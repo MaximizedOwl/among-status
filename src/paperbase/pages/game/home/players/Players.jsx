@@ -247,7 +247,7 @@ const killCooldwonTimeCountDown = () => {
       <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
           
-          <h3>Kill Cooldown Time Countdown</h3>
+          <h3>Kill Cooldown Timer</h3>
           
           <Grid container spacing={2} alignItems="center" justify="flex-start">
             
