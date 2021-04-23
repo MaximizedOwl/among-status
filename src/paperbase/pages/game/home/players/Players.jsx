@@ -130,38 +130,63 @@ function Players(props) {
     キルクールダウンタイム関連
   */
  // 状態の初期化 
-  const [currentKillCooldwonTime, setCurrentLillCooldwonTime] = React.useState(killCooldownTime);
+let currentKillCooldwonTime = killCooldownTime;
+
+const killCooldwonTimeCountDown = () => {
+  
+  if (true) {
+    window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
+  }
+
+  return;
 
   // カウントダウン処理
-  // const killCooldwonTimeCountDown = () => {
+  console.log(typeof currentKillCooldwonTime);
+  console.log(currentKillCooldwonTime);
 
-  //   console.log(currentKillCooldwonTime);
+  // 数値未設定時　currentKillCooldwonTimeは文字列型で入ってきている
+  if (currentKillCooldwonTime === '') {
 
-  //   React.useEffect(() => {
-  //     if (currentKillCooldwonTime != null) {
-  //       setInterval(() => {
-  //         setCurrentLillCooldwonTime(currentKillCooldwonTime => currentKillCooldwonTime - 0.5); 
-  //       }, 500);
-  //     }
-
-  //     return () => {
-  //       if (currentKillCooldwonTime = 0) {
-  //         clearInterval(killCooldwonTimeCountDown);
-  //       }
-  //     };
-
-  //   }, []);
-  // };
+    console.log('数値未設定');
+    window.alert('キルクールダウンタイムが設定されていません。Topタブで設定してください。');
   
+  // 数値設定時
+  } else {
+    console.log('カウントダウン開始');
 
-  // カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理
-  // const resetKillCooldwonTime = () => {
-  //   setCurrentLillCooldwonTime(killCooldownTime);
-  // };
+    const calculate = () => {
+      currentKillCooldwonTime = currentKillCooldwonTime - 0.5; 
+    };
+
+    const intervalId = setInterval(() => {
+      
+      calculate();
+      if (currentKillCooldwonTime <= 0) {
+        clearInterval(intervalId);
+      }
+        console.log(currentKillCooldwonTime);
+    }, 500);
+  };
+};
+
+  // React.useEffect(killCooldwonTimeCountDown());
+
+
+  /* カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理 */
+  const resetKillCooldwonTime = () => {
+    
+    if (true) {
+      window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
+    }
+
+    return;
+
+    setCurrentLillCooldwonTime(killCooldownTime);
+  };
 
   /* 
     新規ゲームを始める際のステータスリセットボタン
-    全ての状態に初期値を設定する。
+    プレイヤーに関する全ての状態に初期値を設定する。
   */
 
   const playersStatusReset = () => {
@@ -219,7 +244,7 @@ function Players(props) {
       {/* 
         時間経過・通知関連
       */}
-      {/* <Paper className={classes.paper}>
+      <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
           
           <h3>Kill Cooldown Time Countdown</h3>
@@ -227,15 +252,15 @@ function Players(props) {
           <Grid container spacing={2} alignItems="center" justify="flex-start">
             
             <Grid item>
-              <TextField
-                disabled
-                id="outlined-disabled"
-                value={currentKillCooldwonTime}
-                variant="outlined"
-                size="small"
-                margin="dense"
-                className={classes.killCooldownTimeTextfield}
-              />
+            <TextField
+              disabled
+              id="outlined-disabled"
+              value={currentKillCooldwonTime}
+              variant="outlined"
+              size="small"
+              margin="dense"
+              className={classes.killCooldownTimeTextfield}
+            />
             </Grid>
               <Grid item>
                 <Button
@@ -261,7 +286,7 @@ function Players(props) {
         </div>
       </Paper>
 
-      <br /> */}
+      <br />
 
       {/* 
         プレイヤー関連
