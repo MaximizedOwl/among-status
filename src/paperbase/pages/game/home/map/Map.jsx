@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -36,7 +37,11 @@ const styles = (theme) => ({
     display: 'inline-block',
     width: '100%',
     height: '100%',
-  }
+  },
+  img :{
+    maxWidth: 40,
+    height: 'auto',
+  },
 });
 
 function a11yProps(index) {
@@ -49,14 +54,27 @@ function Map(props) {
   const {
     classes,
     map,
-    setMap
+    setMap,
+    playerColorImageList,
+    playerColorList
   } = props;
 
   const handleChange = (event, newMap) => {
     setMap(newMap);
   };
 
+  /* 
+    プレイヤーのアイコン領域
+  */
+  const playersIcon = playerColorList.map((color) => 
+    
+    <Grid item xs={1}>
+      <img src={playerColorImageList[color]} className={classes.img}/>
+    </Grid>
+  );
+
   return (
+    <React.Fragment>
     <Paper className={classes.paper}>
       <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
         <Toolbar>
@@ -91,6 +109,23 @@ function Map(props) {
       </TabPanel>
        </div>
     </Paper>
+
+    <br />
+
+    {/* 
+        プレイヤーアイコン
+    */}
+      <Paper className={classes.paper}>
+        <div className={classes.contentWrapper}>
+          
+          <h3>Players Icon</h3>
+          
+          <Grid container xs={12} alignItems="center" justify="center">
+            {playersIcon}
+          </Grid>
+        </div>
+      </Paper>
+      </React.Fragment>
   );
 }
 

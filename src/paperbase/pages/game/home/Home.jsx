@@ -360,6 +360,8 @@ const [playerInitState, setPlayerInitState] = React.useState({
         <Map
           map={map}
           setMap={setMap}
+          playerColorImageList={playerColorImageList}
+          playerColorList={playerColorList}
         />
       </TabPanel>
       </main>
