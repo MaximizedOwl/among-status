@@ -42,6 +42,7 @@ const styles = (theme) => ({
   img :{
     maxWidth: 40,
     height: 'auto',
+    cursor: 'grab'
   },
 });
 
@@ -71,13 +72,12 @@ function Map(props) {
   */
   const playersIcon = playerColorList.map((color) => 
     
-    <Grid item xs={1}>
-      {/* <Draggable bounds="parent"> */}
+    <Grid item xs={1}>  
       <Draggable>
         <img src={playerColorImageList[color]} className={classes.img}/>
-      </Draggable>
-
+        </Draggable>    
     </Grid>
+    
   );
 
   return (
