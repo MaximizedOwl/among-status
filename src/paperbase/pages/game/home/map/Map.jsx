@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Draggable from 'react-draggable';
 import TabPanel from '../../../../components/TabPanel';
 import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
@@ -59,6 +60,8 @@ function Map(props) {
     playerColorList
   } = props;
 
+
+
   const handleChange = (event, newMap) => {
     setMap(newMap);
   };
@@ -69,53 +72,64 @@ function Map(props) {
   const playersIcon = playerColorList.map((color) => 
     
     <Grid item xs={1}>
-      <img src={playerColorImageList[color]} className={classes.img}/>
+      {/* <Draggable bounds="parent"> */}
+      <Draggable>
+        <img src={playerColorImageList[color]} className={classes.img}/>
+      </Draggable>
+
     </Grid>
   );
 
   return (
     <React.Fragment>
-    <Paper className={classes.paper}>
-      <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
-        <Toolbar>
-        <Tabs
-          value={map}
-          onChange={handleChange}
-          aria-label="simple tabs example"
-          indicatorColor="green"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="on"
-        >
-          <Tab label="The Skeld" {...a11yProps(0)} />
-          <Tab label="MiraHQ" {...a11yProps(1)} />
-          <Tab label="Polus" {...a11yProps(2)} />
-          <Tab label="The Airship" {...a11yProps(3)} />
-        </Tabs>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.contentWrapper}>
-      <TabPanel value={map} index={0} className={classes.mapPanel}>
-        <img src={TheSkeld} art={map} className={classes.map}/>
-      </TabPanel>
-      <TabPanel value={map} index={1} className={classes.mapPanel}>
-        <img src={MiraHQ} art={map} className={classes.map}/>
-      </TabPanel>
-      <TabPanel value={map} index={2} className={classes.mapPanel}>
-        <img src={Polus} art={map} className={classes.map}/>
-      </TabPanel>
-      <TabPanel value={map} index={3} className={classes.mapPanel}>
-        <img src={TheAirship} art={map} className={classes.map}/>
-      </TabPanel>
-       </div>
-    </Paper>
+      <Paper className={classes.paper}>
+        <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
+          <Toolbar>
+            <Tabs
+              value={map}
+              onChange={handleChange}
+              aria-label="simple tabs example"
+              indicatorColor="green"
+              textColor="primary"
+              variant="scrollable"
+              scrollButtons="on"
+            >
+              <Tab label="The Skeld" {...a11yProps(0)} />
+              <Tab label="MiraHQ" {...a11yProps(1)} />
+              <Tab label="Polus" {...a11yProps(2)} />
+              <Tab label="The Airship" {...a11yProps(3)} />
+            </Tabs>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.contentWrapper}>
+          {/* タブ（マップ）領域 */}
+          <TabPanel value={map} index={0} className={classes.mapPanel}>
+            <img src={TheSkeld} art={map} className={classes.map}/>
+          </TabPanel>
+          <TabPanel value={map} index={1} className={classes.mapPanel}>
+            <img src={MiraHQ} art={map} className={classes.map}/>
+          </TabPanel>
+          <TabPanel value={map} index={2} className={classes.mapPanel}>
+            <img src={Polus} art={map} className={classes.map}/>
+          </TabPanel>
+          <TabPanel value={map} index={3} className={classes.mapPanel}>
+            <img src={TheAirship} art={map} className={classes.map}/>
+          </TabPanel>
+
+          {/* プレイヤーアイコン領域 */}
+          <Grid container xs={12} alignItems="center" justify="center">
+            {playersIcon}
+          </Grid>
+        </div>
+
+      </Paper>
 
     <br />
 
     {/* 
         プレイヤーアイコン
     */}
-      <Paper className={classes.paper}>
+      {/* <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
           
           <h3>Players Icon</h3>
@@ -124,7 +138,7 @@ function Map(props) {
             {playersIcon}
           </Grid>
         </div>
-      </Paper>
+      </Paper> */}
       </React.Fragment>
   );
 }
