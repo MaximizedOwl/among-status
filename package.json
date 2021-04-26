@@ -12,10 +12,11 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/lab": "*",
     "clsx": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-draggable": "^4.4.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "latest"
   },
