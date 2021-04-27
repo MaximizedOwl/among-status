@@ -61,60 +61,10 @@ function Map(props) {
     map,
     setMap,
     playerColorImageList,
-    playerColorList
+    playerColorList,
+    playerIconPosition,
+    setPlayerIconPosition
   } = props;
-
-  const [playerIconPosition, setPlayerIconPosition] = React.useState({
-    red: {
-      x: 0,
-      y: 0,
-    },
-    blue: {
-      x: 0,
-      y: 0,
-    },
-    green: {
-      x: 0,
-      y: 0,
-    },
-    pink: {
-      x: 0,
-      y: 0,
-    },
-    orange: {
-      x: 0,
-      y: 0,
-    },
-    yellow: {
-      x: 0,
-      y: 0,
-    },
-    black: {
-      x: 0,
-      y: 0,
-    },
-    white: {
-      x: 0,
-      y: 0,
-    },
-    purple: {
-      x: 0,
-      y: 0,
-    },
-    brown: {
-      x: 0,
-      y: 0,
-    },
-    cyan: {
-      x: 0,
-      y: 0,
-    },
-    lime: {
-      x: 0,
-      y: 0,
-    },
-  });
-
 
   const handleDrag = (e, data, color) => {
 
@@ -130,6 +80,9 @@ function Map(props) {
         y: data.y,
       }
     });
+
+    console.log(playerIconPosition[color]);
+
 
   };
 

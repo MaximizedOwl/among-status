@@ -296,9 +296,65 @@ const [playerInitState, setPlayerInitState] = React.useState({
   suspiciousness: suspiciousness,
 });
 
+/* 
+  Mapタブで選択しているマップの状態
+*/
+const [map, setMap] = React.useState(0);
 
-  /* Mapタブで選択しているマップの状態 */
-  const [map, setMap] = React.useState(0);
+/* 
+  Mapタブの各アイコンの座標
+*/
+
+const [playerIconPosition, setPlayerIconPosition] = React.useState({
+  red: {
+    x: 0,
+    y: 0,
+  },
+  blue: {
+    x: 0,
+    y: 0,
+  },
+  green: {
+    x: 0,
+    y: 0,
+  },
+  pink: {
+    x: 0,
+    y: 0,
+  },
+  orange: {
+    x: 0,
+    y: 0,
+  },
+  yellow: {
+    x: 0,
+    y: 0,
+  },
+  black: {
+    x: 0,
+    y: 0,
+  },
+  white: {
+    x: 0,
+    y: 0,
+  },
+  purple: {
+    x: 0,
+    y: 0,
+  },
+  brown: {
+    x: 0,
+    y: 0,
+  },
+  cyan: {
+    x: 0,
+    y: 0,
+  },
+  lime: {
+    x: 0,
+    y: 0,
+  },
+});
 
   return (
     <React.Fragment>
@@ -362,6 +418,8 @@ const [playerInitState, setPlayerInitState] = React.useState({
           setMap={setMap}
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}
+          playerIconPosition={playerIconPosition}
+          setPlayerIconPosition={setPlayerIconPosition}
         />
       </TabPanel>
       </main>
