@@ -40,9 +40,12 @@ const styles = (theme) => ({
     height: '100%',
   },
   img :{
+    width: 30,
+    minWidth: 25,
     maxWidth: 40,
     height: 'auto',
-    cursor: 'grab'
+    cursor: 'grab',
+    zIndex: 100
   },
 });
 
@@ -61,7 +64,74 @@ function Map(props) {
     playerColorList
   } = props;
 
+  const [playerIconPosition, setPlayerIconPosition] = React.useState({
+    red: {
+      x: 0,
+      y: 0,
+    },
+    blue: {
+      x: 0,
+      y: 0,
+    },
+    green: {
+      x: 0,
+      y: 0,
+    },
+    pink: {
+      x: 0,
+      y: 0,
+    },
+    orange: {
+      x: 0,
+      y: 0,
+    },
+    yellow: {
+      x: 0,
+      y: 0,
+    },
+    black: {
+      x: 0,
+      y: 0,
+    },
+    white: {
+      x: 0,
+      y: 0,
+    },
+    purple: {
+      x: 0,
+      y: 0,
+    },
+    brown: {
+      x: 0,
+      y: 0,
+    },
+    cyan: {
+      x: 0,
+      y: 0,
+    },
+    lime: {
+      x: 0,
+      y: 0,
+    },
+  });
 
+
+  const handleDrag = (e, data, color) => {
+
+    console.log('start');
+    console.log(e);
+    console.log(data);
+    console.log(color);
+    console.log('end');
+
+    setPlayerIconPosition({...playerIconPosition,
+      [color]: {
+        x: data.x,
+        y: data.y,
+      }
+    });
+
+  };
 
   const handleChange = (event, newMap) => {
     setMap(newMap);
@@ -70,19 +140,27 @@ function Map(props) {
   /* 
     プレイヤーのアイコン領域
   */
-  const playersIcon = playerColorList.map((color) => 
+  const playersIcon = // React.useMemo(() => 
+    
+    playerColorList.map((color) => 
     
     <Grid item xs={1}>  
-      <Draggable>
+      {/* <Draggable bounds='.hoge' position={playerIconPosition[color]}> */}
+      <Draggable
+        position={playerIconPosition[color]}
+        onDrag={(e,data) => handleDrag(e, data, color)}
+      >
         <img src={playerColorImageList[color]} className={classes.img}/>
-        </Draggable>    
+      </Draggable>    
     </Grid>
     
-  );
+    );
+  // ,[0]);
 
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
+        
         <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
           <Toolbar>
             <Tabs
@@ -102,6 +180,7 @@ function Map(props) {
           </Toolbar>
         </AppBar>
         <div className={classes.contentWrapper}>
+          <div className='hoge'>
           {/* タブ（マップ）領域 */}
           <TabPanel value={map} index={0} className={classes.mapPanel}>
             <img src={TheSkeld} art={map} className={classes.map}/>
@@ -119,27 +198,14 @@ function Map(props) {
           {/* プレイヤーアイコン領域 */}
           <Grid container xs={12} alignItems="center" justify="center">
             {playersIcon}
-          </Grid>
+          </Grid>          
+          </div>
         </div>
 
       </Paper>
 
-    <br />
+    </React.Fragment>
 
-    {/* 
-        プレイヤーアイコン
-    */}
-      {/* <Paper className={classes.paper}>
-        <div className={classes.contentWrapper}>
-          
-          <h3>Players Icon</h3>
-          
-          <Grid container xs={12} alignItems="center" justify="center">
-            {playersIcon}
-          </Grid>
-        </div>
-      </Paper> */}
-      </React.Fragment>
   );
 }
 
