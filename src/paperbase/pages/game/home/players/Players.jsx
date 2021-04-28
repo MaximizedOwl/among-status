@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
-import { Button, Typography, TextField } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 /* 
   画像
@@ -16,8 +16,6 @@ import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_
 import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
-
-
 
 const styles = (theme) => ({
   paper: {
@@ -56,7 +54,7 @@ function Players(props) {
   */
   const {
     classes,
-    playerInitState,
+    initState,
     playerColorImageList,
     playerColorList,
     isExistPlayer,
@@ -130,50 +128,64 @@ function Players(props) {
     }
   };
 
-  /* 
-    キルクールダウンタイム関連
-  */
- // 状態の初期化 
-let currentKillCooldwonTime = killCooldownTime;
+/* 
+  キルクールダウンタイム関連
+*/
+const [count, setCount] = React.useState(killCooldownTime);
 
-const killCooldwonTimeCountDown = () => {
-  
-  if (true) {
+const intervalRef = React.useRef(null);
+
+const stopKillCooldownTime = React.useCallback(() => {
+
+  /* if (true) {
     window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
   }
 
-  return;
+  return; */
 
-  // カウントダウン処理
-  console.log(typeof currentKillCooldwonTime);
-  console.log(currentKillCooldwonTime);
+  if (intervalRef.current === null) {
+    return;
+  }
+  clearInterval(intervalRef.current);
+  intervalRef.current = null;
+}, []);
 
-  // 数値未設定時　currentKillCooldwonTimeは文字列型で入ってきている
-  if (currentKillCooldwonTime === '') {
+const startKillCooldownTime = React.useCallback(() => {
+
+  /* if (true) {
+    window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
+  }
+
+  return; */
+
+  // 数値未設定時　countは文字列型で入ってきている
+  if (count === '') {
 
     console.log('数値未設定');
     window.alert('キルクールダウンタイムが設定されていません。Topタブで設定してください。');
-  
+
+    return;
+
   // 数値設定時
   } else {
-    console.log('カウントダウン開始');
-
-    const calculate = () => {
-      currentKillCooldwonTime = currentKillCooldwonTime - 0.5; 
-    };
-
-    const intervalId = setInterval(() => {
-      
-      calculate();
-      if (currentKillCooldwonTime <= 0) {
-        clearInterval(intervalId);
-      }
-        console.log(currentKillCooldwonTime);
-    }, 500);
+    if (intervalRef.current !== null) {
+      return;      
+    }
   };
-};
+  intervalRef.current = setInterval(() => {
+    setCount(c => c - 0.5);
 
-  // React.useEffect(killCooldwonTimeCountDown());
+    // console.log(count);
+    // console.log(intervalRef.current);
+
+    // if(count <= 0) {
+
+    //   stopKillCooldownTime();
+    //   console.log('時間が0になりました');
+    // }
+
+  }, 500);
+}, []);
 
 
   /* カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理 */
@@ -195,13 +207,13 @@ const killCooldwonTimeCountDown = () => {
 
   const playersStatusReset = () => {
 
-    console.log(playerInitState);
-    console.log(playerInitState.isDead);
+    console.log(initState);
+    console.log(initState.isDead);
 
     // 初期値設定
-    setIsDead({...isDead, ...playerInitState.isDead});
-    setIsUsedEMRight({...isUsedEMRight, ...playerInitState.isUsedEMRight});
-    setSuspiciousness({...suspiciousness, ...playerInitState.suspiciousness});
+    setIsDead({...isDead, ...initState.isDead});
+    setIsUsedEMRight({...isUsedEMRight, ...initState.isUsedEMRight});
+    setSuspiciousness({...suspiciousness, ...initState.suspiciousness});
 
   };
 
@@ -253,39 +265,55 @@ const killCooldwonTimeCountDown = () => {
           
           <h3>Kill Cooldown Timer</h3>
           
-          <Grid container spacing={2} alignItems="center" justify="flex-start">
-            
-            <Grid item>
-            <TextField
-              disabled
-              id="outlined-disabled"
-              value={currentKillCooldwonTime}
-              variant="outlined"
-              size="small"
-              margin="dense"
-              className={classes.killCooldownTimeTextfield}
-            />
+          <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
+            <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
+              <Grid item xs='auto'>
+                <TextField
+                  disabled
+                  id="outlined-disabled"
+                  value={count}
+                  variant="outlined"
+                  size="small"
+                  margin="dense"
+                  className={classes.killCooldownTimeTextfield}
+                />
+              </Grid>
+              <Grid item xs='auto'>
+                通知領域
+              </Grid>
             </Grid>
-              <Grid item>
+            <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
+              <Grid item xs='auto'>
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   size='small'
-                  onClick={killCooldwonTimeCountDown}
+                  onClick={startKillCooldownTime}      
                 >
-                Start
+                  Start
                 </Button>
               </Grid>
-              <Grid item>
+              <Grid item xs='auto'>
                 <Button
                   variant="contained"
                   color="default"
                   size='small'
-                  onClick={resetKillCooldownTime}
+                  onClick={stopKillCooldownTime}      
                 >
-                Reset
+                  Stop
                 </Button>
               </Grid>
+              <Grid item xs='auto'>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size='small'
+                  onClick={resetKillCooldownTime}      
+                >
+                  Reset
+                </Button>
+              </Grid>
+            </Grid>  
           </Grid>
         </div>
       </Paper>
@@ -334,8 +362,6 @@ const killCooldwonTimeCountDown = () => {
             {playerBlock}
           </Grid>
           
-          <br />
-          
           {/* 
             リセットボタン
           */}
@@ -353,6 +379,8 @@ const killCooldwonTimeCountDown = () => {
           </Grid>
         </div>
       </Paper>
+
+
       
       {/* <br /> */}
 
