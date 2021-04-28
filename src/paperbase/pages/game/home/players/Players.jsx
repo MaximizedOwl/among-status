@@ -42,6 +42,10 @@ const styles = (theme) => ({
   },
   killCooldownTimeTextfield :{
     maxWidth: 70,
+  },
+  statusResetButton: {
+    padding: 10,
+    textAlign: 'center',
   }
 });
 
@@ -335,7 +339,7 @@ const killCooldwonTimeCountDown = () => {
           {/* 
             リセットボタン
           */}
-          <Grid container xs alignItems="center" justify="center">
+          <Grid container xs alignItems="center" justify="center" className={classes.statusResetButton}>
             <Grid item xs>
             <Button
                   variant="contained"
