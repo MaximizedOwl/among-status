@@ -12,7 +12,7 @@ import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
 import Polus from '../../../../../img/maps/Polus.png';
 import TheAirship from '../../../../../img/maps/TheAirship.png';
-import { Toolbar} from '@material-ui/core';
+import { Button, Toolbar} from '@material-ui/core';
 
 
 const styles = (theme) => ({
@@ -40,13 +40,16 @@ const styles = (theme) => ({
     height: '100%',
   },
   img :{
-    width: 30,
-    minWidth: 25,
+    width: 25,
+    minWidth: 20,
     maxWidth: 40,
     height: 'auto',
-    cursor: 'grab',
-    zIndex: 100
+    cursor: 'move',
   },
+  iconResetButton: {
+    padding: 10,
+    textAlign: 'center',
+  }
 });
 
 function a11yProps(index) {
@@ -62,8 +65,9 @@ function Map(props) {
     setMap,
     playerColorImageList,
     playerColorList,
-    playerIconPosition,
-    setPlayerIconPosition
+    playerIconCordinate,
+    setPlayerIconCordinate,
+    initState
   } = props;
 
   const handleDrag = (e, data, color) => {
@@ -74,14 +78,14 @@ function Map(props) {
     console.log(color);
     console.log('end');
 
-    setPlayerIconPosition({...playerIconPosition,
+    setPlayerIconCordinate({...playerIconCordinate,
       [color]: {
         x: data.x,
         y: data.y,
       }
     });
 
-    console.log(playerIconPosition[color]);
+    console.log(playerIconCordinate[color]);
 
 
   };
@@ -97,23 +101,33 @@ function Map(props) {
     
     playerColorList.map((color) => 
     
-    <Grid item xs={1}>  
-      {/* <Draggable bounds='.hoge' position={playerIconPosition[color]}> */}
+    <Grid item xs='auto'>  
       <Draggable
-        position={playerIconPosition[color]}
+        position={playerIconCordinate[color]}
         onDrag={(e,data) => handleDrag(e, data, color)}
+        // bounds='parent'
       >
         <img src={playerColorImageList[color]} className={classes.img}/>
       </Draggable>    
-    </Grid>
+    </Grid> 
     
     );
   // ,[0]);
 
+  /* 
+    プレイヤーのアイコンリセット関する全ての状態に初期値を設定する。
+  */
+
+  const playersIconCordinateReset = () => {
+
+    // 初期値設定
+    setPlayerIconCordinate({...playerIconCordinate, ...initState.playerIconCordinate});
+  };
+
   return (
+    
     <React.Fragment>
       <Paper className={classes.paper}>
-        
         <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
           <Toolbar>
             <Tabs
@@ -133,7 +147,7 @@ function Map(props) {
           </Toolbar>
         </AppBar>
         <div className={classes.contentWrapper}>
-          <div className='hoge'>
+
           {/* タブ（マップ）領域 */}
           <TabPanel value={map} index={0} className={classes.mapPanel}>
             <img src={TheSkeld} art={map} className={classes.map}/>
@@ -149,12 +163,27 @@ function Map(props) {
           </TabPanel>
 
           {/* プレイヤーアイコン領域 */}
-          <Grid container xs={12} alignItems="center" justify="center">
+          <Grid container xs='auto' spacing={1} alignItems="center" justify="center">
             {playersIcon}
-          </Grid>          
-          </div>
-        </div>
+          </Grid>
+          
+          {/* 
+            リセットボタン
+          */}
+          <Grid container xs alignItems="center" justify="center" className={classes.iconResetButton}>
+            <Grid item xs>
+              <Button
+                variant="contained"
+                color="secondary"
+                size='small'
+                onClick={playersIconCordinateReset}
+              >
+                Icon Reset
+              </Button>
+            </Grid>
+          </Grid>
 
+        </div>
       </Paper>
 
     </React.Fragment>

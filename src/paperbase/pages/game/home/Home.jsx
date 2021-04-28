@@ -287,16 +287,6 @@ const [suspiciousness, setSuspiciousness] = React.useState({
 }); 
 
 /* 
-  初期値の格納
-  主にステータスリセットボタンで利用
-*/
-const [playerInitState, setPlayerInitState] = React.useState({
-  isDead: isDead,
-  isUsedEMRight: isUsedEMRight,
-  suspiciousness: suspiciousness,
-});
-
-/* 
   Mapタブで選択しているマップの状態
 */
 const [map, setMap] = React.useState(0);
@@ -305,7 +295,7 @@ const [map, setMap] = React.useState(0);
   Mapタブの各アイコンの座標
 */
 
-const [playerIconPosition, setPlayerIconPosition] = React.useState({
+const [playerIconCordinate, setPlayerIconCordinate] = React.useState({
   red: {
     x: 0,
     y: 0,
@@ -356,6 +346,16 @@ const [playerIconPosition, setPlayerIconPosition] = React.useState({
   },
 });
 
+/* 
+  初期値の格納
+  主にステータスリセットボタンで利用
+*/
+const [initState, setInitState] = React.useState({
+  isDead: isDead,
+  isUsedEMRight: isUsedEMRight,
+  suspiciousness: suspiciousness,
+  playerIconCordinate: playerIconCordinate,
+});
   return (
     <React.Fragment>
       
@@ -398,7 +398,7 @@ const [playerIconPosition, setPlayerIconPosition] = React.useState({
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
         <Players
-          playerInitState={playerInitState}
+          initState={initState}
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}
           isExistPlayer={isExistPlayer}
@@ -418,8 +418,9 @@ const [playerIconPosition, setPlayerIconPosition] = React.useState({
           setMap={setMap}
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}
-          playerIconPosition={playerIconPosition}
-          setPlayerIconPosition={setPlayerIconPosition}
+          playerIconCordinate={playerIconCordinate}
+          setPlayerIconCordinate={setPlayerIconCordinate}
+          initState={initState}
         />
       </TabPanel>
       </main>
