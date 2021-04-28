@@ -279,7 +279,7 @@ const startKillCooldownTime = React.useCallback(() => {
                 />
               </Grid>
               <Grid item xs='auto'>
-                通知領域
+                {/* 通知領域 */}
               </Grid>
             </Grid>
             <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
@@ -367,14 +367,14 @@ const startKillCooldownTime = React.useCallback(() => {
           */}
           <Grid container xs alignItems="center" justify="center" className={classes.statusResetButton}>
             <Grid item xs>
-            <Button
-                  variant="contained"
-                  color="secondary"
-                  // size='small'
-                  onClick={playersStatusReset}
-                >
-                Status Reset
-                </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                // size='small'
+                onClick={playersStatusReset}
+              >
+              Status Reset
+              </Button>
             </Grid>
           </Grid>
         </div>
