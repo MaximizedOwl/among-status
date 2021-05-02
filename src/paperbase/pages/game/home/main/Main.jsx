@@ -38,6 +38,7 @@ const styles = (theme) => ({
   },
   img :{
     maxWidth: 50,
+    minWidth: 40,
     height: 'auto',
   },
   killCooldownTimeTextfield :{
@@ -45,6 +46,9 @@ const styles = (theme) => ({
   },
   statusResetButton: {
     padding: 10,
+    textAlign: 'center',
+  },
+  container: {
     textAlign: 'center',
   }
 });
@@ -85,7 +89,6 @@ function Main(props) {
 
     for (let index = 0; index < objectLength; index++) {
       
-
       console.log([Object.values(isExistPlayer)[index]]);
       // isExistPlayerがtrueなら配列にキーを追加
       if (Object.values(isExistPlayer)[index] === true) {
@@ -258,9 +261,9 @@ function Main(props) {
   */
   const playerBlock = currentExistPlayerList.map((color) => 
 
-    <Grid container xs={12} alignItems="center" justify="center">
-      <Grid item xs={2}>
-        <img src={playerColorImageList[color]} className={classes.img}/>
+    <Grid container xs={12} alignItems="center" justify="space-evenly" className={classes.container}>
+      <Grid item xs={2} justify="center">
+        <img src={playerColorImageList[color]} className={classes.img} />
       </Grid>
       <Grid item xs={2}>
         <Checkbox
@@ -369,23 +372,33 @@ function Main(props) {
         */}
         <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
           <Toolbar>
-              <Grid container={12} alignItems="center" justify="center">
-                <Grid item xs={2}>
+              {/* <Grid container xs={12} className={classes.container}> */}
+                <Grid container xs={6} justify="flex-end" alignItems="center" className={classes.container}>
+                  <Grid item xs={4}>
+                    <img src={GhostIcon} alt="Ghost" className={classes.img}/>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
+                  </Grid>
                 </Grid>
-                <Grid item xs={2}>
-                  <img src={GhostIcon} alt="Ghost" className={classes.img}/>
-                </Grid>
-                <Grid item xs={2}>
-                  <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
-                </Grid>
-                <Grid item xs={2}>
+                <Grid container xs={6} justify="space-between" alignItems="center" className={classes.container}>
+                  <Grid item xs={3}>
+                    <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
+                  </Grid>
+                  <Grid item xs={3}>
+                    <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
+                  </Grid>
+                {/* </Grid> */}
+
+                {/* <Grid item xs={2}>
                   <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
                 </Grid>
                 <Grid item xs={2}>
                 </Grid>
                 <Grid item xs={2}>
                   <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
-                </Grid>
+                </Grid> */}
+
               </Grid>
           </Toolbar>
         </AppBar>
