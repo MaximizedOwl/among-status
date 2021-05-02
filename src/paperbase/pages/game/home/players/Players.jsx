@@ -8,6 +8,8 @@ import { withStyles } from '@material-ui/core/styles';
 import PlayerSlider from './PlayerSlider';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Button, TextField } from '@material-ui/core';
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from '../../../../components/Alert';
 
 /* 
   画像
@@ -127,6 +129,23 @@ function Players(props) {
   };
 
   /* 
+    キルクールダウンタイム終了通知のスナックバー関連
+  */
+    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+
+    const handleClickSnackbar = () => {
+      setOpenSnackbar(true);
+    };
+  
+    const handleCloseSnackbar = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpenSnackbar(false);
+    };
+
+  /* 
     キルクールダウンタイム関連
   */
 
@@ -171,7 +190,6 @@ function Players(props) {
     } else {
       if (intervalRef.current !== null) {
 
-        console.log('Start機能 終了');
         return;      
       }
     };
@@ -180,14 +198,17 @@ function Players(props) {
       console.log(innerCount);
       if(innerCount <= 0) {
 
+        // 処理停止
         stopKillCooldownTime();
+
+        // スナックバー表示
+        handleClickSnackbar();
+
         console.log('時間が0になりました');
-        window.alert('時間が0になりました');
 
       } else {
         // 表示時間減少処理
         setCount(count => count - 0.5);
-
         // 内部表示終了カウント減少処理
         innerCount--;
       }
@@ -203,8 +224,12 @@ function Players(props) {
 
     console.log('Reset機能 開始');
 
+    // 表示数値の初期化
     setCount(killCooldownTime);
+    // 内部カウント数値の初期化
     innerCount = count * 2;
+    // スナックバーを閉じる
+    handleCloseSnackbar();
 
     console.log('Reset機能 終了');
 
@@ -289,7 +314,11 @@ function Players(props) {
                 />
               </Grid>
               <Grid item xs='auto'>
-                {/* 通知領域 */}
+                <Snackbar open={openSnackbar} onClose={handleCloseSnackbar}>
+                  <Alert onClose={handleCloseSnackbar} severity="info">
+                    cooldown time is over!
+                  </Alert>
+                </Snackbar>
               </Grid>
             </Grid>
             <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
