@@ -133,6 +133,9 @@ function Players(props) {
 */
 const [count, setCount] = React.useState(killCooldownTime);
 
+// タイマー用に現在の数値を取得
+let calcIndex = count * 2; 
+
 const intervalRef = React.useRef(null);
 
 const stopKillCooldownTime = React.useCallback(() => {
@@ -173,16 +176,20 @@ const startKillCooldownTime = React.useCallback(() => {
     }
   };
   intervalRef.current = setInterval(() => {
-    setCount(c => c - 0.5);
 
-    // console.log(count);
-    // console.log(intervalRef.current);
+    // 現在の時間
+    let currentCount = calcIndex--;
+    console.log(currentCount);
+    if(currentCount <= 0) {
 
-    // if(count <= 0) {
+      stopKillCooldownTime();
+      console.log('時間が0になりました');
+      window.alert('時間が0になりました');
 
-    //   stopKillCooldownTime();
-    //   console.log('時間が0になりました');
-    // }
+    } else {
+      // 時間減少処理
+      setCount(count => count - 0.5);
+    }
 
   }, 500);
 }, []);
