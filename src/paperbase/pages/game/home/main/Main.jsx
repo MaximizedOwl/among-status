@@ -180,7 +180,8 @@ function Main(props) {
     if (count === '') {
 
       console.log('数値未設定');
-      window.alert('キルクールダウンタイムが設定されていません。Topタブで設定してください。');
+      window.alert(`Please set Kill Cooldown Time at "Setting".
+キルクールダウンタイムが設定されていません。Settingタブで設定してください。`);
 
       console.log('Start機能 終了');
 
