@@ -5,8 +5,8 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import TabPanel from '../../../components/TabPanel';
 import { withStyles } from '@material-ui/core/styles';
-import Top from './top/Top';
-import Players from './players/Players';
+import Setting from './setting/Setting';
+import Main from './main/Main';
 import Map from './map/Map';
 import Header from '../../../components/Header';
 
@@ -374,8 +374,8 @@ const [initState, setInitState] = React.useState({
         elevation={0}
       >
         <Tabs value={value} onChange={handleChange} textColor="inherit">
-          <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="Players" {...a11yProps(1)} />
+          <Tab textColor="inherit" label="Setting" {...a11yProps(0)} />
+          <Tab textColor="inherit" label="Main" {...a11yProps(1)} />
           <Tab textColor="inherit" label="Map" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
@@ -386,7 +386,7 @@ const [initState, setInitState] = React.useState({
       <main className={classes.main}>
           
       <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Top
+        <Setting
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}
           isExistPlayer={isExistPlayer}
@@ -397,7 +397,7 @@ const [initState, setInitState] = React.useState({
         />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <Players
+        <Main
           initState={initState}
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}

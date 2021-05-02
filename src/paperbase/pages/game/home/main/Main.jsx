@@ -49,7 +49,7 @@ const styles = (theme) => ({
   }
 });
 
-function Players(props) {
+function Main(props) {
 
   /* 
     全体のprops
@@ -446,8 +446,8 @@ function Players(props) {
   );
 }
 
-Players.propTypes = {
+Main.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Players);
+export default withStyles(styles)(Main);

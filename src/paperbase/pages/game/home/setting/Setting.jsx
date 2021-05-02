@@ -31,7 +31,7 @@ const styles = (theme) => ({
   }
 });
 
-function Top(props) {
+function Setting(props) {
 
   const { 
     classes,
@@ -184,8 +184,8 @@ function Top(props) {
   );
 }
 
-Top.propTypes = {
+Setting.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Top);
+export default withStyles(styles)(Setting);
