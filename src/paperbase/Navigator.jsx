@@ -117,7 +117,7 @@ function Navigator(props) {
           タイトル
          */}
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          {'AU Helper(β)'}
+          {'Among StatUs(β)'}
         </ListItem>
 
          {/* 
