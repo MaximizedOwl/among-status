@@ -149,7 +149,7 @@ function Header(props) {
                 </DialogTitle>
                 <DialogContent dividers>
                   {/* Twitter */}
-                  <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongUsHelper&via=AmongUsHelper&hashtags=AUHelper&text=AU Helper Helping tool your playing for Among Us" target="_blank" rel="nofollow">
+                  <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongStatUs&via=AmongStatUs&hashtags=AmongStatUs&text=AmongStatUs Helping tool your playing for Among Us" target="_blank" rel="nofollow">
                     <TwitterIcon />
                   </IconButton>
                   {/* ToDo: URL copy */}
