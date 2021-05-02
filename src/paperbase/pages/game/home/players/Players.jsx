@@ -98,9 +98,7 @@ function Players(props) {
 
   // 現参加者リスト
   const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
-  console.log(currentExistPlayerList);
 
-  
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     会議権使用状態と生死状態のどちらでも利用可能
@@ -128,84 +126,89 @@ function Players(props) {
     }
   };
 
-/* 
-  キルクールダウンタイム関連
-*/
-const [count, setCount] = React.useState(killCooldownTime);
+  /* 
+    キルクールダウンタイム関連
+  */
 
-// タイマー用に現在の数値を取得
-let calcIndex = count * 2; 
+  // 実際に表示されている数値
+  const [count, setCount] = React.useState(killCooldownTime);
 
-const intervalRef = React.useRef(null);
+  // タイマーの内部で使う現在の数値を取得
+  let innerCount = count * 2;
 
-const stopKillCooldownTime = React.useCallback(() => {
+  const intervalRef = React.useRef(null);
 
-  /* if (true) {
-    window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
-  }
+  /* カウントダウン 停止処理 */
+  const stopKillCooldownTime = React.useCallback(() => {
 
-  return; */
+    console.log('Stop機能 開始');
 
-  if (intervalRef.current === null) {
-    return;
-  }
-  clearInterval(intervalRef.current);
-  intervalRef.current = null;
-}, []);
-
-const startKillCooldownTime = React.useCallback(() => {
-
-  /* if (true) {
-    window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
-  }
-
-  return; */
-
-  // 数値未設定時　countは文字列型で入ってきている
-  if (count === '') {
-
-    console.log('数値未設定');
-    window.alert('キルクールダウンタイムが設定されていません。Topタブで設定してください。');
-
-    return;
-
-  // 数値設定時
-  } else {
-    if (intervalRef.current !== null) {
-      return;      
+    if (intervalRef.current === null) {
+      return;
     }
-  };
-  intervalRef.current = setInterval(() => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
 
-    // 現在の時間
-    let currentCount = calcIndex--;
-    console.log(currentCount);
-    if(currentCount <= 0) {
+    console.log('Stop機能 終了');
+  }, []);
 
-      stopKillCooldownTime();
-      console.log('時間が0になりました');
-      window.alert('時間が0になりました');
+  /* カウントダウン 開始処理 */
+  const startKillCooldownTime = React.useCallback(() => {
 
+    console.log('Start機能 開始');
+
+    // 数値未設定時　countは文字列型で入ってきている
+    if (count === '') {
+
+      console.log('数値未設定');
+      window.alert('キルクールダウンタイムが設定されていません。Topタブで設定してください。');
+
+      console.log('Start機能 終了');
+
+      return;
+
+    // 数値設定時
     } else {
-      // 時間減少処理
-      setCount(count => count - 0.5);
-    }
+      if (intervalRef.current !== null) {
 
-  }, 500);
-}, []);
+        console.log('Start機能 終了');
+        return;      
+      }
+    };
+    intervalRef.current = setInterval(() => {
+
+      console.log(innerCount);
+      if(innerCount <= 0) {
+
+        stopKillCooldownTime();
+        console.log('時間が0になりました');
+        window.alert('時間が0になりました');
+
+      } else {
+        // 表示時間減少処理
+        setCount(count => count - 0.5);
+
+        // 内部表示終了カウント減少処理
+        innerCount--;
+      }
+
+    }, 500);
+
+    console.log('Start機能 終了');
+  }, []);
 
 
-  /* カウントダウン処理されたキルクールダウンタイムを設定値に戻す処理 */
-  const resetKillCooldownTime = () => {
-    
-    if (true) {
-      window.alert('この機能は開発中です。もうしばらくお待ち下さい…。Develoing now! Please wait...');
-    }
+  /* カウントダウン 再設定（リセット）処理 */
+  const resetKillCooldownTime = React.useCallback(() => {
 
-    return;
+    console.log('Reset機能 開始');
 
-    setCurrentLillCooldwonTime(killCooldownTime);
-  };
+    setCount(killCooldownTime);
+    innerCount = count * 2;
+
+    console.log('Reset機能 終了');
+
+  }, []);
 
   /* 
     新規ゲームを始める際のステータスリセットボタン
