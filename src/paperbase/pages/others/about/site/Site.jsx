@@ -56,6 +56,20 @@ function Site(props) {
           </Link>
         </Typography>
 
+        <h4>Among Us Icon Pack</h4>
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
+          {'Author: '}
+          <Link color='textSecondary' href="https://iconscout.com/contributors/nemmu-s/" target="_blank">
+            {'Nem&quot;mu Studio'}
+          </Link>
+          {`
+          Date: Unknown
+            WebSite: `}
+          <Link color='textSecondary' href="https://iconscout.com/icon-pack/among-us-2" target="_blank">
+          {'Among Us Icon Pack'}
+          </Link>  
+        </Typography>
+
         <h4>Among Us Game - Line Icon Set</h4>
         <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
           {'Author: '}

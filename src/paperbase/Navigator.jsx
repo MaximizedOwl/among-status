@@ -13,6 +13,9 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import WebIcon from '@material-ui/icons/Web';
 import { Link } from 'react-router-dom';
 
+/* 画像 */
+import SiteIcon from '../img/others/among-us-watch.svg';
+
 const categories = [
   {
     id: 'Game',
@@ -71,7 +74,10 @@ const styles = (theme) => ({
   },
   link: {
     textDecoration: 'none'
-  }
+  },
+  siteIcon: {
+    maxWidth: 50,
+  },
 });
 
 function Navigator(props) {
@@ -117,6 +123,7 @@ function Navigator(props) {
           タイトル
          */}
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
+          <img src={SiteIcon} alt="SiteIcon" className={classes.siteIcon}/>
           {'Among StatUs(β)'}
         </ListItem>
 
