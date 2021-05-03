@@ -60,7 +60,7 @@ function Site(props) {
         <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
           {'Author: '}
           <Link color='textSecondary' href="https://iconscout.com/contributors/nemmu-s/" target="_blank">
-            {'Nem&quot;mu Studio'}
+            {'Nem\'mu Studio'}
           </Link>
           {`
           Date: Unknown
