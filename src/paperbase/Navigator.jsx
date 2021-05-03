@@ -112,7 +112,6 @@ function Navigator(props) {
 
   };
 
-  // const basePath = '/material-ui-paperbase-demo/';
   const basePath = '/';
 
   return (

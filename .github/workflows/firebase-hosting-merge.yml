@@ -15,8 +15,8 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MATERIAL_UI_PAPERBASE_DEMO }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMONG_STATUS }}'
           channelId: live
-          projectId: material-ui-paperbase-demo
+          projectId: among-status
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels

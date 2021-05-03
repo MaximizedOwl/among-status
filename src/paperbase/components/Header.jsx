@@ -104,7 +104,7 @@ function Header(props) {
   /* URLをクリップボードへ貼り付ける処理 */
   const copyUrl = () => {
 
-    const siteURL = 'https://material-ui-paperbase-demo.web.app/';
+    const siteURL = 'https://among-status.web.app/';
     
     navigator.clipboard.writeText(siteURL).then(function() {
       /* clipboard successfully set */
@@ -149,7 +149,7 @@ function Header(props) {
                 </DialogTitle>
                 <DialogContent dividers>
                   {/* Twitter */}
-                  <IconButton color="inherit" href="https://twitter.com/share?url=https://material-ui-paperbase-demo.web.app/&related=AmongStatUs&via=AmongStatUs&hashtags=AmongStatUs&text=AmongStatUs Helping tool your playing for Among Us" target="_blank" rel="nofollow">
+                  <IconButton color="inherit" href="https://twitter.com/share?url=https://among-status.web.app/&related=AmongStatUs&via=AmongStatUs&hashtags=AmongStatUs&text=AmongStatUs Helping tool your playing for Among Us" target="_blank" rel="nofollow">
                     <TwitterIcon />
                   </IconButton>
                   {/* ToDo: URL copy */}
