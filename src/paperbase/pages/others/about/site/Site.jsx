@@ -48,42 +48,37 @@ function Site(props) {
       <h2>権利等の表記（敬称略）</h2>
 
         <h4>Paperbase</h4>
-        <Typography color="textSecondary" align="left">{'Created by Material-UI OSS'}</Typography>
-        <Typography color="textSecondary" align="left">
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
+          {`Created by Material-UI OSS
+          `}
           <Link color="inherit" href="https://opensource.org/licenses/MIT" target="_blank">
             {'MIT Lisence'}
           </Link>
         </Typography>
 
         <h4>Among Us Game - Line Icon Set</h4>
-        <Typography color="textSecondary" align="left">
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
           {'Author: '}
           <Link color='textSecondary' href="https://www.behance.net/aireench" target="_blank">
             {'Aireen Ch'}
           </Link>
-        </Typography>
-        <Typography color="textSecondary" align="left">
-          {'Date: 2021/3/24'}
-        </Typography>
-        <Typography color="textSecondary" align="left">
-          {'WebSite: '}
+          {`
+          Date: 2021/3/24
+            WebSite: `}
           <Link color='textSecondary' href="https://www.behance.net/gallery/116070117/Among-Us-Game-Line-Icon-Set" target="_blank">
-            {'Among-Us-Game-Line-Icon-Set'}
+          {'Among-Us-Game-Line-Icon-Set'}
           </Link>  
         </Typography>
 
         <h4>Among Us Icon</h4>
-        <Typography color="textSecondary" align="left">
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
           {'Author: '}
           <Link color='textSecondary' href="https://iconscout.com/contributors/sonisokell" target="_blank">
             {'Soni Sokell'}
           </Link>  
-        </Typography>
-        <Typography color="textSecondary" align="left">
-          {'Date: Unknown'}
-        </Typography>
-        <Typography color="textSecondary" align="left">
-          {'WebSite: '}
+          {`
+          Date: Unknown
+          WebSite: `}
           <Link color='textSecondary' href="https://iconscout.com/icons/among-us" target="_blank">
             {'Among Us icons'}
           </Link>  
