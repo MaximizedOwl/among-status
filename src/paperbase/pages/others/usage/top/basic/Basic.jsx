@@ -7,7 +7,6 @@ const Basic = () => {
 		<div>
 
 			<h2>なにができるの？</h2>
-			{/* <Typography paragraph={true} variant="body1" color="textSecondary" align="left"> */}
 			<Typography variant="body1" color="textSecondary" align="left">
 				{`
 					Among Usプレイ中の基本的な状況の整理や記録ができます。現在利用できる情報・機能は下記のとおりです。
@@ -36,12 +35,13 @@ const Basic = () => {
 
 			<h2>※諸注意</h2>
 			<Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}}>
-				{`
-					1. Homeでゲームの記録を行っている最中にはHomeから離れないようにしてください。
-					　ブラウザの更新を行ったり、UsageやAboutへ飛ぶと、記録されていた状況がリセットされます。
-					　今後、Homeから離れても記録がリセットされないようになる予定です。
-					2. 不具合関連
-					　現在β版なこともあり、未解決の問題も多いです。ご不便をおかけしますが、ご了承願います。
+				{`現在β版なこともあり、未解決の問題も多いです。ご不便をおかけしますが、ご了承願います。
+
+					1. ゲームの記録を行っている最中には「Home」から離れないようにしてください。
+					　ブラウザの更新を行ったり、「Usage」や「About」へ飛ぶと、記録されていた状況がリセットされてしまいます。
+					2. 動作環境・ご利用想定機種
+					　IEなどの一部ブラウザや特定のバージョンでは機能が動作しない可能性があります。また、発売から長い年月がたった機種や特殊な機種ではレイアウトが崩れる可能性がございます。申し訳ありませんが、ご了承ください。
+					　
 				`}
 			</Typography>
 	</div>
