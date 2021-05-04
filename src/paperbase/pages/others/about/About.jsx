@@ -6,7 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import TabPanel from '../../../components/TabPanel';
 import { withStyles } from '@material-ui/core/styles';
 import Site from './site/Site';
-import TabSecond from './tabSecond/TabSecond';
+import Terms from './terms/Terms';
 import Header from '../../../components/Header';
 
 
@@ -79,7 +79,7 @@ function About(props) {
       >
         <Tabs value={value} onChange={handleChange} textColor="inherit">
           <Tab textColor="inherit" label="Site" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="Others" {...a11yProps(1)} />
+          <Tab textColor="inherit" label="Terms" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <main className={classes.main}>
@@ -88,7 +88,7 @@ function About(props) {
         <Site />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <TabSecond />
+        <Terms />
       </TabPanel>
       </main>
     </React.Fragment>

@@ -22,6 +22,9 @@ const styles = (theme) => ({
   contentWrapper: {
     margin: '40px 16px',
   },
+  emphasis: {
+    color: '#FF5050'
+  }
 });
 
 function Site(props) {
@@ -31,18 +34,27 @@ function Site(props) {
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
-      <h2>当サイトについて</h2>
-        <Typography variant="body1" color="textSecondary" align="left">
-          {'Among Usをプレイする際の補助となるよう、一個人により制作された非公式のファンサイトです。'}
+      <h2>Among StatUsとは</h2>
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}} paragraph={true}>
+          {`　Among StatUs（以下、当サイト）はAmong Usをプレイする際の補助となるよう、一個人により制作された非公式のファンサイトです。
+          `}
         </Typography>
 
-      <h2>免責事項</h2>
-        <Typography variant="body1" color="textSecondary" align="left">
-          {'当サイトは個人が運営する非公式のファンサイトです。「Among Us」は、'}
-          <Link color='textSecondary' href='https://www.innersloth.com/index.php' target="_blank">
+        <Typography color="textSecondary" align="left" style={{whiteSpace: 'pre-line'}} paragraph={true}>
+          {`　利用規約は「Terms」からご確認ください。当サイトを利用された時点で当規約に同意されたものとみなされます。必ず最後までお読み下さい。
+          `}
+        </Typography>
+
+        <Typography color="textPrimary" align="left" className={classes.emphasis}>
+          {'　「Among Us」は、'}
+          <Link color='textSecondary' href='https://www.innersloth.com/index.php' target="_blank" className={classes.emphasis}>
           Innersloth
           </Link>
-          {'社様の登録商標です。当サイトは、Innersloth社様、他関連企業様とは一切関係ありません。サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
+          {'社様の登録商標です。当サイトは、Innersloth社様、他関連企業様とは一切関係ありません。'}
+        </Typography>
+
+        <Typography variant="body1" color="textSecondary" align="left">
+          {'　サイト下部著作権表示はサイト独自の内容に関する著作権を示すものであり、「Among Us」や使用させていただいている画像等の権利を主張するものではありません。'}
         </Typography>
 
       <h2>権利等の表記（敬称略）</h2>
