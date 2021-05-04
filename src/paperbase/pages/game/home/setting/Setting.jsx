@@ -95,11 +95,11 @@ function Setting(props) {
     // 左側のプレイヤーの配列
     const oddPlayerBlock = oddPlayerList.map((color) => 
 
-      <Grid container alignItems="center" justify="space-evenly">
-        <Grid item xs={3}>
+      <Grid container alignItems="center" justify="flex-start">
+        <Grid item xs={4}>
           <img src={playerColorImageList[color]} className={classes.img}/>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Switch                  
             checked={isExistPlayer[color]}
             onChange={handleChange}
@@ -114,11 +114,11 @@ function Setting(props) {
     // 右側のプレイヤーの配列
     const evenPlayerBlock = evenPlayerList.map((color) => 
     
-    <Grid container alignItems="center" justify="space-evenly">
-      <Grid item xs={3}>
+    <Grid container alignItems="center" justify="flex-start">
+      <Grid item xs={4}>
         <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         <Switch                  
           checked={isExistPlayer[color]}
           onChange={handleChange}
@@ -173,11 +173,11 @@ function Setting(props) {
 
       <h3>Player On/Off</h3>
         {/* プレイヤー12色のブロック */}
-        <Grid container alignItems="center" justify="center" xs={12} className={classes.container}>
-          <Grid container alignItems="center" justify="center" xs={6}>
+        <Grid container alignItems="center" justify="flex-start" xs={12} className={classes.container}>
+          <Grid container alignItems="center" justify="flex-start" xs={6}>
             {oddPlayerBlock}
           </Grid>
-          <Grid container alignItems="center" justify="center" xs={6}>
+          <Grid container alignItems="center" justify="flex-start" xs={6}>
             {evenPlayerBlock}
           </Grid>
         </Grid>
