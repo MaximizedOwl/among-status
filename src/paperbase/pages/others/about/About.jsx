@@ -82,8 +82,8 @@ function About(props) {
           <Tab textColor="inherit" label="Terms" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
+      
       <main className={classes.main}>
-          
       <TabPanel value={value} index={0} className={classes.mapPanel}>
         <Site />
       </TabPanel>
