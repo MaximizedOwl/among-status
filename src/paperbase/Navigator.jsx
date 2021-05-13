@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { withStyles } from '@material-ui/core/styles';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import DescriptionIcon from '@material-ui/icons/Description';
 import WebIcon from '@material-ui/icons/Web';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 /* 画像 */
 import SiteIcon from '../img/others/among-us-watch.svg';
+
 
 const categories = [
   {
@@ -143,7 +143,7 @@ function Navigator(props) {
             </ListItem>
             {children.map(({ id: childId, icon, index, active, path }) => (
 
-              <Link to={basePath + path} className={classes.link} >
+              <Link to={basePath + path} className={classes.link} key={id}>
                 <ListItem
                   key={childId}
                   button

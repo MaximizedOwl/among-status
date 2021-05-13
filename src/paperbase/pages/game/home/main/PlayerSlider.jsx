@@ -1,6 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
+import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const useStyles = makeStyles({
     root: {
@@ -63,6 +64,12 @@ const PlayerSlider = (props) => {
           />
       </div>
   );
+};
+
+PlayerSlider.propTypes = {
+  color: PropTypes.string,
+  suspiciousness: PropTypes.object,
+  setSuspiciousness: PropTypes.func,
 };
 
 export default PlayerSlider;

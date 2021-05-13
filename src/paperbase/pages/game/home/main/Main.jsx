@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
-import PlayerSlider from './PlayerSlider';
-import Checkbox from '@material-ui/core/Checkbox';
 import { Button, TextField } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '../../../../components/Alert';
-
-/* 
+import { withStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import PropTypes from 'prop-types';
+import React from 'react';
+import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
+/*
   画像
 */
 import EmergencyMeetingIcon from '../../../../../img/others/iconfinder_Among_Us_emergency_meeting_7142960.svg';
-import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
-import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
 import GhostIcon from '../../../../../img/others/iconfinder_Among_Us_ghost_7142959.svg';
+import ImposterIcon from '../../../../../img/others/iconfinder_Among_Us_impostor_7127758.svg';
+import Alert from '../../../../components/Alert';
+import PlayerSlider from './PlayerSlider';
 
+// eslint-disable-next-line no-unused-vars
 const styles = (theme) => ({
   paper: {
     maxWidth: 936,
@@ -62,9 +62,7 @@ function Main(props) {
     classes,
     initState,
     playerColorImageList,
-    playerColorList,
     isExistPlayer,
-    // setIsExistPlayer,
     isDead,
     setIsDead,
     isUsedEMRight,
@@ -102,6 +100,7 @@ function Main(props) {
   };
 
   // 現参加者リスト
+  // eslint-disable-next-line no-unused-vars
   const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
 
   /* 
@@ -126,9 +125,7 @@ function Main(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-    } else {
-      
-    }
+    } 
   };
 
   /* 
@@ -179,7 +176,7 @@ function Main(props) {
 
     console.log('Start機能 開始');
 
-    // 数値未設定時　countは文字列型で入ってきている
+    // 数値未設定時 countは文字列型で入ってきている
     if (count === '') {
 
       console.log('数値未設定');
@@ -261,7 +258,7 @@ function Main(props) {
   */
   const playerBlock = currentExistPlayerList.map((color) => 
 
-    <Grid container xs={12} alignItems="center" justify="space-evenly" className={classes.container}>
+    <Grid container xs={12} alignItems="center" justify="space-evenly" className={classes.container} key={color}>
       <Grid item xs={2} justify="center">
         <img src={playerColorImageList[color]} className={classes.img} />
       </Grid>
@@ -433,35 +430,22 @@ function Main(props) {
         </div>
       </Paper>
 
-
-      
-      {/* <br /> */}
-
-      {/* 
-        NewGameボタン
-      */}
-      {/* <Paper className={classes.paper}>
-        <div className={classes.contentWrapper}>
-          <Grid container xs alignItems="center" justify="center">
-            <Grid item xs>
-            <Button
-                  variant="contained"
-                  color="secondary"
-                  // size='small'
-                  // onClick={killCooldwonTimeCountDown}
-                >
-                Status Reset
-                </Button>
-            </Grid>
-          </Grid>
-        </div>
-      </Paper> */}
     </React.Fragment>
   );
 }
 
 Main.propTypes = {
   classes: PropTypes.object.isRequired,
+  initState: PropTypes.object.isRequired,
+  playerColorImageList: PropTypes.object.isRequired,
+  isExistPlayer: PropTypes.object.isRequired,
+  isDead: PropTypes.object.isRequired,
+  setIsDead: PropTypes.func.isRequired,
+  isUsedEMRight: PropTypes.object.isRequired,
+  setIsUsedEMRight: PropTypes.func.isRequired,
+  suspiciousness: PropTypes.object.isRequired,
+  setSuspiciousness: PropTypes.func.isRequired,
+  killCooldownTime: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(Main);

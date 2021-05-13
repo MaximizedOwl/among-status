@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Header from '../components/Header';
 
@@ -70,7 +70,8 @@ const NoMatch = (props) => {
 };
 
 NoMatch.propTypes = {
-    classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  onDrawerToggle: PropTypes.func.isRequired
 };
   
 export default withStyles(styles)(NoMatch);

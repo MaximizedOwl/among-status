@@ -1,9 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Basic from './basic/Basic';
 
+// eslint-disable-next-line no-unused-vars
 const styles = (theme) => ({
   paper: {
     maxWidth: 936,

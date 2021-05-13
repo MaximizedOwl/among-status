@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Button, Toolbar } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Draggable from 'react-draggable';
-import TabPanel from '../../../../components/TabPanel';
-import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
 import Polus from '../../../../../img/maps/Polus.png';
 import TheAirship from '../../../../../img/maps/TheAirship.png';
-import { Button, Toolbar} from '@material-ui/core';
+import TheSkeld from '../../../../../img/maps/TheSkeld.png';
+import TabPanel from '../../../../components/TabPanel';
 
-
+// eslint-disable-next-line no-unused-vars
 const styles = (theme) => ({
   paper: {
     maxWidth: 936,
@@ -101,7 +101,7 @@ function Map(props) {
     
     playerColorList.map((color) => 
     
-    <Grid item xs='auto'>  
+    <Grid item xs='auto' key={color}>
       <Draggable
         position={playerIconCordinate[color]}
         onDrag={(e,data) => handleDrag(e, data, color)}
@@ -117,7 +117,6 @@ function Map(props) {
   /* 
     プレイヤーのアイコンリセット関する全ての状態に初期値を設定する。
   */
-
   const playersIconCordinateReset = () => {
 
     // 初期値設定
@@ -193,6 +192,13 @@ function Map(props) {
 
 Map.propTypes = {
   classes: PropTypes.object.isRequired,
+  map: PropTypes.string.isRequired, 
+  setMap: PropTypes.func.isRequired,
+  playerColorImageList: PropTypes.object.isRequired,
+  playerColorList: PropTypes.object.isRequired,
+  playerIconCordinate: PropTypes.object.isRequired,
+  setPlayerIconCordinate: PropTypes.func.isRequired,
+  initState: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Map);

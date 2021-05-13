@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ShareIcon from '@material-ui/icons/Share';
+import Snackbar from '@material-ui/core/Snackbar';
+import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from './Alert';
 import CloseIcon from '@material-ui/icons/Close';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkIcon from '@material-ui/icons/Link';
-import { withStyles } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
+import ShareIcon from '@material-ui/icons/Share';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Alert from './Alert';
 
 // const lightColor = 'rgba(255, 255, 255, 0.7)';
 
@@ -61,6 +61,8 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
+
+// eslint-disable-next-line no-unused-vars
 const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
@@ -69,7 +71,11 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 function Header(props) {
-  const { classes, onDrawerToggle, pageName } = props;
+  const {
+    classes,
+    onDrawerToggle,
+    pageName
+  } = props;
 
   /* URLコピー完了のスナックバー関連 */
   const [openSnackbar, setOpenSnackbar] = React.useState(false);
@@ -192,6 +198,7 @@ function Header(props) {
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   onDrawerToggle: PropTypes.func.isRequired,
+  pageName: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(Header);

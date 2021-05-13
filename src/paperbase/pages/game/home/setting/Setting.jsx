@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-import Switch from '@material-ui/core/Switch';
-import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = (theme) => ({
   paper: {
@@ -69,8 +69,6 @@ function Setting(props) {
 
       console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
 
-    } else {
-      
     }
   };
 
@@ -89,32 +87,32 @@ function Setting(props) {
   /* 
     プレイヤー12色のブロック
   */
-    const oddPlayerList = playerColorList.filter((e, i) => i % 2 === 0);
-    const evenPlayerList = playerColorList.filter((e, i) => i % 2 === 1);
+  const oddPlayerList = playerColorList.filter((e, i) => i % 2 === 0);
+  const evenPlayerList = playerColorList.filter((e, i) => i % 2 === 1);
 
-    // 左側のプレイヤーの配列
-    const oddPlayerBlock = oddPlayerList.map((color) => 
+  // 左側のプレイヤーの配列
+  const oddPlayerBlock = oddPlayerList.map((color) => 
 
-      <Grid container alignItems="center" justify="flex-start">
-        <Grid item xs={4}>
-          <img src={playerColorImageList[color]} className={classes.img}/>
-        </Grid>
-        <Grid item xs={2}>
-          <Switch                  
-            checked={isExistPlayer[color]}
-            onChange={handleChange}
-            color="primary"
-            name="isExistPlayer"
-            value={color}
-          />
-        </Grid>
+    <Grid container alignItems="center" justify="flex-start" key={color}>
+      <Grid item xs={4}>
+        <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
-    );
+      <Grid item xs={2}>
+        <Switch                  
+          checked={isExistPlayer[color]}
+          onChange={handleChange}
+          color="primary"
+          name="isExistPlayer"
+          value={color}
+        />
+      </Grid>
+    </Grid>
+  );
 
-    // 右側のプレイヤーの配列
-    const evenPlayerBlock = evenPlayerList.map((color) => 
-    
-    <Grid container alignItems="center" justify="flex-start">
+  // 右側のプレイヤーの配列
+  const evenPlayerBlock = evenPlayerList.map((color) => 
+  
+    <Grid container alignItems="center" justify="flex-start" key={color}>
       <Grid item xs={4}>
         <img src={playerColorImageList[color]} className={classes.img}/>
       </Grid>
@@ -189,6 +187,13 @@ function Setting(props) {
 
 Setting.propTypes = {
   classes: PropTypes.object.isRequired,
+  playerColorImageList: PropTypes.object.isRequired,
+  playerColorList: PropTypes.object.isRequired,
+  isExistPlayer: PropTypes.object.isRequired,
+  setIsExistPlayer: PropTypes.func.isRequired,
+  killCooldownTime: PropTypes.number,
+  setKillCooldownTime: PropTypes.func.isRequired,
+  killCooldownTimeList: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Setting);

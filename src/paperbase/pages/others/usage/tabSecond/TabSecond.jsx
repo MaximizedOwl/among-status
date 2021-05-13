@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-
+// eslint-disable-next-line no-unused-vars
 const styles = (theme) => ({
   paper: {
     maxWidth: 936,

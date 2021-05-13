@@ -1,22 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
+import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
+import React from 'react';
 // import Link from '@material-ui/core/Link';
-import { Link as RouterLink } from 'react-router-dom';
-import Navigator from './Navigator';
-import Home from './pages/game/home/Home';
-import Usage from './pages/others/usage/Usage';
-import About from './pages/others/about/About';
-import NoMatch from './pages/NoMatch';
-
 import {
-  BrowserRouter as Router,
-  Route,
+  BrowserRouter as Router, Link as RouterLink, Route,
   Switch
 } from 'react-router-dom';
+import Navigator from './Navigator';
+import Home from './pages/game/home/Home';
+import NoMatch from './pages/NoMatch';
+import About from './pages/others/about/About';
+import Usage from './pages/others/usage/Usage';
+
 
 
 function Copyright() {
@@ -190,7 +188,7 @@ function Paperbase(props) {
   /* 
     Homeタブの選択項目
   */
-  const [selectedPage, setSelectedPage] = React.useState(1);
+  // const [selectedPage, setSelectedPage] = React.useState(1);
 
   return (
     <ThemeProvider theme={theme}>
@@ -211,7 +209,7 @@ function Paperbase(props) {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
-              selectedPage
+              // selectedPage
             />
           </Hidden>
 

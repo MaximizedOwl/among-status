@@ -1,30 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
+import { withStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import TabPanel from '../../../components/TabPanel';
-import { withStyles } from '@material-ui/core/styles';
-import Setting from './setting/Setting';
-import Main from './main/Main';
-import Map from './map/Map';
-import Header from '../../../components/Header';
-
-/* 
+import PropTypes from 'prop-types';
+import React from 'react';
+import Black from '../../../../img/players/black.svg';
+import Blue from '../../../../img/players/blue.svg';
+import Brown from '../../../../img/players/brown.svg';
+import Cyan from '../../../../img/players/cyan.svg';
+import Green from '../../../../img/players/green.svg';
+import Lime from '../../../../img/players/lime.svg';
+import Orange from '../../../../img/players/orange.svg';
+import Pink from '../../../../img/players/pink.svg';
+import Purple from '../../../../img/players/purple.svg';
+/*
   画像
 */
 import Red from '../../../../img/players/red.svg';
-import Blue from '../../../../img/players/blue.svg';
-import Green from '../../../../img/players/green.svg';
-import Pink from '../../../../img/players/pink.svg';
-import Orange from '../../../../img/players/orange.svg';
-import Yellow from '../../../../img/players/yellow.svg';
-import Black from '../../../../img/players/black.svg';
 import White from '../../../../img/players/white.svg';
-import Purple from '../../../../img/players/purple.svg';
-import Brown from '../../../../img/players/brown.svg';
-import Cyan from '../../../../img/players/cyan.svg';
-import Lime from '../../../../img/players/lime.svg';
+import Yellow from '../../../../img/players/yellow.svg';
+import Header from '../../../components/Header';
+import TabPanel from '../../../components/TabPanel';
+import Main from './main/Main';
+import Map from './map/Map';
+import Setting from './setting/Setting';
+
 
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
@@ -77,7 +77,7 @@ function Home(props) {
     setValue(newValue);
   };
 
-  // ユーザー状態　初期値
+  // ユーザー状態 初期値
   // const [playerState, setPlayerState] = React.useState({
   //   red: {
   //     isExist: true,
@@ -294,7 +294,6 @@ const [map, setMap] = React.useState(0);
 /* 
   Mapタブの各アイコンの座標
 */
-
 const [playerIconCordinate, setPlayerIconCordinate] = React.useState({
   red: {
     x: 0,
@@ -350,6 +349,7 @@ const [playerIconCordinate, setPlayerIconCordinate] = React.useState({
   初期値の格納
   主にステータスリセットボタンで利用
 */
+// eslint-disable-next-line no-unused-vars
 const [initState, setInitState] = React.useState({
   isDead: isDead,
   isUsedEMRight: isUsedEMRight,
@@ -402,7 +402,6 @@ const [initState, setInitState] = React.useState({
           playerColorImageList={playerColorImageList}
           playerColorList={playerColorList}
           isExistPlayer={isExistPlayer}
-          // setIsExistPlayer={setIsExistPlayer}
           isDead={isDead}
           setIsDead={setIsDead}
           isUsedEMRight={isUsedEMRight}
