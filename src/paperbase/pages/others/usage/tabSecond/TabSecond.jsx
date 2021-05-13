@@ -10,7 +10,7 @@ const styles = (theme) => ({
     maxWidth: 936,
     margin: 'auto',
     overflow: 'hidden',
-    textAligh: 'center'
+    textAligh: 'center',
   },
   titleBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
@@ -24,17 +24,16 @@ const styles = (theme) => ({
 });
 
 function TabSecond(props) {
-
   const { classes } = props;
 
   return (
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
-        <Typography color="textSecondary" align="center">
+        <Typography color='textSecondary' align='center'>
           TabSecond : developing! Please wait...
         </Typography>
       </div>
-   </Paper>
+    </Paper>
   );
 }
 

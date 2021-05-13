@@ -23,7 +23,7 @@ function Top(props) {
     <Paper className={classes.paper}>
       <div className={classes.contentWrapper}>
         <Basic />
-       </div>
+      </div>
     </Paper>
   );
 }

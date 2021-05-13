@@ -1,13 +1,19 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import {
+  createMuiTheme,
+  ThemeProvider,
+  withStyles,
+} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 // import Link from '@material-ui/core/Link';
 import {
-  BrowserRouter as Router, Link as RouterLink, Route,
-  Switch
+  BrowserRouter as Router,
+  Link as RouterLink,
+  Route,
+  Switch,
 } from 'react-router-dom';
 import Navigator from './Navigator';
 import Home from './pages/game/home/Home';
@@ -15,25 +21,19 @@ import NoMatch from './pages/NoMatch';
 import About from './pages/others/about/About';
 import Usage from './pages/others/usage/Usage';
 
-
-
 function Copyright() {
   return (
     <div>
-      <Typography variant="body2" color="textSecondary" align="center">
+      <Typography variant='body2' color='textSecondary' align='center'>
         {'当サイトは個人が運営するAmong Us非公式のファンサイト'}
-        <RouterLink to={'/about'} >
-          {'（詳細）'}
-        </RouterLink>  
+        <RouterLink to={'/about'}>{'（詳細）'}</RouterLink>
         {'です。'}
       </Typography>
-      <Typography variant="body2" color="textSecondary" align="center">
+      <Typography variant='body2' color='textSecondary' align='center'>
         {' © '}
         {/* <Link color="inherit" href=""> */}
         {'Among StatUs'}
-        {/* </Link> */}
-        {' '}
-        {new Date().getFullYear()}
+        {/* </Link> */} {new Date().getFullYear()}
         {/* {'.'} */}
       </Typography>
     </div>
@@ -173,8 +173,8 @@ const styles = {
     background: '#eaeff1',
   },
   link: {
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 };
 
 function Paperbase(props) {
@@ -196,63 +196,57 @@ function Paperbase(props) {
         <CssBaseline />
 
         <Router>
-
-        <nav className={classes.drawer}>
-
-          {/* 
+          <nav className={classes.drawer}>
+            {/* 
             JavaScriptでの制御
             スマートフォン等のサイズ時に適用されるナビゲーションの開閉はここ
           */}
-          <Hidden smUp implementation="js">
-            <Navigator
-              PaperProps={{ style: { width: drawerWidth } }}
-              variant="temporary"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              // selectedPage
-            />
-          </Hidden>
+            <Hidden smUp implementation='js'>
+              <Navigator
+                PaperProps={{ style: { width: drawerWidth } }}
+                variant='temporary'
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                // selectedPage
+              />
+            </Hidden>
 
-          {/* 
+            {/* 
             JavaScriptでの制御
             DesktopPCなどのサイズで表示される、ナビゲーション開閉の存在しない場合の描画はこちらの担当
           */}
-          <Hidden xsDown implementation="css">
-            <Navigator PaperProps={{ style: { width: drawerWidth } }} />
-          </Hidden>
-          
-        </nav>
-        <div className={classes.app}>
-          
-          {/* 
+            <Hidden xsDown implementation='css'>
+              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+            </Hidden>
+          </nav>
+          <div className={classes.app}>
+            {/* 
             ページ（ヘッダーとコンテント）のルーティング部分
           */}
-          <Switch>
-            <Route exact path="/" >
-              <Home onDrawerToggle={handleDrawerToggle} />
-            </Route>
-            <Route path="/usage" >
-              <Usage onDrawerToggle={handleDrawerToggle} />
-            </Route>
-            <Route path="/about" >
-              <About onDrawerToggle={handleDrawerToggle} />
-            </Route>
-            <Route path="/*">
-              <NoMatch onDrawerToggle={handleDrawerToggle}/>
-            </Route>
-          </Switch>
-          
-          {/* 
+            <Switch>
+              <Route exact path='/'>
+                <Home onDrawerToggle={handleDrawerToggle} />
+              </Route>
+              <Route path='/usage'>
+                <Usage onDrawerToggle={handleDrawerToggle} />
+              </Route>
+              <Route path='/about'>
+                <About onDrawerToggle={handleDrawerToggle} />
+              </Route>
+              <Route path='/*'>
+                <NoMatch onDrawerToggle={handleDrawerToggle} />
+              </Route>
+            </Switch>
+
+            {/* 
             フッター
           */}
-          
-          <footer className={classes.footer}>
-            <Copyright />
-          </footer>
 
-        </div>
+            <footer className={classes.footer}>
+              <Copyright />
+            </footer>
+          </div>
         </Router>
-
       </div>
     </ThemeProvider>
   );

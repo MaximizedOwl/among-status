@@ -24,19 +24,18 @@ const styles = (theme) => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  img :{
+  img: {
     maxWidth: 50,
     minWidth: 50,
-    height: 'auto'
+    height: 'auto',
   },
   container: {
     textAlign: 'center',
-  }
+  },
 });
 
 function Setting(props) {
-
-  const { 
+  const {
     classes,
     playerColorImageList,
     playerColorList,
@@ -44,7 +43,7 @@ function Setting(props) {
     setIsExistPlayer,
     killCooldownTime,
     setKillCooldownTime,
-    killCooldownTimeList
+    killCooldownTimeList,
   } = props;
 
   /* 
@@ -52,23 +51,26 @@ function Setting(props) {
     参加状態とキルクールタイムのどちらでも利用可能
   */
   const handleChange = (event) => {
-    
     if (event.target.name === 'killCooldownTime') {
-
       // console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
 
       setKillCooldownTime(event.target.value);
 
       // console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
+    }
+    if (event.target.name === 'isExistPlayer') {
+      console.log(
+        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
+      );
 
-    } if (event.target.name === 'isExistPlayer') {
+      setIsExistPlayer({
+        ...isExistPlayer,
+        [event.target.value]: event.target.checked,
+      });
 
-      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
-
-      setIsExistPlayer({ ...isExistPlayer, [event.target.value]: event.target.checked });
-
-      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
-
+      console.log(
+        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
+      );
     }
   };
 
@@ -91,96 +93,93 @@ function Setting(props) {
   const evenPlayerList = playerColorList.filter((e, i) => i % 2 === 1);
 
   // 左側のプレイヤーの配列
-  const oddPlayerBlock = oddPlayerList.map((color) => 
-
-    <Grid container alignItems="center" justify="flex-start" key={color}>
+  const oddPlayerBlock = oddPlayerList.map((color) => (
+    <Grid container alignItems='center' justify='flex-start' key={color}>
       <Grid item xs={4}>
-        <img src={playerColorImageList[color]} className={classes.img}/>
+        <img src={playerColorImageList[color]} className={classes.img} />
       </Grid>
       <Grid item xs={2}>
-        <Switch                  
+        <Switch
           checked={isExistPlayer[color]}
           onChange={handleChange}
-          color="primary"
-          name="isExistPlayer"
+          color='primary'
+          name='isExistPlayer'
           value={color}
         />
       </Grid>
     </Grid>
-  );
+  ));
 
   // 右側のプレイヤーの配列
-  const evenPlayerBlock = evenPlayerList.map((color) => 
-  
-    <Grid container alignItems="center" justify="flex-start" key={color}>
+  const evenPlayerBlock = evenPlayerList.map((color) => (
+    <Grid container alignItems='center' justify='flex-start' key={color}>
       <Grid item xs={4}>
-        <img src={playerColorImageList[color]} className={classes.img}/>
+        <img src={playerColorImageList[color]} className={classes.img} />
       </Grid>
       <Grid item xs={2}>
-        <Switch                  
+        <Switch
           checked={isExistPlayer[color]}
           onChange={handleChange}
-          color="primary"
-          name="isExistPlayer"
+          color='primary'
+          name='isExistPlayer'
           value={color}
         />
       </Grid>
     </Grid>
-  );
-
+  ));
 
   return (
     <React.Fragment>
-
-    {/* 
+      {/* 
         キルクールダウンの状態
     */}
-    <Paper className={classes.paper}>
-      <div className={classes.contentWrapper}>
+      <Paper className={classes.paper}>
+        <div className={classes.contentWrapper}>
+          <h3>Kill Cooldown Time(s)</h3>
+          <FormControl variant='outlined' className={classes.formControl}>
+            <Select
+              value={killCooldownTime}
+              onChange={handleChange}
+              label='KillCooldownTime'
+              name='killCooldownTime'
+              MenuProps={MenuProps}
+            >
+              {killCooldownTimeList.map((time) => (
+                <MenuItem key={time.toString()} value={time}>
+                  {time.toString()}
+                </MenuItem>
+              ))}
+              ;
+            </Select>
+          </FormControl>
+        </div>
+      </Paper>
 
-      <h3>Kill Cooldown Time(s)</h3>
-      <FormControl variant="outlined" className={classes.formControl}>
-        <Select
-          value={killCooldownTime}
-          onChange={handleChange}
-          label="KillCooldownTime"
-          name='killCooldownTime'
-          MenuProps={MenuProps}
-        >
-        {killCooldownTimeList.map((time) =>
-          <MenuItem
-            key={time.toString()}
-            value={time}
-          >
-            {time.toString()}
-          </MenuItem>
-        )};
-        </Select>
-      </FormControl>
-      
-      </div>
-    </Paper>
+      <br />
 
-    <br />
-
-    {/* 
+      {/* 
         プレイヤーの参加状態
     */}
-    <Paper className={classes.paper}>
-      <div className={classes.contentWrapper}>
-
-      <h3>Player On/Off</h3>
-        {/* プレイヤー12色のブロック */}
-        <Grid container alignItems="center" justify="flex-start" xs={12} className={classes.container}>
-          <Grid container alignItems="center" justify="flex-start" xs={6}>
-            {oddPlayerBlock}
+      <Paper className={classes.paper}>
+        <div className={classes.contentWrapper}>
+          <h3>Player On/Off</h3>
+          {/* プレイヤー12色のブロック */}
+          <Grid
+            container
+            alignItems='center'
+            justify='flex-start'
+            xs={12}
+            className={classes.container}
+          >
+            <Grid container alignItems='center' justify='flex-start' xs={6}>
+              {oddPlayerBlock}
+            </Grid>
+            <Grid container alignItems='center' justify='flex-start' xs={6}>
+              {evenPlayerBlock}
+            </Grid>
           </Grid>
-          <Grid container alignItems="center" justify="flex-start" xs={6}>
-            {evenPlayerBlock}
-          </Grid>
-        </Grid>
-      </div>
-    </Paper>
+        </div>
+      </Paper>
     </React.Fragment>
   );
 }

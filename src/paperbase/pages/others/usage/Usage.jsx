@@ -9,7 +9,6 @@ import Top from './top/Top';
 import TabSecond from './tabSecond/TabSecond';
 import Header from '../../../components/Header';
 
-
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 const styles = (theme) => ({
@@ -46,10 +45,7 @@ function a11yProps(index) {
   };
 }
 
-
-
 function Usage(props) {
-  
   const { classes, onDrawerToggle } = props;
 
   /* 
@@ -66,29 +62,28 @@ function Usage(props) {
         ヘッダー部
       */}
       {/* タブを除くヘッダー */}
-      <Header onDrawerToggle={onDrawerToggle} pageName="Usage" />
+      <Header onDrawerToggle={onDrawerToggle} pageName='Usage' />
 
       {/* タブ */}
       <AppBar
-        component="div"
+        component='div'
         className={classes.secondaryBar}
-        color="primary"
-        position="static"
+        color='primary'
+        position='static'
         elevation={0}
       >
-        <Tabs value={value} onChange={handleChange} textColor="inherit">
-          <Tab textColor="inherit" label="Top" {...a11yProps(0)} />
-          <Tab textColor="inherit" label="Others" {...a11yProps(1)} />
+        <Tabs value={value} onChange={handleChange} textColor='inherit'>
+          <Tab textColor='inherit' label='Top' {...a11yProps(0)} />
+          <Tab textColor='inherit' label='Others' {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <main className={classes.main}>
-          
-      <TabPanel value={value} index={0} className={classes.mapPanel}>
-        <Top />
-      </TabPanel>
-      <TabPanel value={value} index={1} className={classes.mapPanel}>
-        <TabSecond />
-      </TabPanel>
+        <TabPanel value={value} index={0} className={classes.mapPanel}>
+          <Top />
+        </TabPanel>
+        <TabPanel value={value} index={1} className={classes.mapPanel}>
+          <TabSecond />
+        </TabPanel>
       </main>
     </React.Fragment>
   );

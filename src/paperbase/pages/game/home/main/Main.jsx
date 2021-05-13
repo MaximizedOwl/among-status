@@ -24,7 +24,7 @@ const styles = (theme) => ({
     maxWidth: 936,
     margin: 'auto',
     overflow: 'hidden',
-    textAligh: 'center'
+    textAligh: 'center',
   },
   titleBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
@@ -36,12 +36,12 @@ const styles = (theme) => ({
   contentWrapper: {
     margin: '40px 16px',
   },
-  img :{
+  img: {
     maxWidth: 50,
     minWidth: 40,
     height: 'auto',
   },
-  killCooldownTimeTextfield :{
+  killCooldownTimeTextfield: {
     maxWidth: 70,
   },
   statusResetButton: {
@@ -50,11 +50,10 @@ const styles = (theme) => ({
   },
   container: {
     textAlign: 'center',
-  }
+  },
 });
 
 function Main(props) {
-
   /* 
     全体のprops
   */
@@ -69,7 +68,7 @@ function Main(props) {
     setIsUsedEMRight,
     suspiciousness,
     setSuspiciousness,
-    killCooldownTime
+    killCooldownTime,
   } = props;
 
   /* 
@@ -77,7 +76,6 @@ function Main(props) {
   */
   // isExistPlayerが現在trueになっている色だけを配列currentExistPlayerListに格納する。
   const generateCurrentExistPlayer = () => {
-    
     // プレイヤー人数の取得
     const objectLength = Object.keys(isExistPlayer).length;
 
@@ -86,11 +84,9 @@ function Main(props) {
     let newExistPlayerList = [];
 
     for (let index = 0; index < objectLength; index++) {
-      
       console.log([Object.values(isExistPlayer)[index]]);
       // isExistPlayerがtrueなら配列にキーを追加
       if (Object.values(isExistPlayer)[index] === true) {
-
         newExistPlayerList.push(Object.keys(isExistPlayer)[index]);
       }
     }
@@ -101,49 +97,58 @@ function Main(props) {
 
   // 現参加者リスト
   // eslint-disable-next-line no-unused-vars
-  const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(generateCurrentExistPlayer);
+  const [currentExistPlayerList, setCurrentExistPlayerList] = React.useState(
+    generateCurrentExistPlayer
+  );
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     会議権使用状態と生死状態のどちらでも利用可能
   */
   const handleChange = (event) => {
-
     if (event.target.name === 'isUsedEMRight') {
+      console.log(
+        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
+      );
 
-      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
+      setIsUsedEMRight({
+        ...isUsedEMRight,
+        [event.target.value]: event.target.checked,
+      });
 
-      setIsUsedEMRight({ ...isUsedEMRight, [event.target.value]: event.target.checked });
-
-      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
-
-    } if (event.target.name === 'isDead') {
-
-      console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
+      console.log(
+        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
+      );
+    }
+    if (event.target.name === 'isDead') {
+      console.log(
+        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
+      );
 
       setIsDead({ ...isDead, [event.target.value]: event.target.checked });
 
-      console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
-
-    } 
+      console.log(
+        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
+      );
+    }
   };
 
   /* 
     キルクールダウンタイム終了通知のスナックバー関連
   */
-    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
 
-    const handleClickSnackbar = () => {
-      setOpenSnackbar(true);
-    };
-  
-    const handleCloseSnackbar = (event, reason) => {
-      if (reason === 'clickaway') {
-        return;
-      }
-  
-      setOpenSnackbar(false);
-    };
+  const handleClickSnackbar = () => {
+    setOpenSnackbar(true);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnackbar(false);
+  };
 
   /* 
     キルクールダウンタイム関連
@@ -159,7 +164,6 @@ function Main(props) {
 
   /* カウントダウン 停止処理 */
   const stopKillCooldownTime = React.useCallback(() => {
-
     console.log('Stop機能 開始');
 
     if (intervalRef.current === null) {
@@ -173,12 +177,10 @@ function Main(props) {
 
   /* カウントダウン 開始処理 */
   const startKillCooldownTime = React.useCallback(() => {
-
     console.log('Start機能 開始');
 
     // 数値未設定時 countは文字列型で入ってきている
     if (count === '') {
-
       console.log('数値未設定');
       window.alert(`Please set Kill Cooldown Time at "Setting".
 キルクールダウンタイムが設定されていません。Settingタブで設定してください。`);
@@ -187,18 +189,15 @@ function Main(props) {
 
       return;
 
-    // 数値設定時
+      // 数値設定時
     } else {
       if (intervalRef.current !== null) {
-
-        return;      
+        return;
       }
-    };
+    }
     intervalRef.current = setInterval(() => {
-
       console.log(innerCount);
-      if(innerCount <= 0) {
-
+      if (innerCount <= 0) {
         // 処理停止
         stopKillCooldownTime();
 
@@ -206,23 +205,19 @@ function Main(props) {
         handleClickSnackbar();
 
         console.log('時間が0になりました');
-
       } else {
         // 表示時間減少処理
-        setCount(count => count - 0.5);
+        setCount((count) => count - 0.5);
         // 内部表示終了カウント減少処理
         innerCount--;
       }
-
     }, 500);
 
     console.log('Start機能 終了');
   }, []);
 
-
   /* カウントダウン 再設定（リセット）処理 */
   const resetKillCooldownTime = React.useCallback(() => {
-
     console.log('Reset機能 開始');
 
     // 表示数値の初期化
@@ -233,7 +228,6 @@ function Main(props) {
     handleCloseSnackbar();
 
     console.log('Reset機能 終了');
-
   }, []);
 
   /* 
@@ -242,32 +236,36 @@ function Main(props) {
   */
 
   const playersStatusReset = () => {
-
     console.log(initState);
     console.log(initState.isDead);
 
     // 初期値設定
-    setIsDead({...isDead, ...initState.isDead});
-    setIsUsedEMRight({...isUsedEMRight, ...initState.isUsedEMRight});
-    setSuspiciousness({...suspiciousness, ...initState.suspiciousness});
-
+    setIsDead({ ...isDead, ...initState.isDead });
+    setIsUsedEMRight({ ...isUsedEMRight, ...initState.isUsedEMRight });
+    setSuspiciousness({ ...suspiciousness, ...initState.suspiciousness });
   };
 
   /* 
     プレイヤー12色のブロック
   */
-  const playerBlock = currentExistPlayerList.map((color) => 
-
-    <Grid container xs={12} alignItems="center" justify="space-evenly" className={classes.container} key={color}>
-      <Grid item xs={2} justify="center">
+  const playerBlock = currentExistPlayerList.map((color) => (
+    <Grid
+      container
+      xs={12}
+      alignItems='center'
+      justify='space-evenly'
+      className={classes.container}
+      key={color}
+    >
+      <Grid item xs={2} justify='center'>
         <img src={playerColorImageList[color]} className={classes.img} />
       </Grid>
       <Grid item xs={2}>
         <Checkbox
           checked={isDead[color]}
           onChange={handleChange}
-          color="secondary"
-          name="isDead"
+          color='secondary'
+          name='isDead'
           value={color}
         />
       </Grid>
@@ -275,8 +273,8 @@ function Main(props) {
         <Checkbox
           checked={isUsedEMRight[color]}
           onChange={handleChange}
-          color="primary"
-          name="isUsedEMRight"
+          color='primary'
+          name='isUsedEMRight'
           value={color}
         />
       </Grid>
@@ -288,72 +286,88 @@ function Main(props) {
         />
       </Grid>
     </Grid>
-  );
+  ));
 
   return (
     <React.Fragment>
-      
       {/* 
         時間経過・通知関連
       */}
       <Paper className={classes.paper}>
         <div className={classes.contentWrapper}>
-          
           <h3>Kill Cooldown Timer</h3>
-          
-          <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
-            <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
+
+          <Grid
+            container
+            xs='auto'
+            spacing={1}
+            alignItems='center'
+            justify='flex-start'
+          >
+            <Grid
+              container
+              xs='auto'
+              spacing={1}
+              alignItems='center'
+              justify='flex-start'
+            >
               <Grid item xs='auto'>
                 <TextField
                   disabled
-                  id="outlined-disabled"
+                  id='outlined-disabled'
                   value={count}
-                  variant="outlined"
-                  size="small"
-                  margin="dense"
+                  variant='outlined'
+                  size='small'
+                  margin='dense'
                   className={classes.killCooldownTimeTextfield}
                 />
               </Grid>
               <Grid item xs='auto'>
                 <Snackbar open={openSnackbar} onClose={handleCloseSnackbar}>
-                  <Alert onClose={handleCloseSnackbar} severity="info">
+                  <Alert onClose={handleCloseSnackbar} severity='info'>
                     cooldown time is over!
                   </Alert>
                 </Snackbar>
               </Grid>
             </Grid>
-            <Grid container xs='auto' spacing={1} alignItems="center" justify="flex-start">
+            <Grid
+              container
+              xs='auto'
+              spacing={1}
+              alignItems='center'
+              justify='flex-start'
+            >
               <Grid item xs='auto'>
                 <Button
-                  variant="contained"
-                  color="primary"
+                  variant='contained'
+                  color='primary'
                   size='small'
-                  onClick={startKillCooldownTime}      
+                  onClick={startKillCooldownTime}
                 >
                   Start
                 </Button>
               </Grid>
               <Grid item xs='auto'>
                 <Button
-                  variant="contained"
-                  color="default"
+                  variant='contained'
+                  color='default'
                   size='small'
-                  onClick={stopKillCooldownTime}      
+                  onClick={stopKillCooldownTime}
                 >
                   Stop
                 </Button>
               </Grid>
               <Grid item xs='auto'>
                 <Button
-                  variant="contained"
-                  color="secondary"
+                  variant='contained'
+                  color='secondary'
                   size='small'
-                  onClick={resetKillCooldownTime}      
+                  onClick={resetKillCooldownTime}
                 >
                   Reset
                 </Button>
               </Grid>
-            </Grid>  
+            </Grid>
           </Grid>
         </div>
       </Paper>
@@ -367,27 +381,56 @@ function Main(props) {
         {/* 
           上側AppBar
         */}
-        <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
+        <AppBar
+          className={classes.titleBar}
+          position='static'
+          color='default'
+          elevation={0}
+        >
           <Toolbar>
-              {/* <Grid container xs={12} className={classes.container}> */}
-                <Grid container xs={6} justify="flex-end" alignItems="center" className={classes.container}>
-                  <Grid item xs={4}>
-                    <img src={GhostIcon} alt="Ghost" className={classes.img}/>
-                  </Grid>
-                  <Grid item xs={4}>
-                    <img src={EmergencyMeetingIcon} alt="EmergencyMeeting" className={classes.img}/>
-                  </Grid>
-                </Grid>
-                <Grid container xs={6} justify="space-between" alignItems="center" className={classes.container}>
-                  <Grid item xs={3}>
-                    <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
-                  </Grid>
-                  <Grid item xs={3}>
-                    <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
-                  </Grid>
-                {/* </Grid> */}
+            {/* <Grid container xs={12} className={classes.container}> */}
+            <Grid
+              container
+              xs={6}
+              justify='flex-end'
+              alignItems='center'
+              className={classes.container}
+            >
+              <Grid item xs={4}>
+                <img src={GhostIcon} alt='Ghost' className={classes.img} />
+              </Grid>
+              <Grid item xs={4}>
+                <img
+                  src={EmergencyMeetingIcon}
+                  alt='EmergencyMeeting'
+                  className={classes.img}
+                />
+              </Grid>
+            </Grid>
+            <Grid
+              container
+              xs={6}
+              justify='space-between'
+              alignItems='center'
+              className={classes.container}
+            >
+              <Grid item xs={3}>
+                <img
+                  src={CrewmateIcon}
+                  alt='Crewmate'
+                  className={classes.img}
+                />
+              </Grid>
+              <Grid item xs={3}>
+                <img
+                  src={ImposterIcon}
+                  alt='Imposter'
+                  className={classes.img}
+                />
+              </Grid>
+              {/* </Grid> */}
 
-                {/* <Grid item xs={2}>
+              {/* <Grid item xs={2}>
                   <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
                 </Grid>
                 <Grid item xs={2}>
@@ -395,8 +438,7 @@ function Main(props) {
                 <Grid item xs={2}>
                   <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
                 </Grid> */}
-
-              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
 
@@ -404,32 +446,36 @@ function Main(props) {
           メイン情報表示部
         */}
         <div className={classes.contentWrapper}>
-          
           {/* 
             プレイヤー12色のブロック
           */}
-          <Grid container alignItems="center" justify="center">
+          <Grid container alignItems='center' justify='center'>
             {playerBlock}
           </Grid>
-          
+
           {/* 
             リセットボタン
           */}
-          <Grid container xs alignItems="center" justify="center" className={classes.statusResetButton}>
+          <Grid
+            container
+            xs
+            alignItems='center'
+            justify='center'
+            className={classes.statusResetButton}
+          >
             <Grid item xs>
               <Button
-                variant="contained"
-                color="secondary"
+                variant='contained'
+                color='secondary'
                 // size='small'
                 onClick={playersStatusReset}
               >
-              Status Reset
+                Status Reset
               </Button>
             </Grid>
           </Grid>
         </div>
       </Paper>
-
     </React.Fragment>
   );
 }

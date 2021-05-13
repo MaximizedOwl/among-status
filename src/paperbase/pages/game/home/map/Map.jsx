@@ -34,12 +34,12 @@ const styles = (theme) => ({
     width: '100%',
     height: '100%',
   },
-  map:{
+  map: {
     display: 'inline-block',
     width: '100%',
     height: '100%',
   },
-  img :{
+  img: {
     width: 25,
     minWidth: 20,
     maxWidth: 40,
@@ -49,7 +49,7 @@ const styles = (theme) => ({
   iconResetButton: {
     padding: 10,
     textAlign: 'center',
-  }
+  },
 });
 
 function a11yProps(index) {
@@ -67,27 +67,25 @@ function Map(props) {
     playerColorList,
     playerIconCordinate,
     setPlayerIconCordinate,
-    initState
+    initState,
   } = props;
 
   const handleDrag = (e, data, color) => {
-
     console.log('start');
     console.log(e);
     console.log(data);
     console.log(color);
     console.log('end');
 
-    setPlayerIconCordinate({...playerIconCordinate,
+    setPlayerIconCordinate({
+      ...playerIconCordinate,
       [color]: {
         x: data.x,
         y: data.y,
-      }
+      },
     });
 
     console.log(playerIconCordinate[color]);
-
-
   };
 
   const handleChange = (event, newMap) => {
@@ -97,83 +95,100 @@ function Map(props) {
   /* 
     プレイヤーのアイコン領域
   */
-  const playersIcon = // React.useMemo(() => 
-    
-    playerColorList.map((color) => 
-    
-    <Grid item xs='auto' key={color}>
-      <Draggable
-        position={playerIconCordinate[color]}
-        onDrag={(e,data) => handleDrag(e, data, color)}
-        // bounds='parent'
-      >
-        <img src={playerColorImageList[color]} className={classes.img}/>
-      </Draggable>    
-    </Grid> 
-    
-    );
+  const playersIcon = playerColorList.map(
+    (
+      color // React.useMemo(() =>
+    ) => (
+      <Grid item xs='auto' key={color}>
+        <Draggable
+          position={playerIconCordinate[color]}
+          onDrag={(e, data) => handleDrag(e, data, color)}
+          // bounds='parent'
+        >
+          <img src={playerColorImageList[color]} className={classes.img} />
+        </Draggable>
+      </Grid>
+    )
+  );
   // ,[0]);
 
   /* 
     プレイヤーのアイコンリセット関する全ての状態に初期値を設定する。
   */
   const playersIconCordinateReset = () => {
-
     // 初期値設定
-    setPlayerIconCordinate({...playerIconCordinate, ...initState.playerIconCordinate});
+    setPlayerIconCordinate({
+      ...playerIconCordinate,
+      ...initState.playerIconCordinate,
+    });
   };
 
   return (
-    
     <React.Fragment>
       <Paper className={classes.paper}>
-        <AppBar className={classes.titleBar} position="static" color="default" elevation={0}>
+        <AppBar
+          className={classes.titleBar}
+          position='static'
+          color='default'
+          elevation={0}
+        >
           <Toolbar>
             <Tabs
               value={map}
               onChange={handleChange}
-              aria-label="simple tabs example"
-              indicatorColor="green"
-              textColor="primary"
-              variant="scrollable"
-              scrollButtons="on"
+              aria-label='simple tabs example'
+              indicatorColor='green'
+              textColor='primary'
+              variant='scrollable'
+              scrollButtons='on'
             >
-              <Tab label="The Skeld" {...a11yProps(0)} />
-              <Tab label="MiraHQ" {...a11yProps(1)} />
-              <Tab label="Polus" {...a11yProps(2)} />
-              <Tab label="The Airship" {...a11yProps(3)} />
+              <Tab label='The Skeld' {...a11yProps(0)} />
+              <Tab label='MiraHQ' {...a11yProps(1)} />
+              <Tab label='Polus' {...a11yProps(2)} />
+              <Tab label='The Airship' {...a11yProps(3)} />
             </Tabs>
           </Toolbar>
         </AppBar>
         <div className={classes.contentWrapper}>
-
           {/* タブ（マップ）領域 */}
           <TabPanel value={map} index={0} className={classes.mapPanel}>
-            <img src={TheSkeld} art={map} className={classes.map}/>
+            <img src={TheSkeld} art={map} className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={1} className={classes.mapPanel}>
-            <img src={MiraHQ} art={map} className={classes.map}/>
+            <img src={MiraHQ} art={map} className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={2} className={classes.mapPanel}>
-            <img src={Polus} art={map} className={classes.map}/>
+            <img src={Polus} art={map} className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={3} className={classes.mapPanel}>
-            <img src={TheAirship} art={map} className={classes.map}/>
+            <img src={TheAirship} art={map} className={classes.map} />
           </TabPanel>
 
           {/* プレイヤーアイコン領域 */}
-          <Grid container xs='auto' spacing={1} alignItems="center" justify="center">
+          <Grid
+            container
+            xs='auto'
+            spacing={1}
+            alignItems='center'
+            justify='center'
+          >
             {playersIcon}
           </Grid>
-          
+
           {/* 
             リセットボタン
           */}
-          <Grid container xs alignItems="center" justify="center" className={classes.iconResetButton}>
+          <Grid
+            container
+            xs
+            alignItems='center'
+            justify='center'
+            className={classes.iconResetButton}
+          >
             <Grid item xs>
               <Button
-                variant="contained"
-                color="secondary"
+                variant='contained'
+                color='secondary'
                 size='small'
                 onClick={playersIconCordinateReset}
               >
@@ -181,18 +196,15 @@ function Map(props) {
               </Button>
             </Grid>
           </Grid>
-
         </div>
       </Paper>
-
     </React.Fragment>
-
   );
 }
 
 Map.propTypes = {
   classes: PropTypes.object.isRequired,
-  map: PropTypes.string.isRequired, 
+  map: PropTypes.string.isRequired,
   setMap: PropTypes.func.isRequired,
   playerColorImageList: PropTypes.object.isRequired,
   playerColorList: PropTypes.object.isRequired,

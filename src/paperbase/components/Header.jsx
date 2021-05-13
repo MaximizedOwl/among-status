@@ -45,9 +45,13 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant='h6'>{children}</Typography>
       {onClose ? (
-        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+        <IconButton
+          aria-label='close'
+          className={classes.closeButton}
+          onClick={onClose}
+        >
           <CloseIcon />
         </IconButton>
       ) : null}
@@ -61,7 +65,6 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-
 // eslint-disable-next-line no-unused-vars
 const DialogActions = withStyles((theme) => ({
   root: {
@@ -71,11 +74,7 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 function Header(props) {
-  const {
-    classes,
-    onDrawerToggle,
-    pageName
-  } = props;
+  const { classes, onDrawerToggle, pageName } = props;
 
   /* URLコピー完了のスナックバー関連 */
   const [openSnackbar, setOpenSnackbar] = React.useState(false);
@@ -92,49 +91,50 @@ function Header(props) {
     setOpenSnackbar(false);
   };
 
-    /* シェアアイコンのダイアログ関連 */
-    const [open, setOpen] = React.useState(false);
+  /* シェアアイコンのダイアログ関連 */
+  const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-    const handleClose = () => {
-      // スナックバーが表示されていたら、それも合わせて閉じる
-      if (openSnackbar === true) {
-        setOpenSnackbar(false);
-      }      
-      
-      setOpen(false);
-    };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    // スナックバーが表示されていたら、それも合わせて閉じる
+    if (openSnackbar === true) {
+      setOpenSnackbar(false);
+    }
+
+    setOpen(false);
+  };
 
   /* URLをクリップボードへ貼り付ける処理 */
   const copyUrl = () => {
-
     const siteURL = 'https://among-status.web.app/';
-    
-    navigator.clipboard.writeText(siteURL).then(function() {
-      /* clipboard successfully set */
-      console.log('success');
 
-      // 成功時の通知スナックバー
-      handleClickSnackbar();
+    navigator.clipboard.writeText(siteURL).then(
+      function () {
+        /* clipboard successfully set */
+        console.log('success');
 
-    }, function() {
-      /* clipboard write failed */
-      console.log('failure');
-    });
+        // 成功時の通知スナックバー
+        handleClickSnackbar();
+      },
+      function () {
+        /* clipboard write failed */
+        console.log('failure');
+      }
+    );
   };
 
   return (
     <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={0}>
+      <AppBar color='primary' position='sticky' elevation={0}>
         <Toolbar>
-          <Grid container spacing={1} alignItems="center">
+          <Grid container spacing={1} alignItems='center'>
             <Hidden smUp>
               <Grid item>
                 <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
+                  color='inherit'
+                  aria-label='open drawer'
                   onClick={onDrawerToggle}
                   className={classes.menuButton}
                 >
@@ -144,47 +144,61 @@ function Header(props) {
             </Hidden>
             <Grid item xs />
             <Grid item>
-              <Tooltip title="Share">
-                <IconButton color="inherit" onClick={handleClickOpen}>
+              <Tooltip title='Share'>
+                <IconButton color='inherit' onClick={handleClickOpen}>
                   <ShareIcon />
                 </IconButton>
               </Tooltip>
-              <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open} fullwidth >
-                <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+              <Dialog
+                onClose={handleClose}
+                aria-labelledby='customized-dialog-title'
+                open={open}
+                fullwidth
+              >
+                <DialogTitle id='customized-dialog-title' onClose={handleClose}>
                   Share
                 </DialogTitle>
                 <DialogContent dividers>
                   {/* Twitter */}
-                  <IconButton color="inherit" href="https://twitter.com/share?url=https://among-status.web.app/&related=AmongStatUs&via=AmongStatUs&hashtags=AmongStatUs&text=AmongStatUs Helping tool your playing for Among Us" target="_blank" rel="nofollow">
+                  <IconButton
+                    color='inherit'
+                    href='https://twitter.com/share?url=https://among-status.web.app/&related=AmongStatUs&via=AmongStatUs&hashtags=AmongStatUs&text=AmongStatUs Helping tool your playing for Among Us'
+                    target='_blank'
+                    rel='nofollow'
+                  >
                     <TwitterIcon />
                   </IconButton>
                   {/* ToDo: URL copy */}
-                  <IconButton color="inherit" onClick={copyUrl}> 
+                  <IconButton color='inherit' onClick={copyUrl}>
                     <LinkIcon />
                   </IconButton>
                 </DialogContent>
-                              {/* コピー完了時の表示 */}
-              <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={handleCloseSnackbar}>
-                <Alert onClose={handleCloseSnackbar} severity="success">
-                  copy successed!
-                </Alert>
-              </Snackbar>
+                {/* コピー完了時の表示 */}
+                <Snackbar
+                  open={openSnackbar}
+                  autoHideDuration={3000}
+                  onClose={handleCloseSnackbar}
+                >
+                  <Alert onClose={handleCloseSnackbar} severity='success'>
+                    copy successed!
+                  </Alert>
+                </Snackbar>
               </Dialog>
             </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
       <AppBar
-        component="div"
+        component='div'
         className={classes.secondaryBar}
-        color="primary"
-        position="static"
+        color='primary'
+        position='static'
         elevation={0}
       >
         <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
+          <Grid container alignItems='center' spacing={1}>
             <Grid item xs>
-              <Typography color="inherit" variant="h5" component="h1">
+              <Typography color='inherit' variant='h5' component='h1'>
                 {pageName}
               </Typography>
             </Grid>
@@ -198,7 +212,7 @@ function Header(props) {
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   onDrawerToggle: PropTypes.func.isRequired,
-  pageName: PropTypes.string.isRequired
+  pageName: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Header);

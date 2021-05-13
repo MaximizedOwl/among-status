@@ -15,20 +15,37 @@ import { Link } from 'react-router-dom';
 /* 画像 */
 import SiteIcon from '../img/others/among-us-watch.svg';
 
-
 const categories = [
   {
     id: 'Game',
     children: [
-      { id: 'Home', icon: <DashboardIcon />, index: 0, active: false, path: '' },
+      {
+        id: 'Home',
+        icon: <DashboardIcon />,
+        index: 0,
+        active: false,
+        path: '',
+      },
       // { id: 'Coming Soon', icon: <DnsRoundedIcon /> , index: 1, active: false, path: 'comingSoon' },
     ],
   },
   {
     id: 'Others',
     children: [
-      { id: 'Usage', icon: <DescriptionIcon />,  index: 2, active: false, path: 'usage' },
-      { id: 'About', icon: <WebIcon />,  index: 3, active: false, path: 'about' },
+      {
+        id: 'Usage',
+        icon: <DescriptionIcon />,
+        index: 2,
+        active: false,
+        path: 'usage',
+      },
+      {
+        id: 'About',
+        icon: <WebIcon />,
+        index: 3,
+        active: false,
+        path: 'about',
+      },
     ],
   },
 ];
@@ -73,7 +90,7 @@ const styles = (theme) => ({
     marginTop: theme.spacing(2),
   },
   link: {
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   siteIcon: {
     maxWidth: 50,
@@ -86,7 +103,7 @@ function Navigator(props) {
   /* 
     ページ選択制御部
   */
-  
+
   /*   
   const activateSwitch = (oldIndex, newIndex) => {
     
@@ -103,30 +120,29 @@ function Navigator(props) {
 
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleListItemClick = (event, index) => {
-    
     /* activateSwitch(selectedIndex, index); */
 
     setSelectedIndex(index);
 
     // activate
-
   };
 
   const basePath = '/';
 
   return (
-    <Drawer variant="permanent" {...other}>
+    <Drawer variant='permanent' {...other}>
       <List disablePadding>
-
         {/* 
           タイトル
          */}
-        <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          <img src={SiteIcon} alt="SiteIcon" className={classes.siteIcon}/>
+        <ListItem
+          className={clsx(classes.firebase, classes.item, classes.itemCategory)}
+        >
+          <img src={SiteIcon} alt='SiteIcon' className={classes.siteIcon} />
           {'Among StatUs(β)'}
         </ListItem>
 
-         {/* 
+        {/* 
           実際のNavi
           Page選択部分
          */}
@@ -142,16 +158,20 @@ function Navigator(props) {
               </ListItemText>
             </ListItem>
             {children.map(({ id: childId, icon, index, active, path }) => (
-
               <Link to={basePath + path} className={classes.link} key={id}>
                 <ListItem
                   key={childId}
                   button
-                  className={clsx(classes.item, active && classes.itemActiveItem)}
+                  className={clsx(
+                    classes.item,
+                    active && classes.itemActiveItem
+                  )}
                   selected={selectedIndex === index}
                   onClick={(event) => handleListItemClick(event, index)}
                 >
-                  <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                  <ListItemIcon className={classes.itemIcon}>
+                    {icon}
+                  </ListItemIcon>
                   <ListItemText
                     classes={{
                       primary: classes.itemPrimary,
@@ -161,7 +181,6 @@ function Navigator(props) {
                   </ListItemText>
                 </ListItem>
               </Link>
-
             ))}
 
             <Divider className={classes.divider} />

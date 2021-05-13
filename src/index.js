@@ -8,12 +8,11 @@ import ReactDOM from 'react-dom';
 import Paperbase from './paperbase/Paperbase';
 
 ReactDOM.render(
-
   <Paperbase />,
   // <ThemeProvider theme={theme}>
   //   {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
   //   <CssBaseline />
   //   <App />
   // </ThemeProvider>,
-  document.querySelector('#root'),
+  document.querySelector('#root')
 );
