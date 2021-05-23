@@ -69,6 +69,10 @@ function Main(props) {
     suspiciousness,
     setSuspiciousness,
     killCooldownTime,
+    count,
+    setCount,
+    countEndFlag,
+    setCountEndFlag,
   } = props;
 
   /* 
@@ -154,11 +158,21 @@ function Main(props) {
     キルクールダウンタイム関連
   */
 
-  // 実際に表示されている数値
-  const [count, setCount] = React.useState(killCooldownTime);
+  React.useEffect(() => {
+    if (!(count === '') && count <= 0) {
+      // 処理停止
+      stopKillCooldownTime();
 
-  // タイマーの内部で使う現在の数値を取得
-  let innerCount = count * 2;
+      // スナックバー表示
+      handleClickSnackbar();
+
+      // カウントが終わっているかどうかのフラグをtrueにする。
+      setCountEndFlag(true);
+      console.log(countEndFlag);
+
+      console.log('時間が0になりました');
+    }
+  }, [count]);
 
   const intervalRef = React.useRef(null);
 
@@ -177,6 +191,8 @@ function Main(props) {
 
   /* カウントダウン 開始処理 */
   const startKillCooldownTime = React.useCallback(() => {
+    console.log(countEndFlag);
+
     console.log('Start機能 開始');
 
     // 数値未設定時 countは文字列型で入ってきている
@@ -188,33 +204,22 @@ function Main(props) {
       console.log('Start機能 終了');
 
       return;
-
-      // 数値設定時
+    } else if (countEndFlag) {
+      window.alert(`Time is '0', please reset.
+時間が0です。リセットをしてください。`);
+      return;
     } else {
-      if (intervalRef.current !== null) {
-        return;
-      }
-    }
-    intervalRef.current = setInterval(() => {
-      console.log(innerCount);
-      if (innerCount <= 0) {
-        // 処理停止
-        stopKillCooldownTime();
-
-        // スナックバー表示
-        handleClickSnackbar();
-
-        console.log('時間が0になりました');
-      } else {
+      // useRef()内（どの「世界線」からも参照できる「箱（状態）」であるintervalRefにsetInterval()が実行されている状態を保存する）
+      // これは現在カウントされている値ではないため、固定値の28とかの意味がわからない数字が入ってくる。
+      // だから「カウントダウンしている常態か否か」なのでintervalRef内にはnull、もしくはわけのわからない数字が入る。
+      intervalRef.current = setInterval(() => {
         // 表示時間減少処理
-        setCount((count) => count - 0.5);
-        // 内部表示終了カウント減少処理
-        innerCount--;
-      }
-    }, 500);
+        setCount((c) => c - 0.5);
+      }, 500);
+    }
 
     console.log('Start機能 終了');
-  }, []);
+  }, [countEndFlag]); // countEndFlagを監視対象にすることでcountEndFlagの値が変わったときにはこの関数を再計算する。
 
   /* カウントダウン 再設定（リセット）処理 */
   const resetKillCooldownTime = React.useCallback(() => {
@@ -222,10 +227,12 @@ function Main(props) {
 
     // 表示数値の初期化
     setCount(killCooldownTime);
-    // 内部カウント数値の初期化
-    innerCount = count * 2;
+
     // スナックバーを閉じる
     handleCloseSnackbar();
+
+    // これ以上カウントさせないためのフラグのリセット
+    setCountEndFlag(false);
 
     console.log('Reset機能 終了');
   }, []);
@@ -492,6 +499,10 @@ Main.propTypes = {
   suspiciousness: PropTypes.object.isRequired,
   setSuspiciousness: PropTypes.func.isRequired,
   killCooldownTime: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
+  setCount: PropTypes.func.isRequired,
+  countEndFlag: PropTypes.number.bool,
+  setCountEndFlag: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Main);

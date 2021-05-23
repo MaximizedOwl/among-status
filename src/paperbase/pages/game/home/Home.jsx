@@ -163,8 +163,19 @@ function Home(props) {
   /* 
     キルクールダウンタイムの時間に関する記述
   */
+
   // 状態生成
   const [killCooldownTime, setKillCooldownTime] = React.useState('');
+
+  // 実際に表示されている数値
+  const [count, setCount] = React.useState(killCooldownTime);
+
+  // killCooldownTimeに変更があったら検知してcountに反映させる処理
+  React.useMemo(() => setCount(killCooldownTime), [killCooldownTime]);
+
+  // カウントが0までいっているかどうかのフラグ
+  // カウントが0のときにカウントを始められるかどうかの判定に使う。
+  const [countEndFlag, setCountEndFlag] = React.useState(false);
 
   // キルクールタイム時間の配列を作成
   const createKillCooldownTimeList = () => {
@@ -385,6 +396,7 @@ function Home(props) {
             killCooldownTime={killCooldownTime}
             setKillCooldownTime={setKillCooldownTime}
             killCooldownTimeList={killCooldownTimeList}
+            setCountEndFlag={setCountEndFlag}
           />
         </TabPanel>
         <TabPanel value={value} index={1} className={classes.mapPanel}>
@@ -400,6 +412,10 @@ function Home(props) {
             suspiciousness={suspiciousness}
             setSuspiciousness={setSuspiciousness}
             killCooldownTime={killCooldownTime}
+            count={count}
+            setCount={setCount}
+            countEndFlag={countEndFlag}
+            setCountEndFlag={setCountEndFlag}
           />
         </TabPanel>
         <TabPanel value={value} index={2} className={classes.mapPanel}>

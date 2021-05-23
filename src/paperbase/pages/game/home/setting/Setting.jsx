@@ -44,6 +44,7 @@ function Setting(props) {
     killCooldownTime,
     setKillCooldownTime,
     killCooldownTimeList,
+    setCountEndFlag,
   } = props;
 
   /* 
@@ -55,6 +56,9 @@ function Setting(props) {
       // console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
 
       setKillCooldownTime(event.target.value);
+
+      // これ以上カウントさせないためのフラグもあわせてリセット
+      setCountEndFlag(false);
 
       // console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
     }
@@ -193,6 +197,7 @@ Setting.propTypes = {
   killCooldownTime: PropTypes.number,
   setKillCooldownTime: PropTypes.func.isRequired,
   killCooldownTimeList: PropTypes.object.isRequired,
+  setCountEndFlag: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Setting);
