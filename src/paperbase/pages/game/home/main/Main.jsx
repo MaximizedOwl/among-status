@@ -73,6 +73,7 @@ function Main(props) {
     setCount,
     countEndFlag,
     setCountEndFlag,
+    intervalRef,
   } = props;
 
   /* 
@@ -157,8 +158,8 @@ function Main(props) {
   /* 
     キルクールダウンタイム関連
   */
-
   React.useEffect(() => {
+    // 未設定ではなく、かつカウントが0になったとき
     if (!(count === '') && count <= 0) {
       // 処理停止
       stopKillCooldownTime();
@@ -174,15 +175,16 @@ function Main(props) {
     }
   }, [count]);
 
-  const intervalRef = React.useRef(null);
-
   /* カウントダウン 停止処理 */
   const stopKillCooldownTime = React.useCallback(() => {
     console.log('Stop機能 開始');
 
     if (intervalRef.current === null) {
+      console.debug('intervalRef.current === null');
+      console.debug(intervalRef.current);
       return;
     }
+    console.debug('intervalRef.current !== null');
     clearInterval(intervalRef.current);
     intervalRef.current = null;
 
@@ -503,6 +505,7 @@ Main.propTypes = {
   setCount: PropTypes.func.isRequired,
   countEndFlag: PropTypes.number.bool,
   setCountEndFlag: PropTypes.func.isRequired,
+  intervalRef: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Main);

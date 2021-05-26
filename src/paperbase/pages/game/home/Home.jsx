@@ -199,6 +199,14 @@ function Home(props) {
   const killCooldownTimeList = createKillCooldownTimeList();
 
   /* 
+    useRef()で生成したintervalRefを状態として保持
+    キルクールダウンタイムのインターバルを行っている状態を外部に切り出した
+    Main.jsxに記述すると、タブを切り替えたときにnullになってストップがかからなくなってしまう。
+  */
+  // eslint-disable-next-line no-unused-vars
+  const [intervalRef, setIntervalRef] = React.useState(React.useRef(null));
+
+  /* 
     プレイヤーColorの配列
   */
   const playerColorImageList = {
@@ -416,6 +424,7 @@ function Home(props) {
             setCount={setCount}
             countEndFlag={countEndFlag}
             setCountEndFlag={setCountEndFlag}
+            intervalRef={intervalRef}
           />
         </TabPanel>
         <TabPanel value={value} index={2} className={classes.mapPanel}>
