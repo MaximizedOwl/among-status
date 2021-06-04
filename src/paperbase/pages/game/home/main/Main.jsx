@@ -397,7 +397,6 @@ function Main(props) {
           elevation={0}
         >
           <Toolbar>
-            {/* <Grid container xs={12} className={classes.container}> */}
             <Grid
               container
               xs={6}
@@ -437,16 +436,6 @@ function Main(props) {
                   className={classes.img}
                 />
               </Grid>
-              {/* </Grid> */}
-
-              {/* <Grid item xs={2}>
-                  <img src={CrewmateIcon} alt="Crewmate" className={classes.img}/>
-                </Grid>
-                <Grid item xs={2}>
-                </Grid>
-                <Grid item xs={2}>
-                  <img src={ImposterIcon} alt="Imposter" className={classes.img}/>
-                </Grid> */}
             </Grid>
           </Toolbar>
         </AppBar>
