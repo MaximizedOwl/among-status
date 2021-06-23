@@ -28,7 +28,6 @@ const styles = (theme) => ({
   },
   titleBar: {
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-    // maxHeight: 40,
   },
   block: {
     display: 'block',
@@ -480,10 +479,10 @@ function Main(props) {
 
 Main.propTypes = {
   classes: PropTypes.object.isRequired,
-  initState: PropTypes.object.isRequired,
-  playerColorImageList: PropTypes.object.isRequired,
-  isExistPlayer: PropTypes.object.isRequired,
-  isDead: PropTypes.object.isRequired,
+  initState: PropTypes.bool.isRequired,
+  playerColorImageList: PropTypes.objectOf(PropTypes.string).isRequired,
+  isExistPlayer: PropTypes.bool.isRequired,
+  isDead: PropTypes.bool.isRequired,
   setIsDead: PropTypes.func.isRequired,
   isUsedEMRight: PropTypes.object.isRequired,
   setIsUsedEMRight: PropTypes.func.isRequired,
