@@ -16,12 +16,13 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AMONG_STATUS }}'
-          # channelId: live
+          channelId: preview
           projectId: among-status
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
 
 
 #######
-# プレビューチャンネルを生成したいので、channelId: liveはコメントアウトして仕様に任せてプレビューチャンネルを生成する。
+# 下記リンクを参考にしてchannelIdを設定。
+# https://github.com/FirebaseExtended/action-hosting-deploy/issues/90#issuecomment-811637055
 #######
