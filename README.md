@@ -1,14 +1,9 @@
-# 権利等の表記（敬称略）
-## Paperbase
-- Created by Material-UI OSS
-- [MIT Lisence](https://opensource.org/licenses/MIT)
-## Among Us Game - Line Icon Set
-- Created by [Aireen Ch](https://www.behance.net/gallery/116070117/Among-Us-Game-Line-Icon-Set)
-- Date: 2021/3/24
+# Among StatUs とは
 
-## Among Us Icon
-- Created by [Soni Sokell](https://iconscout.com/contributors/sonisokell) on [Iconscout](https://iconscout.com/)
-            
+Among StatUs（以下、当サイト）は Among Us をプレイする際の補助となるよう、一個人により制作された非公式のファンサイトです。
 
-## マップ画像4種
-- 引用元：[【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】](https://baskmedia.jp/amongus-japanese-map/)
+[詳細(About -> Site 内 「Among StatUs」)](https://among-status.web.app/about)
+
+# ライセンス・権利関連
+
+[About -> Site 内 「権利等の表記（敬称略）」](https://among-status.web.app/about)
