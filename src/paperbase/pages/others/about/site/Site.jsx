@@ -110,6 +110,7 @@ function Site(props) {
             href='https://iconscout.com/contributors/nemmu-s/'
             target='_blank'
           >
+            {/* eslint-disable-next-line quotes */}
             {"Nem'mu Studio"}
           </Link>
           {`
@@ -174,6 +175,15 @@ function Site(props) {
           >
             {'Among Us icons'}
           </Link>
+          <Typography
+            color='textSecondary'
+            align='left'
+            style={{ whiteSpace: 'pre-line' }}
+          >
+            {
+              '※2021 年 6 月 15 日のアップデートで追加された6色については、こちらを参考にサイト運営者が追加しました。'
+            }
+          </Typography>
         </Typography>
 
         <h4>マップ画像4種</h4>
