@@ -4,19 +4,22 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Banana from '../../../../img/players/banana.svg';
 import Black from '../../../../img/players/black.svg';
 import Blue from '../../../../img/players/blue.svg';
 import Brown from '../../../../img/players/brown.svg';
+import Coral from '../../../../img/players/coral.svg';
 import Cyan from '../../../../img/players/cyan.svg';
+import Gray from '../../../../img/players/gray.svg';
 import Green from '../../../../img/players/green.svg';
 import Lime from '../../../../img/players/lime.svg';
+import Maroon from '../../../../img/players/maroon.svg';
 import Orange from '../../../../img/players/orange.svg';
 import Pink from '../../../../img/players/pink.svg';
 import Purple from '../../../../img/players/purple.svg';
-/*
-  画像
-*/
 import Red from '../../../../img/players/red.svg';
+import Rose from '../../../../img/players/rose.svg';
+import Tan from '../../../../img/players/tan.svg';
 import White from '../../../../img/players/white.svg';
 import Yellow from '../../../../img/players/yellow.svg';
 import Header from '../../../components/Header';
@@ -222,6 +225,12 @@ function Home(props) {
     brown: Brown,
     cyan: Cyan,
     lime: Lime,
+    maroon: Maroon,
+    rose: Rose,
+    banana: Banana,
+    gray: Gray,
+    tan: Tan,
+    coral: Coral,
   };
   const playerColorList = Object.keys(playerColorImageList);
 
@@ -240,6 +249,12 @@ function Home(props) {
     brown: true,
     cyan: true,
     lime: true,
+    maroon: true,
+    rose: true,
+    banana: true,
+    gray: true,
+    tan: true,
+    coral: true,
   });
 
   /* 
@@ -259,6 +274,12 @@ function Home(props) {
     brown: false,
     cyan: false,
     lime: false,
+    maroon: false,
+    rose: false,
+    banana: false,
+    gray: false,
+    tan: false,
+    coral: false,
   });
 
   /* 
@@ -278,6 +299,12 @@ function Home(props) {
     brown: false,
     cyan: false,
     lime: false,
+    maroon: false,
+    rose: false,
+    banana: false,
+    gray: false,
+    tan: false,
+    coral: false,
   });
 
   /* 
@@ -296,6 +323,12 @@ function Home(props) {
     brown: 50,
     cyan: 50,
     lime: 50,
+    maroon: 50,
+    rose: 50,
+    banana: 50,
+    gray: 50,
+    tan: 50,
+    coral: 50,
   });
 
   /* 
@@ -352,6 +385,30 @@ function Home(props) {
       y: 0,
     },
     lime: {
+      x: 0,
+      y: 0,
+    },
+    maroon: {
+      x: 0,
+      y: 0,
+    },
+    rose: {
+      x: 0,
+      y: 0,
+    },
+    banana: {
+      x: 0,
+      y: 0,
+    },
+    gray: {
+      x: 0,
+      y: 0,
+    },
+    tan: {
+      x: 0,
+      y: 0,
+    },
+    coral: {
       x: 0,
       y: 0,
     },
