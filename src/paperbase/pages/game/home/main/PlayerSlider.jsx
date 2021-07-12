@@ -18,30 +18,6 @@ const PlayerSlider = (props) => {
     setSuspiciousness({ ...suspiciousness, [color]: newValue });
   };
 
-  /* 目盛り */
-  // const marks = [
-  //     {
-  //       value: 0,
-  //       label: 'Clue',
-  //     },
-  //     {
-  //       value: 25,
-  //       label: 'Clue...?',
-  //     },
-  //     {
-  //       value: 50,
-  //       label: '?????',
-  //     },
-  //     {
-  //       value: 75,
-  //       label: 'Imposter...?',
-  //     },
-  //     {
-  //         value: 100,
-  //         label: 'Imposter',
-  //     },
-  //   ];
-
   return (
     <div className={classes.root}>
       <Slider
