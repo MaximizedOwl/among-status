@@ -44,37 +44,29 @@ function Setting(props) {
     killCooldownTime,
     setKillCooldownTime,
     killCooldownTimeList,
-    setCountEndFlag,
+    setIsActiveTimer,
+    intervalRef,
+    setCount,
   } = props;
 
   /* 
     選択した対象の真偽値判定にチェックを入れて真偽値を入れ替える
     参加状態とキルクールタイムのどちらでも利用可能
   */
-  const handleChange = (event) => {
+  const handleSelectChange = (event) => {
     if (event.target.name === 'killCooldownTime') {
-      // console.log('start: check ' + event.target.value + ' of ' + event.target.name + '.');
-
       setKillCooldownTime(event.target.value);
 
-      // これ以上カウントさせないためのフラグもあわせてリセット
-      setCountEndFlag(false);
-
-      // console.log('end: checked ' + event.target.value + ' of ' + event.target.name + '.');
+      setCount(event.target.value);
+      // eslint-disable-next-line
+      clearInterval(intervalRef.current);
+      setIsActiveTimer(false);
     }
     if (event.target.name === 'isExistPlayer') {
-      console.log(
-        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
-      );
-
       setIsExistPlayer({
         ...isExistPlayer,
         [event.target.value]: event.target.checked,
       });
-
-      console.log(
-        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
-      );
     }
   };
 
@@ -105,7 +97,7 @@ function Setting(props) {
       <Grid item xs={2}>
         <Switch
           checked={isExistPlayer[color]}
-          onChange={handleChange}
+          onChange={handleSelectChange}
           color='primary'
           name='isExistPlayer'
           value={color}
@@ -123,7 +115,7 @@ function Setting(props) {
       <Grid item xs={2}>
         <Switch
           checked={isExistPlayer[color]}
-          onChange={handleChange}
+          onChange={handleSelectChange}
           color='primary'
           name='isExistPlayer'
           value={color}
@@ -143,14 +135,14 @@ function Setting(props) {
           <FormControl variant='outlined' className={classes.formControl}>
             <Select
               value={killCooldownTime}
-              onChange={handleChange}
+              onChange={handleSelectChange}
               label='KillCooldownTime'
               name='killCooldownTime'
               MenuProps={MenuProps}
             >
               {killCooldownTimeList.map((time) => (
-                <MenuItem key={time.toString()} value={time}>
-                  {time.toString()}
+                <MenuItem key={time} value={time}>
+                  {time}
                 </MenuItem>
               ))}
               ;
@@ -197,7 +189,9 @@ Setting.propTypes = {
   killCooldownTime: PropTypes.number,
   setKillCooldownTime: PropTypes.func.isRequired,
   killCooldownTimeList: PropTypes.object.isRequired,
-  setCountEndFlag: PropTypes.func.isRequired,
+  setIsActiveTimer: PropTypes.func.isRequired,
+  intervalRef: PropTypes.object.isRequired,
+  setCount: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Setting);
