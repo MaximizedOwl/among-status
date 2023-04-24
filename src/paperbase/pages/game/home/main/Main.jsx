@@ -4,8 +4,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Snackbar from '@material-ui/core/Snackbar';
-import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
@@ -80,18 +80,14 @@ function Main(props) {
     // プレイヤー人数の取得
     const objectLength = Object.keys(isExistPlayer).length;
 
-    console.log(objectLength);
-
     let newExistPlayerList = [];
 
     for (let index = 0; index < objectLength; index++) {
-      console.log([Object.values(isExistPlayer)[index]]);
       // isExistPlayerがtrueなら配列にキーを追加
       if (Object.values(isExistPlayer)[index] === true) {
         newExistPlayerList.push(Object.keys(isExistPlayer)[index]);
       }
     }
-    console.log(newExistPlayerList);
 
     return newExistPlayerList;
   };
@@ -108,29 +104,13 @@ function Main(props) {
   */
   const handleChange = (event) => {
     if (event.target.name === 'isUsedEMRight') {
-      console.log(
-        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
-      );
-
       setIsUsedEMRight({
         ...isUsedEMRight,
         [event.target.value]: event.target.checked,
       });
-
-      console.log(
-        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
-      );
     }
     if (event.target.name === 'isDead') {
-      console.log(
-        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
-      );
-
       setIsDead({ ...isDead, [event.target.value]: event.target.checked });
-
-      console.log(
-        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
-      );
     }
   };
 
@@ -159,18 +139,18 @@ function Main(props) {
     if (isActiveTimer) {
       intervalRef.current = setInterval(() => {
         setCount((prevCount) => {
-    // 未設定ではなく、かつカウントが0になったとき
+          // 未設定ではなく、かつカウントが0になったとき
           if (prevCount <= 0) {
-      // 処理停止
+            // 処理停止
             handleStopTimer();
 
-      // スナックバー表示
-      handleClickSnackbar();
+            // スナックバー表示
+            handleClickSnackbar();
 
             return prevCount;
           } else {
             return prevCount - 0.5;
-    }
+          }
         });
       }, 500);
     }
@@ -213,9 +193,6 @@ function Main(props) {
   */
 
   const playersStatusReset = () => {
-    console.log(initState);
-    console.log(initState.isDead);
-
     // 初期値設定
     setIsDead({ ...isDead, ...initState.isDead });
     setIsUsedEMRight({ ...isUsedEMRight, ...initState.isUsedEMRight });

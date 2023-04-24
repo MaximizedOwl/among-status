@@ -1,7 +1,7 @@
 import AppBar from '@material-ui/core/AppBar';
-import { withStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Banana from '../../../../img/players/banana.svg';
@@ -96,7 +96,6 @@ function Home(props) {
 
   // killCooldownTimeに変更があったら検知してcountに反映させる処理
   React.useMemo(() => setCount(killCooldownTime), [killCooldownTime]);
-
 
   // キルクールタイム時間の配列を作成
   const createKillCooldownTimeList = () => {
@@ -336,7 +335,7 @@ function Home(props) {
     playerIconCordinate: playerIconCordinate,
   });
   return (
-    <React.Fragment>
+    <>
       {/* 
         ヘッダー部
       */}
@@ -408,7 +407,7 @@ function Home(props) {
           />
         </TabPanel>
       </main>
-    </React.Fragment>
+    </>
   );
 }
 
