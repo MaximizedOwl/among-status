@@ -10,8 +10,12 @@ jobs:
   build_and_preview:
     runs-on: macos-latest
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v16.13.0'
       - uses: actions/checkout@v2
-      - run: yarn install && npm ci && npm run build
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
