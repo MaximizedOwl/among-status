@@ -138,16 +138,20 @@ function Map(props) {
         <div className={classes.contentWrapper}>
           {/* タブ（マップ）領域 */}
           <TabPanel value={map} index={0} className={classes.mapPanel}>
-            <img src={TheSkeld} art={map} className={classes.map} />
+            <img src={TheSkeld} alt='TheSkeld Map' className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={1} className={classes.mapPanel}>
-            <img src={MiraHQ} art={map} className={classes.map} />
+            <img src={MiraHQ} alt='MiraHQ Map' className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={2} className={classes.mapPanel}>
-            <img src={Polus} art={map} className={classes.map} />
+            <img src={Polus} alt='Polus Map' className={classes.map} />
           </TabPanel>
           <TabPanel value={map} index={3} className={classes.mapPanel}>
-            <img src={TheAirship} art={map} className={classes.map} />
+            <img
+              src={TheAirship}
+              alt='TheAirShip Map'
+              className={classes.map}
+            />
           </TabPanel>
 
           {/* プレイヤーアイコン領域 */}
