@@ -104,27 +104,9 @@ function Navigator(props) {
     ページ選択制御部
   */
 
-  /*   
-  const activateSwitch = (oldIndex, newIndex) => {
-    
-    // 元の選択箇所を非activeにする
-    categories.children.active = false;
-    categories.children.index === oldIndex;
-
-    // 新しい選択箇所をactiveにする
-    categories.children.active = true;
-    categories.children.index === oldIndex;
-    
-  };
-  */
-
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleListItemClick = (event, index) => {
-    /* activateSwitch(selectedIndex, index); */
-
     setSelectedIndex(index);
-
-    // activate
   };
 
   const basePath = '/';

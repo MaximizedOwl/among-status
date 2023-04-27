@@ -2,9 +2,9 @@ import { Button, Toolbar } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Draggable from 'react-draggable';
@@ -71,12 +71,6 @@ function Map(props) {
   } = props;
 
   const handleDrag = (e, data, color) => {
-    console.log('start');
-    console.log(e);
-    console.log(data);
-    console.log(color);
-    console.log('end');
-
     setPlayerIconCordinate({
       ...playerIconCordinate,
       [color]: {
@@ -84,8 +78,6 @@ function Map(props) {
         y: data.y,
       },
     });
-
-    console.log(playerIconCordinate[color]);
   };
 
   const handleChange = (event, newMap) => {
@@ -95,22 +87,16 @@ function Map(props) {
   /* 
     プレイヤーのアイコン領域
   */
-  const playersIcon = playerColorList.map(
-    (
-      color // React.useMemo(() =>
-    ) => (
-      <Grid item xs='auto' key={color}>
-        <Draggable
-          position={playerIconCordinate[color]}
-          onDrag={(e, data) => handleDrag(e, data, color)}
-          // bounds='parent'
-        >
-          <img src={playerColorImageList[color]} className={classes.img} />
-        </Draggable>
-      </Grid>
-    )
-  );
-  // ,[0]);
+  const playersIcon = playerColorList.map((color) => (
+    <Grid item xs='auto' key={color}>
+      <Draggable
+        position={playerIconCordinate[color]}
+        onDrag={(e, data) => handleDrag(e, data, color)}
+      >
+        <img src={playerColorImageList[color]} className={classes.img} />
+      </Draggable>
+    </Grid>
+  ));
 
   /* 
     プレイヤーのアイコンリセット関する全ての状態に初期値を設定する。

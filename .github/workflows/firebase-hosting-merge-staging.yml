@@ -10,6 +10,10 @@ jobs:
   build_and_preview:
     runs-on: macos-latest
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'v16.13.0'
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
@@ -20,8 +24,6 @@ jobs:
           projectId: among-status
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-
-
 #######
 # 下記リンクを参考にしてchannelIdを設定。
 # https://github.com/FirebaseExtended/action-hosting-deploy/issues/90#issuecomment-811637055

@@ -4,8 +4,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Snackbar from '@material-ui/core/Snackbar';
-import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import CrewmateIcon from '../../../../../img/others/iconfinder_Among_Us_crewmate-01_7127755.svg';
@@ -67,8 +67,8 @@ function Main(props) {
     killCooldownTime,
     count,
     setCount,
-    countEndFlag,
-    setCountEndFlag,
+    isActiveTimer,
+    setIsActiveTimer,
     intervalRef,
   } = props;
 
@@ -80,18 +80,14 @@ function Main(props) {
     // プレイヤー人数の取得
     const objectLength = Object.keys(isExistPlayer).length;
 
-    console.log(objectLength);
-
     let newExistPlayerList = [];
 
     for (let index = 0; index < objectLength; index++) {
-      console.log([Object.values(isExistPlayer)[index]]);
       // isExistPlayerがtrueなら配列にキーを追加
       if (Object.values(isExistPlayer)[index] === true) {
         newExistPlayerList.push(Object.keys(isExistPlayer)[index]);
       }
     }
-    console.log(newExistPlayerList);
 
     return newExistPlayerList;
   };
@@ -108,29 +104,13 @@ function Main(props) {
   */
   const handleChange = (event) => {
     if (event.target.name === 'isUsedEMRight') {
-      console.log(
-        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
-      );
-
       setIsUsedEMRight({
         ...isUsedEMRight,
         [event.target.value]: event.target.checked,
       });
-
-      console.log(
-        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
-      );
     }
     if (event.target.name === 'isDead') {
-      console.log(
-        'start: check ' + event.target.value + ' of ' + event.target.name + '.'
-      );
-
       setIsDead({ ...isDead, [event.target.value]: event.target.checked });
-
-      console.log(
-        'end: checked ' + event.target.value + ' of ' + event.target.name + '.'
-      );
     }
   };
 
@@ -154,86 +134,58 @@ function Main(props) {
   /* 
     キルクールダウンタイム関連
   */
+
   React.useEffect(() => {
-    // 未設定ではなく、かつカウントが0になったとき
-    if (!(count === '') && count <= 0) {
-      // 処理停止
-      stopKillCooldownTime();
+    if (isActiveTimer) {
+      intervalRef.current = setInterval(() => {
+        setCount((prevCount) => {
+          // 未設定ではなく、かつカウントが0になったとき
+          if (prevCount <= 0) {
+            // 処理停止
+            handleStopTimer();
 
-      // スナックバー表示
-      handleClickSnackbar();
+            // スナックバー表示
+            handleClickSnackbar();
 
-      // カウントが終わっているかどうかのフラグをtrueにする。
-      setCountEndFlag(true);
-      console.log(countEndFlag);
-
-      console.log('時間が0になりました');
+            return prevCount;
+          } else {
+            return prevCount - 0.5;
+          }
+        });
+      }, 500);
     }
-  }, [count]);
+    return () => clearInterval(intervalRef.current);
+  }, [isActiveTimer]);
 
   /* カウントダウン 停止処理 */
-  const stopKillCooldownTime = React.useCallback(() => {
-    console.log('Stop機能 開始');
-
-    if (intervalRef.current === null) {
-      console.debug('intervalRef.current === null');
-      console.debug(intervalRef.current);
-      return;
-    }
-    console.debug('intervalRef.current !== null');
+  const handleStopTimer = () => {
     clearInterval(intervalRef.current);
-    intervalRef.current = null;
-
-    console.log('Stop機能 終了');
-  }, []);
+    setIsActiveTimer(false);
+  };
 
   /* カウントダウン 開始処理 */
-  const startKillCooldownTime = React.useCallback(() => {
-    console.log(countEndFlag);
-
-    console.log('Start機能 開始');
-
+  const handleStartTimer = () => {
     // 数値未設定時 countは文字列型で入ってきている
     if (count === '') {
-      console.log('数値未設定');
       window.alert(`Please set Kill Cooldown Time at "Setting".
 キルクールダウンタイムが設定されていません。Settingタブで設定してください。`);
 
-      console.log('Start機能 終了');
-
-      return;
-    } else if (countEndFlag) {
-      window.alert(`Time is '0', please reset.
-時間が0です。リセットをしてください。`);
       return;
     } else {
-      // useRef()内（どの「世界線」からも参照できる「箱（状態）」であるintervalRefにsetInterval()が実行されている状態を保存する）
-      // これは現在カウントされている値ではないため、固定値の28とかの意味がわからない数字が入ってくる。
-      // だから「カウントダウンしている常態か否か」なのでintervalRef内にはnull、もしくはわけのわからない数字が入る。
-      intervalRef.current = setInterval(() => {
-        // 表示時間減少処理
-        setCount((c) => c - 0.5);
-      }, 500);
+      setIsActiveTimer(true);
     }
-
-    console.log('Start機能 終了');
-  }, [countEndFlag]); // countEndFlagを監視対象にすることでcountEndFlagの値が変わったときにはこの関数を再計算する。
+  };
 
   /* カウントダウン 再設定（リセット）処理 */
-  const resetKillCooldownTime = React.useCallback(() => {
-    console.log('Reset機能 開始');
-
+  const handleResetTimer = () => {
     // 表示数値の初期化
     setCount(killCooldownTime);
+    clearInterval(intervalRef.current);
+    setIsActiveTimer(false);
 
     // スナックバーを閉じる
     handleCloseSnackbar();
-
-    // これ以上カウントさせないためのフラグのリセット
-    setCountEndFlag(false);
-
-    console.log('Reset機能 終了');
-  }, []);
+  };
 
   /* 
     新規ゲームを始める際のステータスリセットボタン
@@ -241,9 +193,6 @@ function Main(props) {
   */
 
   const playersStatusReset = () => {
-    console.log(initState);
-    console.log(initState.isDead);
-
     // 初期値設定
     setIsDead({ ...isDead, ...initState.isDead });
     setIsUsedEMRight({ ...isUsedEMRight, ...initState.isUsedEMRight });
@@ -347,7 +296,8 @@ function Main(props) {
                   variant='contained'
                   color='primary'
                   size='small'
-                  onClick={startKillCooldownTime}
+                  onClick={handleStartTimer}
+                  disabled={isActiveTimer}
                 >
                   Start
                 </Button>
@@ -357,7 +307,7 @@ function Main(props) {
                   variant='contained'
                   color='default'
                   size='small'
-                  onClick={stopKillCooldownTime}
+                  onClick={handleStopTimer}
                 >
                   Stop
                 </Button>
@@ -367,7 +317,7 @@ function Main(props) {
                   variant='contained'
                   color='secondary'
                   size='small'
-                  onClick={resetKillCooldownTime}
+                  onClick={handleResetTimer}
                 >
                   Reset
                 </Button>
@@ -488,9 +438,9 @@ Main.propTypes = {
   killCooldownTime: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
   setCount: PropTypes.func.isRequired,
-  countEndFlag: PropTypes.number.bool,
-  setCountEndFlag: PropTypes.func.isRequired,
   intervalRef: PropTypes.object.isRequired,
+  isActiveTimer: PropTypes.bool.isRequired,
+  setIsActiveTimer: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Main);

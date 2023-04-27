@@ -1,7 +1,7 @@
 import AppBar from '@material-ui/core/AppBar';
-import { withStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Banana from '../../../../img/players/banana.svg';
@@ -67,6 +67,15 @@ function a11yProps(index) {
 function Home(props) {
   const { classes, onDrawerToggle } = props;
 
+  const [isActiveTimer, setIsActiveTimer] = React.useState(false); // タイマーの稼働判定
+
+  /* 
+    useRef()で生成したintervalRefを状態として保持
+    キルクールダウンタイムのインターバルを行っている状態を外部に切り出した
+  */
+  // eslint-disable-next-line no-unused-vars
+  const intervalRef = React.useRef(null);
+
   /* 
     タブの制御と状態管理
   */
@@ -88,10 +97,6 @@ function Home(props) {
   // killCooldownTimeに変更があったら検知してcountに反映させる処理
   React.useMemo(() => setCount(killCooldownTime), [killCooldownTime]);
 
-  // カウントが0までいっているかどうかのフラグ
-  // カウントが0のときにカウントを始められるかどうかの判定に使う。
-  const [countEndFlag, setCountEndFlag] = React.useState(false);
-
   // キルクールタイム時間の配列を作成
   const createKillCooldownTimeList = () => {
     const minKillCooldownTime = 10;
@@ -103,7 +108,7 @@ function Home(props) {
     for (let index = 0; index < 21; index++) {
       TimeList.push(currentNum);
 
-      currentNum = currentNum + 2.5;
+      currentNum += 2.5;
     }
 
     // 最低値10、最高値60の2.5刻みで増加している配列を返す
@@ -112,14 +117,6 @@ function Home(props) {
 
   // わかりやすいように一度定数に入れる
   const killCooldownTimeList = createKillCooldownTimeList();
-
-  /* 
-    useRef()で生成したintervalRefを状態として保持
-    キルクールダウンタイムのインターバルを行っている状態を外部に切り出した
-    Main.jsxに記述すると、タブを切り替えたときにnullになってストップがかからなくなってしまう。
-  */
-  // eslint-disable-next-line no-unused-vars
-  const [intervalRef, setIntervalRef] = React.useState(React.useRef(null));
 
   /* 
     プレイヤーColorの配列
@@ -338,7 +335,7 @@ function Home(props) {
     playerIconCordinate: playerIconCordinate,
   });
   return (
-    <React.Fragment>
+    <>
       {/* 
         ヘッダー部
       */}
@@ -373,7 +370,9 @@ function Home(props) {
             killCooldownTime={killCooldownTime}
             setKillCooldownTime={setKillCooldownTime}
             killCooldownTimeList={killCooldownTimeList}
-            setCountEndFlag={setCountEndFlag}
+            setIsActiveTimer={setIsActiveTimer}
+            intervalRef={intervalRef}
+            setCount={setCount}
           />
         </TabPanel>
         <TabPanel value={value} index={1} className={classes.mapPanel}>
@@ -391,8 +390,8 @@ function Home(props) {
             killCooldownTime={killCooldownTime}
             count={count}
             setCount={setCount}
-            countEndFlag={countEndFlag}
-            setCountEndFlag={setCountEndFlag}
+            isActiveTimer={isActiveTimer}
+            setIsActiveTimer={setIsActiveTimer}
             intervalRef={intervalRef}
           />
         </TabPanel>
@@ -408,7 +407,7 @@ function Home(props) {
           />
         </TabPanel>
       </main>
-    </React.Fragment>
+    </>
   );
 }
 

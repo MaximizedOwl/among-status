@@ -7,10 +7,10 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import Snackbar from '@material-ui/core/Snackbar';
-import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import LinkIcon from '@material-ui/icons/Link';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -113,14 +113,12 @@ function Header(props) {
     navigator.clipboard.writeText(siteURL).then(
       function () {
         /* clipboard successfully set */
-        console.log('success');
-
         // 成功時の通知スナックバー
         handleClickSnackbar();
       },
       function () {
         /* clipboard write failed */
-        console.log('failure');
+        alert('クリップボードへの貼り付けが失敗しました。');
       }
     );
   };
