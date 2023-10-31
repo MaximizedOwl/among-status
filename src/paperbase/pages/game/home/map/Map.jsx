@@ -11,6 +11,7 @@ import Draggable from 'react-draggable';
 import MiraHQ from '../../../../../img/maps/MiraHQ.png';
 import Polus from '../../../../../img/maps/Polus.png';
 import TheAirship from '../../../../../img/maps/TheAirship.png';
+import TheFungle from '../../../../../img/maps/TheFungle.png';
 import TheSkeld from '../../../../../img/maps/TheSkeld.png';
 import TabPanel from '../../../../components/TabPanel';
 
@@ -132,6 +133,7 @@ function Map(props) {
               <Tab label='MiraHQ' {...a11yProps(1)} />
               <Tab label='Polus' {...a11yProps(2)} />
               <Tab label='The Airship' {...a11yProps(3)} />
+              <Tab label='The Fungle' {...a11yProps(4)} />
             </Tabs>
           </Toolbar>
         </AppBar>
@@ -152,6 +154,9 @@ function Map(props) {
               alt='TheAirShip Map'
               className={classes.map}
             />
+          </TabPanel>
+          <TabPanel value={map} index={4} className={classes.mapPanel}>
+            <img src={TheFungle} alt='TheFungle Map' className={classes.map} />
           </TabPanel>
 
           {/* プレイヤーアイコン領域 */}
