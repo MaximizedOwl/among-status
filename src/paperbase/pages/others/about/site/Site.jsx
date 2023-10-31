@@ -186,14 +186,14 @@ function Site(props) {
           </Typography>
         </Typography>
 
-        <h4>マップ画像4種</h4>
+        <h4>マップ画像5種</h4>
         <Typography color='textSecondary' align='left'>
           <Link
             color='textSecondary'
-            href='https://baskmedia.jp/amongus-japanese-map/'
+            href='https://x.com/terazo/status/1346099688718516224?s=20'
             target='_blank'
           >
-            {'【AmongUs】マップ画像を作成したよ！【日本語訳対応済み】'}
+            {'テラゾー(@terazo)様のポストツリーより'}
           </Link>
         </Typography>
       </div>
